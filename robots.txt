@@ -1,0 +1,16 @@
+# This site is deliberately kept out of search results.
+#
+# Crawling is ALLOWED on purpose. That looks backwards, so here is why:
+# the authoritative instruction is the <meta name="robots" content="noindex">
+# tag in index.html, and a crawler can only obey that tag if it is permitted
+# to fetch the page and read it. Blocking here with "Disallow: /" would stop
+# the crawler seeing the noindex, and a URL blocked in robots.txt can still be
+# listed in results if anyone links to it.
+#
+# To make this site indexable again: delete this file and remove the two robots
+# meta tags from the top of index.html.
+
+User-agent: *
+Allow: /
+
+# No sitemap is published, by design.
