@@ -1,0 +1,1055 @@
+<title>Human First Media Product Suite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap">
+<style>
+:root{
+  --ground:#FFFBF9;
+  --surface:#FFFFFF;
+  --card:#FFFBF9;
+  --ink:#000000;
+  --body:#70666A;
+  --rule:#E8DFDC;
+  --deep:#222639;
+  --deep-ink:#FFFFFF;
+  --deep-body:#B9B4C4;
+  --red:#EE2A52;
+  --purple:#8F5ED8;
+  --cyan:#3CC2DB;
+  --gold:#F1B900;
+  --teal:#1F7A8C;
+  --navy:#222639;
+  --accent:#EE2A52;
+  --accent-ink:#FFFFFF;
+  --wash:rgba(238,42,82,.07);
+  --shell:1180px;
+  --text:1px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#1A1D2B;
+    --surface:#222639;
+    --card:#262A3E;
+    --ink:#FFFFFF;
+    --body:#B4AFB8;
+    --rule:#343850;
+    --deep:#14161F;
+    --deep-ink:#FFFFFF;
+    --deep-body:#B9B4C4;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#1A1D2B;
+  --surface:#222639;
+  --card:#262A3E;
+  --ink:#FFFFFF;
+  --body:#B4AFB8;
+  --rule:#343850;
+  --deep:#14161F;
+  --deep-ink:#FFFFFF;
+  --deep-body:#B9B4C4;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ground);color:var(--body);
+  font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.8;font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{color:var(--ink);margin:0;text-wrap:balance;line-height:1.25;font-weight:600}
+p{margin:0}
+a{color:inherit}
+.shell{max-width:var(--shell);margin:0 auto;padding:0 28px}
+.narrow{max-width:760px}
+
+/* ---------- nav ---------- */
+header.top{
+  position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--ground) 92%,transparent);
+  backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--rule);
+}
+.topin{max-width:var(--shell);margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:26px}
+.mark{font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.3;white-space:nowrap}
+.mark span{color:var(--red)}
+.navlinks{margin-left:auto;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.navlinks a{font-size:14px;text-decoration:none;color:var(--body);white-space:nowrap}
+.navlinks a:hover,.navlinks a.on{color:var(--ink)}
+.tglbtn{border:1px solid var(--rule);background:none;color:var(--body);font:inherit;font-size:12px;
+  border-radius:999px;padding:5px 12px;cursor:pointer}
+.tglbtn:hover{color:var(--ink)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-size:16px;font-weight:400;
+  border-radius:10px;padding:15px 30px;border:none;cursor:pointer;font-family:inherit;line-height:1.4}
+.btn:hover{filter:brightness(1.08)}
+.btn.gold{background:var(--gold)}
+.btn.acc{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--rule)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent);filter:none}
+.btnrow{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* ---------- type roles ---------- */
+.eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--accent);margin:0 0 14px}
+.h-hero{font-size:clamp(32px,5.2vw,54px);font-weight:700;letter-spacing:-.015em}
+.h-sec{font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-.01em}
+.h-sub{font-size:20px;font-weight:600}
+.lede{font-size:clamp(18px,2.1vw,21px);line-height:1.75;color:var(--body);font-weight:400}
+.small{font-size:14px;line-height:1.7}
+.stack>*+*{margin-top:18px}
+
+/* ---------- sections ---------- */
+section{padding:76px 0}
+section.tight{padding:52px 0}
+.band{background:var(--surface);border-block:1px solid var(--rule)}
+.dark{background:var(--deep);color:var(--deep-body)}
+.dark h1,.dark h2,.dark h3,.dark h4{color:var(--deep-ink)}
+
+/* ---------- hero : split, text left, art right (matches hfm) ---------- */
+.hero{padding:70px 0 60px;position:relative;overflow:hidden}
+.hero .rule{width:64px;height:4px;background:var(--accent);border-radius:2px;margin:0 0 26px}
+.heroGrid{display:grid;grid-template-columns:minmax(0,635px) minmax(0,430px);gap:44px;align-items:center}
+@media(max-width:1020px){.heroGrid{grid-template-columns:1fr;gap:34px;align-items:start}}
+.heroArt{width:100%;max-width:430px;justify-self:end}
+@media(max-width:1020px){.heroArt{max-width:340px;justify-self:start}}
+.heroFacts{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:52px;
+  border-top:1px solid var(--rule);padding-top:26px}
+@media(max-width:700px){.heroFacts{grid-template-columns:1fr;gap:18px}}
+.fact b{display:block;color:var(--ink);font-size:26px;font-weight:700;line-height:1.2;font-variant-numeric:tabular-nums}
+.fact span{font-size:13.5px;line-height:1.6;display:block}
+
+/* ---------- tier cards : icon on top, hfm card geometry ---------- */
+.tiergrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:20px}
+.tcard{background:var(--card);border-radius:5px;padding:30px 10px 26px 30px;
+  text-decoration:none;display:flex;flex-direction:column;gap:11px;position:relative;
+  transition:transform .16s ease,background .16s ease}
+.tcard:hover{transform:translateY(-4px)}
+.tcard .ic{width:120px;height:120px;margin-bottom:6px;display:block}
+.tcard .tnum{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--body);font-variant-numeric:tabular-nums}
+.tcard h3{font-size:20px;font-weight:600;color:var(--tc);padding-right:20px}
+.tcard p{font-size:15px;line-height:1.7;padding-right:20px}
+.tcard .cnt{margin-top:auto;padding-top:14px;font-size:13px;color:var(--tc);font-weight:500}
+
+/* ---------- solution cards ---------- */
+.solgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.scard{background:var(--card);border:1px solid var(--rule);border-radius:5px;padding:24px 22px;
+  text-decoration:none;display:flex;flex-direction:column;gap:10px;transition:border-color .16s ease,transform .16s ease}
+.scard:hover{border-color:var(--accent);transform:translateY(-2px)}
+.scard .sn{font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--accent);font-variant-numeric:tabular-nums}
+.scard h4{font-size:17px;font-weight:600}
+.scard p{font-size:14.5px;line-height:1.65}
+.scard .meta{margin-top:auto;padding-top:10px;font-size:12.5px;border-top:1px solid var(--rule);
+  display:flex;gap:10px;flex-wrap:wrap;color:var(--body)}
+
+/* ---------- steps : hanging number, hfm's 100px left offset ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px 30px}
+.step{position:relative;padding:10px 20px 10px 100px;min-height:96px}
+.step .n{position:absolute;left:0;top:2px;font-size:44px;font-weight:700;line-height:1;
+  color:var(--stepc,var(--red));font-variant-numeric:tabular-nums;opacity:.9}
+.step .n::after{content:".";}
+.step h4{font-size:18px;margin-bottom:8px}
+.step p{font-size:14.5px;line-height:1.7}
+
+/* ---------- prose blocks ---------- */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px}
+@media(max-width:820px){.two{grid-template-columns:1fr;gap:32px}}
+.deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.pt h4{font-size:17px;margin-bottom:7px}
+.pt p{font-size:14.5px;line-height:1.7}
+.pt{border-top:2px solid var(--accent);padding-top:16px}
+
+ul.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+ul.ticks li{padding-left:26px;position:relative;font-size:15px;line-height:1.7}
+ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:2px;background:var(--accent)}
+
+.quote{border-left:3px solid var(--accent);padding:2px 0 2px 24px;font-size:17px;line-height:1.75;color:var(--ink);font-weight:500}
+.quote cite{display:block;margin-top:12px;font-size:13.5px;font-style:normal;font-weight:400;color:var(--body)}
+
+.pill{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+  padding:5px 11px;border-radius:999px;background:var(--wash);color:var(--accent)}
+
+/* ---------- breadcrumb ---------- */
+.crumb{font-size:13px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
+.crumb a{text-decoration:none;color:var(--body)}
+.crumb a:hover{color:var(--accent)}
+.crumb .sep{opacity:.5}
+
+/* ---------- cta band ---------- */
+.ctaband{background:var(--deep);color:var(--deep-body);padding:64px 0}
+.ctaband h2{color:#fff;margin-bottom:14px}
+.ctaband p{max-width:620px}
+.ctaband .btnrow{margin-top:28px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--rule);padding:44px 0 56px;font-size:13.5px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr;gap:26px}}
+footer a{display:block;text-decoration:none;color:var(--body);padding:3px 0}
+footer a:hover{color:var(--accent)}
+footer h5{color:var(--ink);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px;font-weight:600}
+
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:420px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="top">
+  <div class="topin">
+    <a class="mark" href="#/">Human First<span>&nbsp;Media</span></a>
+    <nav class="navlinks" id="nav"></nav>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<footer>
+  <div class="shell fgrid">
+    <div>
+      <h5>Human First Media</h5>
+      <p class="small">We build AI systems companies still run a year later. Thirty years of executive
+      and digital work behind every engagement.</p>
+    </div>
+    <div>
+      <h5>The tiers</h5>
+      <div id="ftiers"></div>
+    </div>
+    <div>
+      <h5>Start here</h5>
+      <a href="#/tier/t0">Book a diagnostic</a>
+      <a href="#/solution/23">Fastest payback</a>
+      <a href="#/method">How we work</a>
+      <a href="#/contact">Contact</a>
+    </div>
+  </div>
+  <div class="shell" style="margin-top:32px;padding-top:18px;border-top:1px solid var(--rule)">
+    <p class="small">&copy; Human First Media 2026. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+const TIERS=[
+ {id:"t0",n:"Tier 0",name:"Diagnostics",c:"var(--cyan)",cw:"rgba(60,194,219,.10)",ink:"#0B2C33",
+  tag:"Find the real problem first",
+  promise:"Before anyone spends a budget, find out what is actually wrong and rank it.",
+  lede:"Three short engagements that each produce a finding you did not have, with the evidence attached. They are cheap, they are fast, and they make the next decision obvious instead of contested.",
+  why:[
+   {h:"Improvement money goes to the loudest advocate",p:"Without a shared diagnosis, budget follows whoever argued best in the last meeting. That is how a redesigned landing page ends up in front of a broken handover."},
+   {h:"A finding travels further than an opinion",p:"A ranked register with evidence behind each row can be taken into a board meeting. A point of view cannot."},
+   {h:"You find out what a week with us is like",p:"Each of these is small enough to be a low-risk first engagement and honest enough to tell you something uncomfortable."}],
+  how:"We measure rather than interview. We walk your journey as a customer would, score your published work against a fixed rubric, and ask your individual contributors what they actually did last week rather than asking their managers what the process is. Then we rank what we found with you in the room, and fix one thing before we leave.",
+  sols:["01","02","03"]},
+
+ {id:"t1",n:"Tier 1",name:"Foundation",c:"var(--navy)",cw:"rgba(34,38,57,.08)",ink:"#FFFFFF",
+  tag:"The layer everything else reads",
+  promise:"Four documents, one antagonist, one named method. Everything downstream takes these as input.",
+  lede:"This is the tier companies want to skip and the one that decides whether anything after it works. Generative systems produce exactly as much specificity as they were given. Thin ground here means generic output at every stage after it, and the failure is invisible because each individual piece looks acceptable.",
+  why:[
+   {h:"Your tools are not the problem",p:"When everything the machine writes sounds like everything else the machine writes, the cause is almost always that nobody gave it anything category-specific to work from."},
+   {h:"Rework is your most expensive hour",p:"Every piece written from thin ground gets corrected by a senior person, and that correction lives in one document and never reaches the next one."},
+   {h:"Twenty-three of our twenty-seven engagements read these files",p:"That is not a sales line, it is a dependency. We will tell you when something you want cannot be delivered well without it."}],
+  how:"We build from evidence, not from a workshop. Your voice is extracted from your own best writing. Your customer's language comes from recorded calls, support questions, intake forms and reviews of the products they considered instead of yours. Your differentiator is tested against what your competitors publicly claim, and anything appearing on both sides is cut. Then we attach a check that runs at delivery time, because a standard nobody enforces is a preference.",
+  sols:["04","05","06","07"]},
+
+ {id:"t2",n:"Tier 2",name:"Revenue architecture",c:"var(--red)",cw:"rgba(238,42,82,.08)",ink:"#FFFFFF",
+  tag:"Offers that ladder, pages that argue",
+  promise:"Structure the offers, build the pages, design the launch, and install the daily motion underneath.",
+  lede:"Five engagements covering how you package what you sell, how you argue for it in writing, how you concentrate demand into a period, and what your sellers do on an ordinary Tuesday. This is where the money is and where the method is strongest.",
+  why:[
+   {h:"Offers that share a rung eat each other",p:"When two products solve a version of the same problem for a version of the same buyer, one absorbs the other's demand. It does not show up as a loss. It shows up as one product doing well."},
+   {h:"Satisfied customers with nowhere to go are lapsed customers",p:"Expansion revenue is the cheapest revenue available and it depends entirely on somebody having designed the next step."},
+   {h:"Pipeline built only from campaigns cannot be forecast",p:"Between campaigns, activity falls to whatever each person decides to do, which varies enormously and correlates with how last quarter went."}],
+  how:"Every offer we specify has to answer two questions that most offer documents never ask: what will this buyer still need afterwards, and which of your products solves that. Making those required fields rather than instinct turns a product list into a ladder. On pages, we front-load the argument into a structured preparation before a sentence is drafted, which is where the six weeks actually goes. On selling, we start from what your own best seller already does rather than from a curriculum.",
+  sols:["08","09","10","11","12"]},
+
+ {id:"t3",n:"Tier 3",name:"Content engine",c:"var(--purple)",cw:"rgba(143,94,216,.09)",ink:"#FFFFFF",
+  tag:"Built to change what a buyer believes",
+  promise:"Content organised around what somebody has to believe before they can buy, not around topics.",
+  lede:"Seven engagements, from the belief architecture underneath through production, depth, visuals, video, email and answer-engine authority. The through-line is one decision: every piece exists to install a specific belief about a named offer.",
+  why:[
+   {h:"A topic calendar is a publishing schedule in a strategy costume",p:"It answers what shall we post about. It never answers what does this reader have to believe before they can buy, which is the question that connects content to revenue."},
+   {h:"You are probably speaking to one audience only",p:"Companies publish almost entirely for readers who already understand the category, and almost never for the reader who has not yet realised they have the problem. That reader is where new demand comes from."},
+   {h:"Your best material is in people's heads",p:"The specific client result, the origin moment, the time something went wrong. It gets told on sales calls, it decays in about a month, and nobody has a way to capture it."}],
+  how:"We build the belief set in your customer's own first-person language, map it against four stages of buyer awareness, and derive the calendar from that rather than brainstorming it. Then we install production with a review gate nothing bypasses, and we are explicit that this engine produces the base layer of your content and not all of it. Your people still write the human material and the timely commentary that sit on top.",
+  sols:["13","14","15","16","17","18","19"]},
+
+ {id:"t4",n:"Tier 4",name:"Operations",c:"var(--gold)",cw:"rgba(241,185,0,.13)",ink:"#2A2000",
+  tag:"Documented, measured, owned",
+  promise:"Get the operation out of a few people's heads and give every number a denominator.",
+  lede:"Five engagements covering how the company runs: the leadership discipline above the systems, the documentation underneath them, four numbers you can act on, the revenue you are losing silently, and roles defined by outcome rather than by workload.",
+  why:[
+   {h:"Growth costs more than it should",p:"When the operation lives in a small number of heads, every new client and every new hire adds load to the same people, and the business scales with the least available resource in it."},
+   {h:"You cannot automate what nobody wrote down",p:"An undocumented operation has a hard ceiling on how much of it can ever be systematised, whatever tooling gets bought."},
+   {h:"Counts without denominators settle nothing",p:"Revenue up twenty per cent while client count is up thirty is a business getting worse and reporting a good quarter. Nobody is being dishonest. The number does not carry the information."}],
+  how:"We invert how documentation is normally attempted. Rather than asking somebody to write a process up, the person who already runs it records themselves doing it and the written process is generated from the recording, which is why this documentation actually gets written. On measurement, the hard part is definition rather than arithmetic, so we settle what counts as a client and what counts as a lead in writing before computing anything.",
+  sols:["20","21","22","23","24"]},
+
+ {id:"t5",n:"Tier 5",name:"AI infrastructure",c:"var(--teal)",cw:"rgba(31,122,140,.11)",ink:"#FFFFFF",
+  tag:"Capability, governance, memory",
+  promise:"Assistants your people build, an agent roster with named owners, and a knowledge base that stays true.",
+  lede:"Three engagements that take a company from individuals pasting context into chat windows to automated work with an org chart and a memory. This is where the newest material sits and where an engagement can go furthest.",
+  why:[
+   {h:"Everyone starts every session from nothing",p:"The first three exchanges of every conversation are the same explanation of who the company is. It is a small tax paid continuously by everyone, which makes it invisible and large."},
+   {h:"Automations without owners do not improve",p:"They get tolerated until they break badly enough to be switched off, and when one produces something wrong it takes a day to find out who is responsible."},
+   {h:"Somebody will ask the governance question",p:"A board member, a client or a regulator asks what is automated, who is accountable and what gets reviewed. A company that cannot answer has to stop and find out, usually at the worst moment."}],
+  how:"We train your people to build rather than building for you, because a built assistant is one assistant and a trained cohort is a capability. Every agent gets one named human owner, never a team, and no agent publishes without a person in the path. We build the review gate before we build the agent, which sounds backwards and prevents the failure where the gate is added later and never.",
+  sols:["25","26","27"]}
+];
+
+const S={
+"01":{t:"t0",name:"Client Journey Leak Audit",time:"1 week",who:"COO, head of revenue",
+ promise:"Find where people stop moving through your business, ranked, with one leak closed before we leave.",
+ problem:"You are spending to bring people in and you cannot say where they stop. The numbers at the top look fine, the numbers at the bottom look thin, and every function has a different theory about the middle. Marketing thinks the handover is slow. Sales thinks the leads are wrong. Customer success thinks nobody set expectations. Nobody is lying and nobody can prove it.",
+ cost:"The cost is not the leak. It is that every improvement gets aimed at a guess, so budget goes to whichever stage has the loudest advocate. Meanwhile the stages nobody owns do not get worse loudly. They get worse slowly, and the first signal is a renewal number twelve months later.",
+ hard:"Journey mapping usually produces a diagram of how the business is supposed to work. Getting the version that actually runs means walking the journey yourself from every entry point, reading the sequences as a customer receives them, and pulling the number at each stage with the denominator stated. The stages where no number exists are findings in themselves, and they are the ones a workshop will never surface.",
+ work:["We map all four phases live, with everyone who touches the customer in the room, including the people who answer the phone","We walk the journey ourselves from every entry point and record what is stale, broken or contradictory","We pull volume and conversion at each stage from your systems, and mark the stages nobody measures","We rank the leaks with you on volume and effort, you pick one, and we close it with your team watching"],
+ get:["A one-page journey map where every stage has a named owner","A ranked leak register with the evidence behind each row","Your instrumentation backlog: every stage you currently cannot measure","One leak closed, live, before we leave","A monthly re-audit your own team runs"],
+ money:"Two ways. The leak we close is revenue recovered in the same week. The register is the thing that stops the next four quarters of improvement budget being aimed at the wrong stage."},
+
+"02":{t:"t0",name:"Content Autopsy",time:"3 days",who:"CMO, head of content",
+ promise:"Two charts that show why content that reads perfectly well is doing nothing.",
+ problem:"The content is good and it does not do anything. It is on brand, it is accurate, it goes out on schedule, and what it produces is impressions and a few comments from people who already buy from you. The internal conversation has been circling for a while: more volume, better distribution, a different platform, somebody suggests video.",
+ cost:"You keep paying for reach to compensate for a problem reach cannot fix. And the content function slowly loses its argument for budget, because a team that cannot explain what is wrong cannot explain what would be better, so every request becomes a request for more of the same.",
+ hard:"Nobody can diagnose content by reading it, because each individual piece looks fine. The problem only becomes visible as a distribution across the whole set, and producing that distribution needs a fixed rubric two people can apply and agree on. Building a rubric that explains a company's own best work, rather than one that just scores everything low, is the part that takes experience.",
+ work:["We agree a sample of thirty to fifty pieces and calibrate the scoring with you live before running it","Every piece scored on depth: how much of the persuasive structure it carries, out of seven elements","Every piece assigned to the stage of buyer awareness it speaks to","Two analysts score independently on an overlap sample and we publish where they disagreed","We rebuild five of your own pieces so the difference is visible on your material, not on somebody else's example"],
+ get:["A depth distribution chart with the working floor marked","An awareness coverage chart against where your revenue actually comes from","The full scored dataset, so your team can extend it","Five rewrites showing the original, the score and exactly what changed","The scoring rubric, so new work gets graded before it publishes"],
+ money:"The coverage chart usually shows a whole stage of buyer awareness the company never speaks to, and that stage is where new demand comes from. Everything else in the tier follows from knowing which of the two problems is costing more."},
+
+"03":{t:"t0",name:"AI Task Triage",time:"1 week",who:"COO, CFO",
+ promise:"A ranked automation backlog, a cancellation list with a number on it, and one thing built and running.",
+ problem:"You have an AI budget and no ranked list of what to point it at. Somebody asked for a strategy and what came back was a list of tools, some pilots nobody discontinued, licences renewing on autopilot, and one team that built something genuinely good which no other team uses. The proposals in your inbox all look plausible and none of them are comparable.",
+ cost:"Money first, and it is usually recoverable in the same week: nearly every company we look at is paying for tools nobody has opened in ninety days. The larger cost is build order. Automating something that still needs a human produces a system somebody supervises forever. Automating something nobody wrote down produces a system that encodes one person's habits and breaks when they leave.",
+ hard:"The census has to come from individual contributors rather than managers, because managers describe the process as designed and contributors describe it as run. And the triage has to be willing to take things off the list. A review that recommends automating everything is not a triage, and holding that line in a room that has already been sold a platform takes some spine.",
+ work:["We interview eight to fifteen individual contributors about what they repeated last week, not what they typically do","Every task goes through three questions with your leadership group: does it genuinely need a human, can it be standardised, is it slowing operations down","We compare your software spend against both actual usage and what the backlog needs","We build the top item and leave it running, owned by one of your people"],
+ get:["The task census, named by the people who do the work","A ranked backlog with the reasoning behind each rank","A leave-alone list, so nobody re-proposes automating judgement next quarter","The cancellation list with its annual figure","One live automation, and the one-page triage method your managers run next quarter"],
+ money:"The cancellation figure is real money off your invoices and it frequently exceeds the cost of the engagement. We hold ourselves to that: if it does not, we say so at the readout."},
+
+"04":{t:"t1",name:"Foundation Sprint",time:"2 weeks",who:"CMO, founder",
+ promise:"The four documents every downstream system reads, built from evidence, with a check that enforces them.",
+ problem:"Everything the machine writes sounds like everything else the machine writes. You bought the tools, people use them, and what comes out is competent, generic and unmistakably not you. So it gets rewritten by hand, which means the tool saved nothing, or it goes out unedited, which is worse.",
+ cost:"Every downstream artifact inherits it. Belief-driven content, offer architecture, sales pages, assistants and agents all read these documents as input, and thin input does not produce slightly worse output. It produces generic output at every stage. Then the tools get blamed, and a company concludes AI does not work for their category when nothing category-specific was ever supplied.",
+ hard:"Most brand voice work is adjectives chosen in a workshop, which is why it does not change any output. Doing it properly means extracting voice from a company's own best writing, and taking the customer's language from recorded calls, support threads, intake forms and reviews of the products they considered instead of yours. That last source is the one nobody tries and it is where objection language actually lives.",
+ work:["We collect raw material rather than asking you to summarise it: recordings, support threads, intake forms, your own best writing","We extract the patterns: the words your customers use, their frustrations, and what they tried before you","Voice gets described from your corpus, never chosen from a list of adjectives","Your differentiator is tested against your competitors' public claims and anything on both sides is cut","We build a check that reads a draft against your standard at delivery time and fails the ones that do not comply"],
+ get:["Brand voice, with every trait citing a real example from your own material","Ideal client, including what they fear and the words they use for their own problem","Differentiator, with what was cut and why","Company details: the factual keystone every tool and assistant reads first","A banned-word standard with a working enforcement check, and a named owner for keeping it current"],
+ money:"It does not make money directly and it decides whether the nine engagements after it do. We will tell you when something you want cannot be delivered well without this, which is more often than either of us would like."},
+
+"05":{t:"t1",name:"Positioning and the Enemy Avatar",time:"1 week",who:"CMO, founder",
+ promise:"Give your positioning something to argue against, and turn your best objection handling into an asset.",
+ problem:"You can say what you do. You cannot say what you are against. Your messaging describes the product accurately and reads like everyone else's, because the category has converged on the same vocabulary. The clearest symptom is objection handling: when a prospect raises the real objection, your material answers defensively, and defensive answers confirm objections rather than removing them.",
+ cost:"Your best salesperson handles that objection well in person, with an argument that exists nowhere in writing. Everyone who does not get a conversation with that person meets the defensive version instead. And content that argues for something without naming what it argues against has no reason to feel urgent.",
+ hard:"The instinct is to name a competitor, which is legally exposed, ages badly, and makes your customer the audience for a fight they do not care about. The real antagonist is a belief, a habit or an approach the category still teaches, and finding it means working from what your customers already tried and what let them down. It also has to be specific enough to draw, and honest enough to admit why people believed it.",
+ work:["We build the positioning narrative in story order rather than as a claims list","We hunt the antagonist in your customers' failed attempts, not in your competitor set","We build two to four supporting antagonists and one primary, each with an honest account of why it is persuasive as well as why it fails","We map each of your five hardest objections to the antagonist that defeats it, and write the defeat","We load the finished document where your writers and assistants read from, so it gets used rather than filed"],
+ get:["A positioning narrative with the process story written out","A named antagonist set, specific enough that a designer can draw it","The objection map: objection, antagonist, defeat, and where each gets used","A hook and slogan set drawn from the narrative","A placement guide, including where the antagonist sits in a talk"],
+ money:"The argument your best salesperson makes in the room becomes an asset anyone can use. That is the first time it has ever been available to the rest of your team."},
+
+"06":{t:"t1",name:"Proprietary Framework Build",time:"1 week",who:"Founder, product marketing",
+ promise:"Name the method you already run, so buyers stop comparing you on rate.",
+ problem:"You do something specific and repeatable and it has no name. Your delivery team knows the sequence, your best people run it consistently, and when a prospect asks how you work the answer gets assembled fresh by whoever is in the room. You have probably tried this before, somebody proposed an acronym, it felt forced, and everyone stopped using it.",
+ cost:"You compete on rate. Buyers compare what they can compare, and two firms describing similar activities get compared on price and availability. Underneath that, an unnamed method has no reference version, so each senior person runs their own variant and quality tracks who was assigned rather than what was promised.",
+ hard:"The failed attempt is almost always the same mistake: reaching for an acronym before choosing a shape. An acronym only fits a method whose stages happen to start with cooperative letters. There are ten shapes a framework can take, and running your method against several of them before writing anything is what stops the result feeling forced.",
+ work:["We reconstruct the method from three completed engagements rather than from a whiteboard","We keep only the stages that cause a specific, predictable failure when skipped","We test your method against ten possible framework shapes and build rough versions of the best two","We apply the differentiator test to the framework itself, marking which stages are genuinely yours and which are table stakes","Two live tests: somebody outside the room plans real work from it, and a senior person explains it in ninety seconds without the diagram"],
+ get:["A named framework with every stage specified: inputs, outputs, owner, failure mode, done condition","A production diagram usable in front of a client","The claim split: what is differentiating and what is table stakes","The ninety-second explanation, written, so everyone tells the same story","The authoring guide, so your team names the next method without us"],
+ money:"A method with a name is something you own and price. An unnamed process is a description of labour, and labour gets compared on rate even when you win the comparison."},
+
+"07":{t:"t1",name:"Differentiator Excavation",time:"1 day",who:"Founder, exec team",
+ promise:"Surface the concrete things that make your firm different, which your positioning has already filtered out.",
+ problem:"Your positioning could have been written by any of your competitors. Not because it is wrong, but because it is true of all of you. Experienced team, tailored approach, partnership rather than vendor relationship. Meanwhile the actual reason clients choose you is something specific that appears nowhere in your material, and when a client is asked why they picked you they say something concrete you have never written down.",
+ cost:"The interesting part never reaches the market, because it gets filtered out at every draft for seeming unprofessional. And everything downstream goes generic, since positioning, offers and content all take the differentiator as input.",
+ hard:"The professional register is exactly what removes everything distinctive, so a session that starts with values produces a list of corporate virtues. Getting past that filter needs prompts that lower the stakes deliberately, which looks absurd for the first half hour and is the reason it works. In a company the differentiator is rarely one person, so the real finding is what repeats independently across several people.",
+ work:["A facilitated day, four to eight people, business set aside entirely for the first hour","Twenty specifics per person across five prompts, including one deliberately unserious one","We mark what repeats independently across three or more people, and what makes the room lean in","Everything that repeats is tested three ways: is it true of how you work, would a competitor's list contain it, does a client ever experience it","Everything gets tagged and kept, because most of what this produces is story material rather than positioning material"],
+ get:["The full captured list, tagged by where it is useful","The repeats, which are firm characteristics rather than personal quirks","Differentiator candidates with their test results shown","Story seeds that feed content and recruiting for a year","The session method, so you can run it with a new team"],
+ money:"It is the cheapest engagement on the suite and it improves the three around it. It is also the best qualifier we have: a leadership team that engages with this will do the harder foundation work."},
+
+"08":{t:"t2",name:"Offer Ladder Design",time:"2 weeks",who:"Revenue lead, founder",
+ promise:"A three-tier ladder where every offer states what the buyer needs next, and which of yours provides it.",
+ problem:"Your offers compete with each other and your best customers have nowhere to go next. The list grew by accretion: somebody built a thing for a client, it got productised, and it now sits beside two others solving a version of the same problem for a version of the same person. Sales cannot say which one a prospect should buy without a conversation.",
+ cost:"Cannibalisation you cannot see in the numbers, because when two offers occupy the same rung one absorbs the other's demand and it shows up as one product doing well. Then expansion revenue you never earn, because a customer who finished and is happy has no designed next step. And every unnecessary choice you hand a buyer adds time and risk to a deal.",
+ hard:"The ladder only works if every offer answers two questions that most offer documents never ask: what will this buyer still need afterwards, and which of your products solves that new problem. Making those required fields rather than instinct is the whole mechanism, and it means somebody has to decide what happens to the offers that turn out to occupy the same rung. That decision is political and it is the reason this work stalls without help.",
+ work:["Every current offer specified against fifteen fields, using what exists rather than what people say","We plot your offers on problem size against price, and the overlaps become visible without anybody arguing for them","Commercial, delivery and finance decide together for each cluster: consolidate, reposition or retire","We check the distance between rungs, since rungs too close cannibalise and rungs too far apart lose buyers in between","We write the intention and the objective for every offer as separate sentences, which is what keeps the copy from sounding manipulative"],
+ get:["The three-tier ladder, each rung with its promise, price and buyer","Complete fifteen-field specifications including both exit fields","The overlap finding, with a decision recorded against every clustered offer","A transition map: how a buyer moves up, on what trigger, owned by whom","The specification template, so the next offer gets built to the same standard"],
+ money:"This is the highest-leverage commercial work on the suite. Companies with five products and no ladder routinely discover in one session that three of them are the same rung, and the expansion path they never designed is the cheapest revenue they have."},
+
+"09":{t:"t2",name:"Sales Page Pipeline",time:"1 week per page",who:"Demand generation",
+ promise:"One live page, and the production sequence that makes the next one take two days instead of six weeks.",
+ problem:"A sales page takes six weeks and reads like a feature list. A brief that is mostly a product description, a first draft describing what the thing is, rounds of review where each function adds the point it cares about, and a page that ends up complete, accurate, and confirming a decision somebody already made elsewhere.",
+ cost:"When a page takes six weeks the page becomes the critical path and campaigns get scheduled around a copy deadline. And without a sequence, quality tracks whoever wrote it and how much time they had, so your best page and your worst page are both representative of you to whoever lands on each.",
+ hard:"Most of the six weeks is spent arguing about what the page should say, and no amount of writing skill removes that. The fix is a structured preparation completed before a single sentence is drafted, which teams find uncomfortable for about an hour. Holding that line is the difference between a page and a process.",
+ work:["Eleven-step preparation worked through with your team before any copy is written","We structure the same offer five different ways and choose deliberately rather than by habit","Every feature is pushed through to a real benefit, using a mechanic your team can apply in ninety seconds","Headlines are selected from a generated set rather than written once and defended","Every claim gets traced to evidence or removed, never softened into a vaguer version of the same unsupported claim"],
+ get:["One live page for a real offer, in your CMS, measured","The completed preparation, plus the blank instrument for every future page","Five structural versions of the same offer as a teaching reference","A claim register showing what is evidenced and what still needs proof","A written production sequence with roles, gates and expected durations"],
+ money:"Page two takes two days. Across a year of campaigns that is the difference between marketing setting the schedule and the copy deadline setting it."},
+
+"10":{t:"t2",name:"Launch Architecture",time:"2 weeks",who:"Revenue lead",
+ promise:"A repeatable eleven-stage launch, with the dead middle planned and non-buyers routed by reason.",
+ problem:"Launches spike once and die. Sales come in on the first day, then almost nothing, then a small bump at the deadline that everyone attributes to urgency. The middle is dead because nobody planned the middle at all. Or there is no launch capability, and revenue arrives when sales makes it arrive, with no way to concentrate demand into a period.",
+ cost:"The dead middle is the largest single loss, because in a launch of any length the middle is where most of your audience is still deciding. Then the people who did not buy get treated as one group and receive the same follow-up or none, when they did not buy for opposite reasons.",
+ hard:"Launch sales follow a predictable double-peaked shape, and knowing the shape is not the same as using it. The second peak has to be manufactured with something that did not exist at open, which means it goes into the calendar before the launch starts. A spike planned during the dip arrives after it.",
+ work:["We map all eleven stages and fill your version of each, with an owner and a date","The trigger event gets chosen on evidence rather than defaulting to a webinar","Three sequences specified message by message, with the follow-up built at nine steps rather than three","The mid-launch event is placed in the calendar with an owner before the launch opens","We build reason capture and two opposite routes into your CRM, so non-buyers are split rather than blanketed"],
+ get:["The eleven-stage launch map, owned and dated","A trigger event decision with the reasoning recorded","Show-up, cart-open and follow-up sequences, specified","Live post-close segmentation in your CRM, tested both ways","A belief-assigned run-up calendar and a run-book so the next launch is not built from scratch"],
+ money:"The post-close segmentation is the part most companies have never implemented. People who did not buy because of money need something smaller. People who did not buy because they wanted more support need more, since that is a buying signal rather than a request for a discount. Half your non-buyers have been getting the wrong message."},
+
+"11":{t:"t2",name:"Daily Selling Rhythm",time:"2 weeks, then a quarter of support",who:"Head of sales",
+ promise:"Install the daily practice your best seller already has, and train the conversation that closes in the buyer's words.",
+ problem:"Pipeline arrives in campaigns because nobody has a daily practice. Between campaigns, activity falls to whatever each person decides. Your best seller has a routine, has never written it down, and nobody has asked them to. Meanwhile conversations reach the demo too fast, and the product enters before anyone establishes what the prospect wants or what has already failed them.",
+ cost:"Campaign-driven pipeline arrives in a shape set by the marketing calendar rather than the sales cycle, so capacity is wrong in both directions most of the time. And your best seller's method exists only as behaviour, so when they leave or get promoted it leaves with them.",
+ hard:"The five-question conversation looks simple and fails in a specific way: sellers reach the close as soon as an early answer touches something the product solves. Getting it right is mostly the discipline of not doing that, which cannot be taught from slides. It needs recorded role-play and twelve weeks of reviewing real conversations, which is why this engagement has a tail.",
+ work:["We start by extracting what your best seller actually does daily, in what order","The five-question conversation trained by recorded role-play, with drills where the offer cannot be mentioned until all four earlier answers exist","Three opening messages that do not pitch, practised live on real profiles, with messages actually sent","A weekly published post that asks for a comment rather than a click, plus the reply motion that turns comments into conversations","Twelve weekly clinics reviewing real conversations and reporting activity honestly"],
+ get:["A daily and weekly rhythm written by your own team, with the floor set low enough to survive a bad week","The trained conversation, with each seller keeping their recorded practice","Three cold-open scripts adapted to your market","A five-week ladder post rotation and the reply motion","Your best seller's method, documented, and a live activity tracker"],
+ money:"This is the most trainable asset in the whole suite and the one least dependent on tooling. It needs no AI at all. The close quotes the prospect's own words back to them, which only works if the first four questions were genuinely asked."},
+
+"12":{t:"t2",name:"Activation Offer Sprint",time:"5 days",who:"Founder, product",
+ promise:"Find out whether the market wants something before you build it, using money rather than opinion as the signal.",
+ problem:"You have a twelve-month roadmap and no way to find out whether anyone wants any of it. Everything on it is a bet and every bet resolves the same way: build it, ship it, then find out. By then you have spent the budget and the organisational cost of saying it did not work is higher than saying it partially worked and needs another phase.",
+ cost:"You learn what customers want at the most expensive possible moment, after the build, when sunk cost makes the answer hard to hear. And speed becomes a capability you do not have, so opportunities in a moving category belong to somebody else structurally rather than occasionally.",
+ hard:"Pre-selling works and it assumes nobody else's job breaks when you do it, which is untrue in a company. The adaptation is one meeting: finance, legal and support agree the price, the delivery date and the refund position before anything is published. The other hard part is setting the go or no-go threshold before seeing the data, because renegotiating it afterwards is the most likely and most damaging failure.",
+ work:["Three independent research passes on the subject, merged, treating what all three surface as the finding","Offer candidates generated by asking what your customers could be helped to do rather than what you could do","A pre-commitment review with finance, legal and support before anything is published","A validation offer published, with every response worked by hand and recorded","Build in two days if the threshold is met, or stop and write the finding if it is not"],
+ get:["The merged research, showing where the three passes disagreed","Offer candidates with the selection reasoning recorded","The pre-commitment record and the refund position","A named lead list, with what each person said they wanted","A live offer, or an evidenced decision not to build one, plus the method so your team runs the next sprint"],
+ money:"Interest expressed in a research call and interest expressed with a payment are different signals and only one predicts revenue. A sprint that ends in a decision not to build is a successful sprint, and it costs five days instead of two quarters."},
+
+"13":{t:"t3",name:"Belief Architecture",time:"1 week",who:"CMO",
+ promise:"Replace the topic calendar with what a buyer has to believe before they can purchase.",
+ problem:"Your content calendar is organised by topic. Somebody lists the themes, somebody assigns them to weeks, and the output answers what shall we post about while never answering what does this reader need to believe. The result is content that is informative and inert, and when a piece performs well nobody can say why, so it cannot be repeated except by making the same thing again.",
+ cost:"Content and revenue never connect, which is why the content team's contribution gets argued about every budget cycle and never settled. And nothing accumulates: twelve months of publishing leaves you with an archive rather than a case.",
+ hard:"The seven belief categories look like a checklist and are actually a sequence, because four of them form a ladder from readers who do not know they have a problem through to readers deciding between you and a competitor. Beliefs also have to be written in the customer's own first person, and the category everybody gets wrong on the first pass is the one that must not mention your offer at all.",
+ work:["We build the belief set for one named offer, in the customer's first-person language, using their recorded words","Seven categories, three to five beliefs each, with the ladder structure mapped onto four stages of buyer awareness","We plot your existing content against the same map, which usually reveals a stage you never speak to","Objection beliefs written from what sales actually hears, and urgency written only where it is genuine","One belief assigned to each week of the next quarter, sequenced by awareness stage"],
+ get:["The belief table, first person, in your customer's language","The awareness map, with the ladder shown","A coverage finding naming the stage your content never addresses","A derived quarterly calendar with a brief per week","The method, so the next offer gets its own belief set without us"],
+ money:"This is the decision that turns a posting schedule into a sales system. Every piece afterwards exists to install a specific belief about a named offer, which is what connects content spend to revenue."},
+
+"14":{t:"t3",name:"The Content Engine",time:"3 weeks",who:"Head of content",
+ promise:"A weekly production system your own team runs, plus the story bank that keeps feeding it.",
+ problem:"Content production consumes a team and produces a trickle. Three people are busy, output is four or five pieces in a good week, and the good weeks are the ones without a launch or a conference. You tried generative tools and they produced volume that needed so much editing the editing became the bottleneck.",
+ cost:"Consistency is the thing you never get, and consistency is what compounds. Sporadic publishing never accumulates an audience, so every piece starts from a standing start. And your most expensive people spend their week deciding what to post rather than deciding what to argue.",
+ hard:"The honest constraint is that a content engine produces the base layer and not the whole function. It cannot write your human material and it cannot supply your opinion on this week's news. Companies sold an engine as the complete answer are disappointed by a system working correctly, so we say this at kickoff and again at handover. The other hard part is the story bank, because the material is in people's heads and decays in about a month.",
+ work:["We measure your current state rather than describing it: pieces, hours, elapsed time from brief to publish","We design your week rather than importing a template, with each slot given a stated job and awareness stage","We seed the story bank from your people's specific results, origins and failures, then install a capture routine inside a meeting that already exists","We build the pipeline end to end with a review gate nothing bypasses","In week three your team runs it for a full week while we sit alongside and fix what breaks"],
+ get:["A weekly shape derived for your audience, with the reasoning recorded","A quarter planned and briefed from your belief calendar","A seeded story bank and a one-question weekly capture routine with a named owner","The production pipeline running in your own tooling","An operating document written from the week your team actually ran, and a plain statement of what the engine does not cover"],
+ money:"Throughput goes up and senior hours per piece go down, both measured against a baseline we take in week one. The story bank is the sleeper: it is the single biggest factor in whether AI search results cite you."},
+
+"15":{t:"t3",name:"Copy Depth Upgrade",time:"3 days",who:"Content team",
+ promise:"Train the layering discipline and republish twenty existing pieces in the same three days.",
+ problem:"The content is correct, complete, and scrollable past. Every piece answers its question and gets skimmed and forgotten, because it opens with the answer and gives the reader no reason to stay past two lines. Your writers are not the problem. They are writing the way corporate writing taught them: lead with the conclusion, be helpful, do not waste anyone's time.",
+ cost:"Distribution has to work harder than it should, which is a paid problem created by an unpaid one. And your existing library is dormant capital: hundreds of pieces that were expensive to produce and are doing nothing.",
+ hard:"The change that produces the most result is the one that produces the most resistance: moving the answer to the end. That is correct advice for a memo to somebody who has to act, and wrong for a feed where the reader has not yet decided to care. The argument has to be had in the room rather than deferred, because a team that was told applies it badly and a team that argued it applies it properly.",
+ work:["We teach the seven persuasive elements on your own published work, counting layers rather than passing judgement","We rebuild one of your pieces live, then run the argument about moving the answer to the end","Three alternative structures, with a rule for choosing between them based on how aware the reader is","Your writers rework and republish twenty existing pieces with us alongside, in a single supervised day","We write a minimum standard into your process with a check that is a count rather than a judgement"],
+ get:["The seven-layer checklist, usable in under two minutes per piece","Three remix structures with the selection rule","Twenty republished pieces, reworked by your own writers","A three-layer floor written into your content standard, with an enforceable check","A measurement baseline so the effect can be read in a month"],
+ money:"It is the fastest content result available, because it works on material that already exists. Take a published piece, find its single layer, add one ingredient, republish. That is a same-week result."},
+
+"16":{t:"t3",name:"Visual Identity System",time:"1 week",who:"Brand, design",
+ promise:"A visual identity specific enough for anyone to work from, so design stops being a queue.",
+ problem:"Every image looks like it came from a different company. Your brand guidelines specify the logo, palette and typefaces, and say nothing about what a generated image should look like, because they were written before anyone could generate one. So each person making an image makes a different decision, and the design team becomes a queue.",
+ cost:"When only the design team can produce something on brand, every piece of content waits for them and the wait sets the pace of the whole function. And visual recognition never accumulates, so every impression starts from zero.",
+ hard:"Naming a visual identity in terms a tool can act on is harder than it sounds, and the first three attempts are always adjectives that could describe any company. The test is generative: the identity that produces recognisably distinctive output is the right one. There is also a palette check almost nobody runs, which regularly shows that some brand colours make the company's own people look washed out.",
+ work:["We name the identity as an era, a feeling and an aesthetic, then test candidates by generating against them","We test your palette against real photographs of your real people and produce a rule about which colours stay away from faces","A prompt library organised by the formats you actually make, built for selection rather than composition","A one-page table of fixes for the failures that waste the most time: drifting faces, plastic skin, unwanted text","Your team generates real images for real upcoming content with us alongside"],
+ get:["A named visual identity with the test outputs that justified it","Palette rules including the face rule, and aspect ratios by destination","A prompt formula and a selectable library","The fix table, on one page","A style guide, and a boundary agreed with your design lead about what still comes to them"],
+ money:"It removes the routine queue in front of your design team, which is usually the constraint on how fast the whole content function can move."},
+
+"17":{t:"t3",name:"Video and Voice System",time:"2 weeks",who:"Content, communications",
+ promise:"Bring the cost of a video down far enough to make them weekly, and stop generated video reading as fake.",
+ problem:"Video costs too much per asset to be worth doing weekly. Every one is a small production, so video is reserved for launches and events, which means the format that holds attention best is the one you use least. The team looked at generative video and found tools that impress in a demo and look faintly wrong in production.",
+ cost:"Your best explanations stay unrecorded, because the person who explains the thing well does it live, on calls, repeatedly. And the formats with the cheapest attention are exactly the ones a production-scale process cannot feed.",
+ hard:"Two things. The first is that a video with no route into a conversation has done half a job, which is a structural failure rather than a production one and it has nothing to do with quality. The second is that generated video reads as fake for a specific, fixable reason, and teams that skip the three-minute fix produce the uncanny output that gets a whole programme vetoed.",
+ work:["We start with strategy: which formats you will genuinely sustain, what belief each installs, and, as a required field, what conversation each starts and who picks it up","Three distinct voice clones per presenter rather than one, recorded as three genuinely different sessions","Transcript-based editing installed and trained, which turns editing from a specialist skill into a writing skill","A required pre-animation routine that removes the waxy quality, taught as a fixed step rather than a tip","An explicit written decision on avatars, with our recommendation and its reasoning"],
+ get:["Three voice clones per presenter with usage notes","Transcript-based editing running, with one real video edited","The video prompt formula in your library, plus the de-waxing routine","A format and route map where no format lacks a next step and an owner","A written avatar decision, so the question stays settled"],
+ money:"Cost per video falls against a baseline we take in week one. We will also tell you plainly that we do not recommend a presenter avatar for most companies, and give you the reasoning, which is a recommendation and a capability kept separate on purpose."},
+
+"18":{t:"t3",name:"Email and Newsletter Engine",time:"1 week",who:"Lifecycle marketing",
+ promise:"Get the newsletter running with an owner, and a one-page email standard people actually follow.",
+ problem:"The list gets mailed when somebody remembers. It was expensive to build and it is the only audience you own outright, and it receives a promotional email during a campaign and nothing in between. There was a newsletter once. It ran about five months and stopped the way these things stop: one week was skipped and it never restarted.",
+ cost:"You are renting attention while owning some. A list that hears from you only when you want something stops opening, and reactivating it later costs more than maintaining it would have. Meanwhile campaign emails underperform for structural reasons that are entirely fixable.",
+ hard:"Newsletters do not die from lack of ideas, they die from depending on somebody having a clear afternoon. The routine has to be designed around that constraint, and the row nobody ever writes down is what happens in a week when it cannot be written. That single missing rule is what turns one skipped week into a cancelled newsletter.",
+ work:["We subscribe to your own list and record what a new subscriber actually receives, which routinely surfaces sequences naming products you retired","We build a six-rule standard with your writers on your own recent emails, not on examples","We design the production routine around the constraint that killed the last one, including the missed-week rule","The first issue is written with your owner rather than for them","We fix the stale sequences we found and rewrite your last campaign against the standard"],
+ get:["The newsletter live, with a template, measurement and a named owner","A production routine: owner, fixed slot, inputs, length, missed-week behaviour","A quarter of issues planned from your belief calendar","A one-page email standard attached to your review check","The sequence audit, with the stale items fixed"],
+ money:"It is the only channel a platform cannot take away from you. And the structural fixes are free: one call to action outperforms three, and subject lines written for curiosity outperform ones written for clarity."},
+
+"19":{t:"t3",name:"AEO and Authority Program",time:"2 weeks, then monthly",who:"CMO, SEO owner",
+ promise:"Find out whether AI assistants name you, then run a measured monthly programme to change the answer.",
+ problem:"You are invisible to AI search and you do not know your own citation rate. An increasing share of the questions your buyers ask now get answered by a model rather than a list of links, and when somebody asks what the options are in your category, something answers. Your SEO reporting does not cover this, and nobody has checked because nobody knows what checking looks like.",
+ cost:"You cannot manage what has never been measured, and the absence of a number is the actual problem: every other channel has one, so this one gets no budget until it is a visible loss. Category answers also establish and then persist, which makes arriving late more expensive than arriving early.",
+ hard:"Nobody controls what a model says, and any agency claiming otherwise is selling something. What can be controlled is what exists to be cited and how it is structured. The discipline is a fixed query set that does not drift, because a set that changes after a bad month cannot be compared, and honest reporting in months when nothing moved.",
+ work:["We build a fixed set of fifteen questions with you across brand, category and the problems buyers describe before they know you exist","We record verbatim what each major assistant currently returns, including who is named instead of you","A long-form structure built on the specific evidence and stories inside your business rather than category explanation anyone could write","The publishing routine attaches to your existing content pipeline rather than adding a separate workload","Every month we re-run the same fifteen queries and report before and after, per query"],
+ get:["The query set and a dated verbatim baseline","The competitor picture: who gets named instead of you, and in what terms","A long-form structure with two pieces built to it","The audit method, runnable by your team without us","Monthly reports with what moved, what did not, and what to publish next"],
+ money:"The measurement is what almost nobody builds and it is what makes the programme defensible. You will know your position monthly, which is more than your competitors have."},
+
+"20":{t:"t4",name:"Three-Pillar Operations Install",time:"3 weeks",who:"COO",
+ promise:"Build the operating structure in the order that makes it stick: leadership, then journey, then backend.",
+ problem:"The operation lives in a small number of heads and one of them is yours. Things work because specific people know what to do and the knowing was never written anywhere. You can feel the ceiling: every new client and every new hire adds load to the same people, and the answer has been to work harder, because building something needs a clear week that never arrives.",
+ cost:"Growth costs more than it should, quality tracks who was assigned rather than what was promised, and you cannot delegate what has never been described. That last one is why hiring has not relieved the pressure.",
+ hard:"Everyone wants to start at the backend and that is the order that fails. Systems amplify whatever discipline sits above them, so backend systems built under undisciplined leadership decay within a quarter. Holding the order is the intervention. There is also a genuine decision buried in the middle about where retention belongs, and it has consequences for at least one job description.",
+ work:["We start with a measured week of where leadership time actually goes, rather than a recalled one","Three things the leadership group tracks daily, chosen by them, plus a thirty-minute weekly reflection","Your client journey becomes an operating document with every stage owned by a named person","We settle where retention sits, which is a real decision rather than an implicit one","One rule applied to the backend, that any task done more than twice deserves a system, and your three highest-value processes documented"],
+ get:["The three-pillar sheet: the whole operation on one page","A leadership discipline and a scheduled weekly reflection","A documented client journey with one leak fixed and the retention decision recorded","The documentation backlog: every twice-done task, by function","An operations manual skeleton populated with what already exists, plus three documented processes"],
+ money:"It is the difference between a business that scales with its founders and one that does not. The weekly reflection sounds soft and it is the only recurring slot where anybody notices a system has stopped being used."},
+
+"21":{t:"t4",name:"SOP Capture Program",time:"2 weeks",who:"Operations, enablement",
+ promise:"Document ten to twenty processes by inverting the thing that makes documentation never happen.",
+ problem:"Documentation never gets written because writing it is the worst job in the building. It has been on the plan for two years, everyone agrees it matters, and every attempt produced three excellent documents by one conscientious person and then stopped. The people who could write the best documentation are the ones with the least time, which is not a coincidence.",
+ cost:"Nothing can be delegated, because work that exists only as behaviour cannot be handed to a new person. Nothing can be automated, because you cannot automate a process nobody wrote down. And every departure is a capability loss.",
+ hard:"The usual approach asks the expert to write, which costs an afternoon and therefore never happens. Inverting it means the recording becomes the source of truth and the document is generated from it, which costs almost nothing because the person is doing the work anyway. Getting people to record the messy real version rather than a tidy rehearsed one is the part that needs handling in the first twenty minutes.",
+ work:["We select on three criteria including how concentrated the knowledge is in one person, which clients under-weight","Twenty minutes of training on how to record: talk through the decisions, and do not tidy up first","People record themselves doing their own work, roughly an hour each covering three or four processes","An interview pass on what a recording cannot show: what makes it go wrong, what they check that nobody told them to, when they escalate","Every checklist tested by somebody who does not normally do the task, on real work, with the owner watching and not helping"],
+ get:["Ten to twenty documented processes with triggers, decisions, exceptions and owners","A tested checklist for each, because a checklist gets followed and a document gets filed","Verification results showing what broke when a fresh person ran it","A ranked backlog of what is still undocumented","The forward rule: anything done twice gets recorded, with a named owner"],
+ money:"It is the gate on everything automatable in your business. An agent built on an undocumented process encodes one person's habits and nobody can tell when it drifts."},
+
+"22":{t:"t4",name:"Metrics That Have Denominators",time:"1 week",who:"CFO, COO",
+ promise:"Four numbers you can act on, defined in writing before anything is computed.",
+ problem:"Your dashboards are full of counts nobody can act on. Revenue, headcount, leads, tickets, sessions: all real, all moving, none of them answering whether the business is getting better at what it does. Four questions would settle most of your recurring arguments and all four are unanswered.",
+ cost:"Arguments get settled by seniority instead of evidence, and the same argument recurs every quarter because nothing was resolved. You also cannot tell growth from churn-and-replace, and underpricing stays invisible, which is how a firm ends up doing its worst-margin work for its loudest customer.",
+ hard:"The hard part is definition, not arithmetic. What counts as a client, when do they stop being one, what counts as a lead, what spend counts as marketing spend. Each has three plausible answers and the choice moves the number materially. The second hard part is refusing to compute a metric your data cannot honestly support, because a proxy nobody remembers is a proxy does more damage than a gap.",
+ work:["We settle every definition in the room and in writing before any number is produced","All four computed across four quarters from source systems rather than from existing reports","Where a metric cannot be produced honestly we record the gap and what would fix it, rather than substituting a proxy","We separate what the trend supports from what it merely permits","Three cross-reads that carry more than any single metric, including the one that reveals underpricing"],
+ get:["Four metrics across four quarters, each with its formula and denominator","Written, signed definitions including every judgement call made","The gap register where data cannot support a number","An owner, a cadence and a trigger threshold per metric","The computation method, so your team reproduces the numbers without us"],
+ money:"Time spent per client against income is the metric professional services firms least often track per account and the one that most often changes a pricing decision."},
+
+"23":{t:"t4",name:"Revenue Leak Recovery",time:"1 week",who:"CFO, revenue operations",
+ promise:"Find what you are losing to failed payments, and stop most of it with four messages.",
+ problem:"Failed payments get handled by whoever notices. A card expires, a charge fails, a notification lands somewhere, and what happens next depends on whether anybody is looking. Sometimes finance catches it at month end, four weeks late. Ask what you lost to failed payments last quarter and the honest answer is that nobody has pulled the number.",
+ cost:"It is revenue you already earned and are not collecting. The customer chose you, wanted to keep paying, and a card expired. Worse, involuntary churn sits inside your churn figure, which makes your churn number wrong and every churn analysis built on it wrong too.",
+ hard:"Nothing about the sequence is technically difficult and two details decide whether it works. The first message has to assume a card problem rather than a decision, because a collections tone converts far worse and in the overwhelming majority of cases a card did expire. And payment retries have to be aligned with the messages, because a system silently retrying while emails tell the customer to act is the most common defect and it is invisible until somebody maps both schedules side by side.",
+ work:["We establish the number first, from four quarters of billing data, before building anything","A four-message sequence on days zero, three, seven and ten, with the day-zero tone written carefully","Retries aligned with messages so the system and the emails stop contradicting each other","Sensitive and enterprise accounts routed to a human instead of an automated pause","A daily payment watch with a named owner, and involuntary churn separated from voluntary churn permanently"],
+ get:["The leak number across four quarters, with involuntary churn split out","A live four-message sequence, verified by a real card we fail deliberately","Retry alignment and a tested exception route","A daily watch with a named owner and a monthly leak report","Post-pause design, because a paused customer is not a lost one"],
+ money:"This is the fastest payback on the suite. It pays for itself inside a quarter and you can see the number. We hold ourselves to that and will say so in writing if it does not."},
+
+"24":{t:"t4",name:"Hiring Scorecards",time:"1 week",who:"People lead",
+ promise:"Define roles by what will be true in a year, so candidates and interviewers agree what the job is.",
+ problem:"Your job descriptions describe a job nobody agreed on. The role went out because somebody was overwhelmed, the description was assembled from a similar role and a competitor's posting, and three interviewers form three different impressions of what the job is. Six months in, the honest assessment of whether the hire worked is a feeling.",
+ cost:"Bad hires are expensive and slow to detect: without stated outcomes, an underperforming hire looks like a difficult onboarding for two quarters. Strong candidates also screen themselves out, because they read a responsibilities list and cannot tell what success looks like.",
+ hard:"Outcomes are the section everyone wants to skip and the one that changes hiring quality. A candidate can self-assess against outcomes and cannot self-assess against activity. Writing them properly means answering what will be true in a year that is not true now, repeatedly, until the answers stop being descriptions of work.",
+ work:["We establish where the work comes from, whose plate it leaves and how many hours it takes, which regularly reveals a role is two roles or is really a system","Three to five outcomes per role, stated as results with time frames","Measures drawn from numbers you actually compute, with the ones you cannot compute marked rather than invented","A thirty, sixty and ninety day expectation written from the manager's point of view","A paid test project per role: real, bounded, fairly paid, producing something you can use either way"],
+ get:["A scorecard per role: outcomes, responsibilities, tools, measures, 30-60-90","The work origin map","Measures marked as computable today or needing a number","A designed paid test project with assessment criteria","The format and a guide, so your people team writes the next one"],
+ money:"The 30-60-90 makes a month-two conversation possible instead of a month-nine one, which is the conversation that saves a recoverable hire and ends an unrecoverable one before it costs a year."},
+
+"25":{t:"t5",name:"Assistant Build Program",time:"2 weeks",who:"Any function, enablement",
+ promise:"Train six to twelve of your people to build their own assistants properly, on their own real work.",
+ problem:"People are pasting the same context into a chat window forty times a week. Everybody has access, everybody uses it, and every session starts from nothing. A few people built something better, those assistants live in individual accounts, and nobody else knows they exist. When somebody tries to build one for the team, it demos well and produces wrong-shaped output in real use, and the effort gets abandoned rather than diagnosed.",
+ cost:"The same context gets re-explained thousands of times a year, which is a small tax paid continuously by everyone. And quality varies by who is prompting, with no mechanism to level it up because the skill is undocumented.",
+ hard:"Most attempts fail for one of exactly two reasons and teams cannot tell which, so they tinker for a week and give up. There is a diagnostic that separates them cleanly, and once a team has it they fix their own builds in an afternoon. Getting there needs real use between sessions rather than a single training day, because the log of what actually went wrong is the teaching material.",
+ work:["Each participant brings a real weekly task, tested against three questions before anything is built","An archetype chosen before a word is written, which is where half the vagueness gets removed","A five-part build standard, with the diagnostic taught explicitly so the framework becomes self-correcting","Three days of real use, with each participant logging what came back wrong-shaped and what came back generic","A full day diagnosing and repairing their own builds in the room, seeing the change take effect immediately"],
+ get:["Three to five live assistants, built by your people on real work","The build standard, the archetype picker and the diagnostic rule","Required constraints as reusable text, including house style written as incapacity rather than prohibition","An assistant register giving every one an owner, a purpose and a review date","Use logs showing what each participant found and changed"],
+ money:"A built assistant is one assistant. A trained cohort is a capability, and it is why we teach rather than build. The register is what stops you accumulating forty assistants of unknown provenance within a year."},
+
+"26":{t:"t5",name:"AI Team Design",time:"4 weeks",who:"COO, CTO",
+ promise:"Give your automated work an org chart, with one named human owner per agent and no agent publishing.",
+ problem:"You have twelve disconnected automations and no accountability model. They were built by different people at different times for good reasons, some are excellent, and nobody has a list. When one produces something wrong, finding out who is responsible takes a day and the answer is usually somebody who has moved teams. This is not a technology problem. Each automation is fine. What is missing is the thing every other part of the company has.",
+ cost:"Errors get found by customers rather than by you, because an unreviewed automated output is a system publishing on your behalf with no editor. Nothing improves because nothing is owned. And you cannot answer the governance question when somebody finally asks it.",
+ hard:"The temptation is to build more agents, and the thing that actually fails is the absence of structure around them. Building the review gate before the agent sounds backwards and prevents the most common failure, which is a gate added later and never. Refusing to build agents on undocumented processes is the other unpopular position, and it is the one that most reliably separates a working roster from an expensive one.",
+ work:["We inventory everything already running, which routinely surfaces automations nobody knew about","We design a roster of standing roles rather than a list of tools, with explicit non-responsibilities","One named human owner per agent, agreed out loud in the room, with what ownership means written down","Schedule times deliberately offset by a minute or two, which buys rate limiting and readable logs for free","Three to five agents built inside the structure, only for processes that have been documented"],
+ get:["The automation inventory, including what nobody knew was running","An agent roster with roles, owners and non-responsibilities","A scheduled-task calendar and a risk-marked register","Review gates per agent, demonstrated","An operating document written from the week your team ran it, including the failures"],
+ money:"It is the difference between a dozen automations you tolerate and a system you can extend, staff and answer for. We will not build agents that publish or transact without a human in the path, and we will tell you why."},
+
+"27":{t:"t5",name:"Knowledge Vault",time:"3 weeks",who:"Chief of staff, operations",
+ promise:"A knowledge base that compounds instead of decaying, with a health check that hunts its own stale claims.",
+ problem:"Institutional knowledge dies with whoever holds it, and your assistants re-learn the company every session. Both halves are the same problem. What the company knows about itself lives in heads, old decks, a wiki nobody updates, and four thousand documents nobody can search meaningfully. The wiki attempt failed for the same reason the documentation attempt failed.",
+ cost:"Senior people spend hours a week being a lookup service. Departures are capability losses. And stale knowledge is actively harmful, because a wiki with last year's pricing is worse than no wiki: somebody will act on it.",
+ hard:"Every knowledge base decays and the decay is gradual enough that nobody notices the moment it stopped being trustworthy. What almost nobody builds is a staleness detector for their own knowledge, hunting contradictions like old pricing against new and programmes described as current after they ended. The other discipline is scope: the instinct is to migrate everything and everything is unusable.",
+ work:["We push hard on scope on day one, using one test: would somebody, or an assistant, need this to answer a question about the company","Six foundation files built in a deliberate order: facts, identity, voice, audience, offers, market","Ingest that integrates rather than summarises, updating every existing page a new source touches","Query that answers across pages with citations and saves substantial answers back","A lint operation built and run live on your own vault, with the first contradictions resolved together"],
+ get:["Six foundation files and a structured, indexed vault","Ingest, query and lint running","Four scheduled routines including a ten-minute weekly update","Conventions enforced rather than encouraged, with a check","Named owners for the lint cadence and the weekly update, plus the out-of-cycle triggers"],
+ money:"Knowledge compounds instead of being re-derived every session, and every AI tool you point at the company stops starting cold. The lint cadence is what keeps that true in month nine."}
+};
+
+/* flat 120px marks, one per tier, drawn in the tier accent with a 15% tint fill.
+   inline SVG so they travel with the file and work on any host. */
+const ICON={
+ t0:c=>`<svg class="ic" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+   <rect x="10" y="70" width="16" height="34" rx="3" fill="${c}" opacity=".22"/>
+   <rect x="32" y="54" width="16" height="50" rx="3" fill="${c}" opacity=".38"/>
+   <rect x="54" y="32" width="16" height="72" rx="3" fill="${c}" opacity=".55"/>
+   <circle cx="83" cy="44" r="24" stroke="${c}" stroke-width="6"/>
+   <path d="M100 61 L112 73" stroke="${c}" stroke-width="7" stroke-linecap="round"/>
+ </svg>`,
+ t1:c=>`<svg class="ic" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+   <rect x="14" y="84" width="92" height="20" rx="4" fill="${c}"/>
+   <rect x="24" y="58" width="72" height="20" rx="4" fill="${c}" opacity=".55"/>
+   <rect x="34" y="32" width="52" height="20" rx="4" fill="${c}" opacity=".3"/>
+   <path d="M60 12 L60 26" stroke="${c}" stroke-width="6" stroke-linecap="round"/>
+ </svg>`,
+ t2:c=>`<svg class="ic" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+   <rect x="12" y="80" width="26" height="26" rx="4" fill="${c}" opacity=".28"/>
+   <rect x="45" y="58" width="26" height="48" rx="4" fill="${c}" opacity=".5"/>
+   <rect x="78" y="34" width="26" height="72" rx="4" fill="${c}"/>
+   <path d="M18 44 L44 30 L70 38 L104 14" stroke="${c}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+   <path d="M88 12 L106 12 L106 30" stroke="${c}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+ </svg>`,
+ t3:c=>`<svg class="ic" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+   <rect x="14" y="16" width="66" height="80" rx="6" fill="${c}" opacity=".2"/>
+   <rect x="30" y="26" width="66" height="80" rx="6" fill="var(--card)" stroke="${c}" stroke-width="6"/>
+   <path d="M44 50 H82 M44 66 H82 M44 82 H68" stroke="${c}" stroke-width="6" stroke-linecap="round"/>
+ </svg>`,
+ t4:c=>`<svg class="ic" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+   <circle cx="60" cy="60" r="22" stroke="${c}" stroke-width="7"/>
+   <circle cx="60" cy="60" r="7" fill="${c}"/>
+   <g stroke="${c}" stroke-width="7" stroke-linecap="round">
+     <path d="M60 14 V28"/><path d="M60 92 V106"/><path d="M14 60 H28"/><path d="M92 60 H106"/>
+     <path d="M27 27 L37 37" opacity=".55"/><path d="M83 83 L93 93" opacity=".55"/>
+     <path d="M93 27 L83 37" opacity=".55"/><path d="M37 83 L27 93" opacity=".55"/>
+   </g>
+ </svg>`,
+ t5:c=>`<svg class="ic" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+   <path d="M60 30 L26 52 M60 30 L94 52 M26 52 L26 88 M94 52 L94 88 M26 88 L60 66 M94 88 L60 66"
+     stroke="${c}" stroke-width="5" stroke-linecap="round" opacity=".45"/>
+   <circle cx="60" cy="30" r="13" fill="${c}"/>
+   <circle cx="26" cy="52" r="10" fill="${c}" opacity=".7"/>
+   <circle cx="94" cy="52" r="10" fill="${c}" opacity=".7"/>
+   <circle cx="26" cy="88" r="10" fill="${c}" opacity=".45"/>
+   <circle cx="94" cy="88" r="10" fill="${c}" opacity=".45"/>
+   <circle cx="60" cy="66" r="10" fill="${c}" opacity=".45"/>
+ </svg>`};
+
+const HEROART=`<svg class="heroArt" viewBox="0 0 430 330" fill="none" role="img"
+  aria-label="Six tiers stacked from diagnostics through AI infrastructure">
+ <rect x="0" y="0" width="430" height="330" rx="8" fill="#FFFBF9"/>
+ <g font-family="Poppins" font-size="13" font-weight="500">
+  <rect x="26" y="26"  width="378" height="40" rx="5" fill="#3CC2DB" opacity=".16"/>
+  <rect x="26" y="26"  width="6"  height="40" rx="3" fill="#3CC2DB"/>
+  <text x="48" y="51" fill="#222639">Diagnostics</text><text x="360" y="51" fill="#70666A" font-size="12">3</text>
+  <rect x="26" y="74"  width="378" height="40" rx="5" fill="#222639" opacity=".12"/>
+  <rect x="26" y="74"  width="6"  height="40" rx="3" fill="#222639"/>
+  <text x="48" y="99" fill="#222639">Foundation</text><text x="360" y="99" fill="#70666A" font-size="12">4</text>
+  <rect x="26" y="122" width="378" height="40" rx="5" fill="#EE2A52" opacity=".14"/>
+  <rect x="26" y="122" width="6"  height="40" rx="3" fill="#EE2A52"/>
+  <text x="48" y="147" fill="#222639">Revenue architecture</text><text x="360" y="147" fill="#70666A" font-size="12">5</text>
+  <rect x="26" y="170" width="378" height="40" rx="5" fill="#8F5ED8" opacity=".15"/>
+  <rect x="26" y="170" width="6"  height="40" rx="3" fill="#8F5ED8"/>
+  <text x="48" y="195" fill="#222639">Content engine</text><text x="360" y="195" fill="#70666A" font-size="12">7</text>
+  <rect x="26" y="218" width="378" height="40" rx="5" fill="#F1B900" opacity=".2"/>
+  <rect x="26" y="218" width="6"  height="40" rx="3" fill="#F1B900"/>
+  <text x="48" y="243" fill="#222639">Operations</text><text x="360" y="243" fill="#70666A" font-size="12">5</text>
+  <rect x="26" y="266" width="378" height="40" rx="5" fill="#1F7A8C" opacity=".15"/>
+  <rect x="26" y="266" width="6"  height="40" rx="3" fill="#1F7A8C"/>
+  <text x="48" y="291" fill="#222639">AI infrastructure</text><text x="360" y="291" fill="#70666A" font-size="12">3</text>
+ </g>
+</svg>`;
+
+/* literal hex per tier: SVG presentation attributes do not resolve CSS variables */
+const HEX={t0:'#3CC2DB',t1:'#222639',t2:'#EE2A52',t3:'#8F5ED8',t4:'#F1B900',t5:'#1F7A8C'};
+const T=id=>TIERS.find(t=>t.id===id);
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const setAcc=(c,w,ink)=>{const r=document.documentElement;
+  r.style.setProperty('--accent',c||'#EE2A52');
+  r.style.setProperty('--wash',w||'rgba(238,42,82,.07)');
+  r.style.setProperty('--accent-ink',ink||'#FFFFFF');};
+
+/* ---------- shared partials ---------- */
+const cta=(h,p,b1,b2)=>`<section class="ctaband"><div class="shell">
+  <h2 class="h-sec">${h}</h2><p class="lede" style="color:var(--deep-body)">${p}</p>
+  <div class="btnrow">${b1}${b2||''}</div></div></section>`;
+
+const solCard=(id)=>{const s=S[id],t=T(s.t);
+ return `<a class="scard" href="#/solution/${id}" style="--accent:${t.c}">
+   <span class="sn">${id} &middot; ${t.name}</span>
+   <h4>${esc(s.name)}</h4><p>${esc(s.promise)}</p>
+   <span class="meta"><span>${esc(s.time)}</span><span style="opacity:.4">|</span><span>${esc(s.who)}</span></span></a>`;};
+
+/* ---------- home ---------- */
+function home(){
+ setAcc('#EE2A52','rgba(238,42,82,.07)','#FFFFFF');
+ return `
+ <section class="hero"><div class="shell">
+   <div class="rule"></div>
+   <div class="heroGrid">
+     <div class="stack">
+       <p class="eyebrow" style="margin:0">AI systems for companies</p>
+       <h1 class="h-hero">We turn AI pilots into systems you actually run on.</h1>
+       <p class="lede">We build AI systems that cut cost and lift quality. Then we widen what your
+       company can take on, so the vision you already have stops being limited by how many hours
+       your best people have.</p>
+       <div class="btnrow" style="padding-top:8px">
+         <a class="btn" href="#/tier/t0">Start with a diagnostic</a>
+         <a class="btn ghost" href="#/method">See how we work</a>
+       </div>
+     </div>
+     ${HEROART}
+   </div>
+   <div class="heroFacts">
+     <div class="fact"><b>27</b><span>Defined engagements across six tiers, each with a stated promise and a stated boundary</span></div>
+     <div class="fact"><b>30 yrs</b><span>Of executive, digital and AI work behind the team running them</span></div>
+     <div class="fact"><b>1 week</b><span>Is all it takes to find out what is actually wrong, before anyone commits a budget</span></div>
+   </div>
+ </div></section>
+
+ <section class="band"><div class="shell">
+   <div class="two">
+     <div class="stack">
+       <p class="eyebrow">The problem we keep finding</p>
+       <h2 class="h-sec">Most AI spending buys capability nobody keeps using.</h2>
+     </div>
+     <div class="stack">
+       <p>The tools work. People have access. Six months later the licences renew, a few individuals
+       have built something good that nobody else can find, and the honest answer to what it is all
+       worth is a set of anecdotes.</p>
+       <p>The cause is almost never the technology. It is that the work was never documented, the
+       systems were never given anything specific about the company to run on, and nobody was made
+       accountable for what any of it produces.</p>
+       <p>We fix those three things in a defined order, and we tell you when something you want
+       cannot be delivered well until an earlier piece is in place.</p>
+     </div>
+   </div>
+ </div></section>
+
+ <section><div class="shell">
+   <p class="eyebrow">Where we work</p>
+   <h2 class="h-sec" style="margin-bottom:14px">Six tiers, in the order they actually depend on each other.</h2>
+   <p class="lede narrow" style="margin-bottom:34px">Start anywhere and we will be straight with you
+   about what has to come first. The order below is a dependency, not a sales sequence.</p>
+   <div class="tiergrid">
+     ${TIERS.map(t=>`<a class="tcard" href="#/tier/${t.id}" style="--tc:${t.c}">
+        ${ICON[t.id](HEX[t.id])}
+        <span class="tnum">${t.n}</span>
+        <h3>${esc(t.name)}</h3>
+        <p>${esc(t.promise)}</p>
+        <span class="cnt">${t.sols.length} engagement${t.sols.length>1?'s':''} &rarr;</span>
+      </a>`).join('')}
+   </div>
+ </div></section>
+
+ <section class="band"><div class="shell">
+   <p class="eyebrow">How we work</p>
+   <h2 class="h-sec" style="margin-bottom:34px">Four moves, every engagement.</h2>
+   <div class="steps">
+     <div class="step" style="--stepc:var(--red)"><span class="n">01</span><h4>Diagnose</h4><p>We measure rather than interview.
+     What we hand back is a ranked finding with the evidence attached, including the parts of your
+     business nobody currently measures.</p></div>
+     <div class="step" style="--stepc:var(--purple)"><span class="n">02</span><h4>Ground</h4><p>We build the documents every system
+     downstream reads, from your own evidence: your writing, your customers' recorded words, your
+     competitors' actual claims.</p></div>
+     <div class="step" style="--stepc:var(--cyan)"><span class="n">03</span><h4>Install</h4><p>We build with your team in the room
+     and hand the work to them before we leave. If we do it for you, it stops the week we go.</p></div>
+     <div class="step" style="--stepc:var(--gold)"><span class="n">04</span><h4>Hold</h4><p>Every install ships with a cadence and
+     a named owner. A standard nobody enforces is a preference, so we attach the check that runs at
+     delivery time.</p></div>
+   </div>
+ </div></section>
+
+ <section><div class="shell">
+   <div class="two">
+     <div class="stack">
+       <p class="eyebrow">Why us</p>
+       <h2 class="h-sec">We will tell you what not to buy.</h2>
+       <p>Every engagement page on this site names what it does not promise and what sits outside its
+       scope. That is deliberate. The fastest way to lose a client is to let them discover the
+       boundary after the invoice.</p>
+       <p>We also say plainly which parts of our method we developed ourselves and which we adapted,
+       and where a technique is widely taught but does not survive contact with evidence.</p>
+     </div>
+     <div class="deck">
+       <div class="pt"><h4>Your team builds it</h4><p>We train and correct. A built system is one
+       system; a trained team is a capability that outlasts us.</p></div>
+       <div class="pt"><h4>Nothing publishes unreviewed</h4><p>No agent we build speaks for your
+       company without a named person in the path.</p></div>
+       <div class="pt"><h4>Numbers carry denominators</h4><p>We will not compute a metric your data
+       cannot honestly support. A named gap beats a quiet proxy.</p></div>
+       <div class="pt"><h4>We report honestly</h4><p>Including months when nothing moved, and
+       engagements where the right answer was to stop.</p></div>
+     </div>
+   </div>
+ </div></section>
+
+ <section class="band"><div class="shell">
+   <p class="eyebrow">Clients</p>
+   <h2 class="h-sec" style="margin-bottom:32px">What people say about working with us.</h2>
+   <div class="deck">
+     <div class="quote">One of the most creative and strategically aligned partnerships of my career.
+       She doesn't just listen, she hears the dream behind the idea, and then she moves decisively to
+       make it real.<cite>Richard Thalheimer, Founder &amp; CEO, The Sharper Image</cite></div>
+     <div class="quote">Their AI-powered chatbots now handle over 70% of our customer inquiries,
+       instantly. Our lead conversion rate has nearly doubled since launch.<cite>Alex M., Founder,
+       Performance Fitness</cite></div>
+     <div class="quote">It felt like a collaboration, not a transaction. Human First Media is the
+       go-to guide for becoming known in the right way, by the right people.<cite>Taran Collis,
+       Mindful Adventures</cite></div>
+   </div>
+ </div></section>
+
+ ${cta('Start where the evidence is cheapest.',
+  'A diagnostic takes a week, costs a fraction of an install, and produces a ranked finding you can take into a board meeting. It also tells you whether you want to work with us.',
+  '<a class="btn" href="#/tier/t0">Book a diagnostic</a>',
+  '<a class="btn gold" href="#/contact">Talk to us first</a>')}`;
+}
+
+/* ---------- method ---------- */
+function method(){
+ setAcc('#EE2A52','rgba(238,42,82,.07)','#FFFFFF');
+ return `<section class="hero"><div class="shell narrow">
+   <div class="rule"></div>
+   <p class="eyebrow" style="margin:0 0 12px">How we work</p>
+   <h1 class="h-hero" style="margin-bottom:22px">The order matters more than the tooling.</h1>
+   <p class="lede">Most of what goes wrong in this work is sequence rather than skill. Companies buy
+   the interesting layer before the boring one underneath it exists, and then conclude the interesting
+   layer does not work.</p>
+ </div></section>
+
+ <section class="band"><div class="shell">
+   <p class="eyebrow">The dependency</p>
+   <h2 class="h-sec" style="margin-bottom:14px">Three gates we will not talk you out of.</h2>
+   <p class="lede narrow" style="margin-bottom:30px">These are not upsells. Each one is a place where
+   delivering the thing you asked for, without the thing under it, produces work you would be right to
+   be unhappy with.</p>
+   <div class="tablewrap"><table>
+     <tr><th style="width:34%">The gate</th><th>Why it is real</th></tr>
+     <tr><td><b>Foundation before content, revenue and AI work</b></td>
+       <td>Belief work, offers and assistants all read the same four documents. Thin ground produces
+       generic output at every stage after it, and each individual piece still looks acceptable, which
+       is why the failure goes unnoticed until a quarter has been spent.</td></tr>
+     <tr><td><b>Offers before belief architecture</b></td>
+       <td>Content exists to install beliefs about a named offer. Without one, the belief work has no
+       object and the calendar drifts back to a topic list.</td></tr>
+     <tr><td><b>Documentation before agents</b></td>
+       <td>You cannot automate a process nobody wrote down. An agent built on an undocumented process
+       encodes one person's habits, and nobody can tell when it has drifted.</td></tr>
+   </table></div>
+ </div></section>
+
+ <section><div class="shell">
+   <p class="eyebrow">Packages</p>
+   <h2 class="h-sec" style="margin-bottom:14px">Four ways in.</h2>
+   <p class="lede narrow" style="margin-bottom:32px">Most clients start at the first and stop when
+   they have what they came for. That is a good outcome and we would rather you did that than sign
+   for six months you did not need.</p>
+   <div class="deck">
+     <div class="pt"><h4>The Diagnostic &middot; 1 to 2 weeks</h4><p>Three short engagements that each
+     produce a finding you did not have. Designed to be easy to say yes to and to make the next
+     decision obvious.</p></div>
+     <div class="pt"><h4>The Foundation &middot; 4 to 6 weeks</h4><p>The four documents, the
+     positioning, the named method, plus one engagement chosen from what the diagnostic found. This is
+     the honest minimum.</p></div>
+     <div class="pt"><h4>The Function Install &middot; 6 to 12 weeks</h4><p>Foundation plus a full
+     tier. Revenue for a pipeline problem, content for a visibility problem, operations for a company
+     that has outgrown its founders.</p></div>
+     <div class="pt"><h4>The Operating System &middot; 6 months</h4><p>Everything, in dependency
+     order. Ends with your team running their own agent roster against their own knowledge base, with
+     named owners and a review gate.</p></div>
+   </div>
+ </div></section>
+
+ <section class="band"><div class="shell">
+   <div class="two">
+     <div class="stack">
+       <p class="eyebrow">Afterwards</p>
+       <h2 class="h-sec">What we keep doing, and what we hand over.</h2>
+       <p>Almost everything we install is designed to run without us. The exceptions are the cadences
+       that need somebody outside the business to hold them honest, and those are the only things we
+       will propose as ongoing work.</p>
+     </div>
+     <div><ul class="ticks">
+       <li>The monthly journey re-audit, so improvement keeps being aimed at evidence</li>
+       <li>The monthly citation audit, reporting before and after against a fixed query set</li>
+       <li>The monthly revenue leak report, separating involuntary churn from real churn</li>
+       <li>The lint cadence on your knowledge base, hunting contradictions and stale claims</li>
+       <li>A quarterly belief refresh, so the content architecture tracks the offers</li>
+     </ul></div>
+   </div>
+ </div></section>
+
+ ${cta('Tell us what is actually going on.',
+  'The most useful first conversation is usually the one where you describe the symptom rather than the solution you had in mind. We will tell you which tier it sits in and what has to come first.',
+  '<a class="btn" href="#/contact">Get in touch</a>',
+  '<a class="btn ghost" href="#/">Back to the suite</a>')}`;
+}
+
+/* ---------- tier ---------- */
+function tier(id){
+ const t=T(id); if(!t) return home();
+ setAcc(t.c,t.cw,t.ink);
+ return `<section class="hero"><div class="shell">
+   <div class="crumb"><a href="#/">Home</a><span class="sep">/</span><span>${esc(t.name)}</span></div>
+   <div class="rule"></div>
+   <div class="heroGrid">
+     <div>
+       <p class="eyebrow" style="margin:0 0 12px">${t.n} &middot; ${esc(t.tag)}</p>
+       <h1 class="h-hero" style="margin-bottom:22px;max-width:16ch">${esc(t.name)}</h1>
+       <p class="lede">${esc(t.promise)}</p>
+     </div>
+     <div style="justify-self:end">${ICON[t.id](HEX[t.id]).replace('class="ic"','style="width:200px;height:200px"')}</div>
+   </div>
+ </div></section>
+
+ <section class="band tight"><div class="shell narrow">
+   <p class="lede">${esc(t.lede)}</p>
+ </div></section>
+
+ <section><div class="shell">
+   <p class="eyebrow">Why this tier matters</p>
+   <h2 class="h-sec" style="margin-bottom:32px">What it costs to leave this alone.</h2>
+   <div class="deck">
+     ${t.why.map(w=>`<div class="pt"><h4>${esc(w.h)}</h4><p>${esc(w.p)}</p></div>`).join('')}
+   </div>
+ </div></section>
+
+ <section class="band"><div class="shell">
+   <div class="two">
+     <div class="stack">
+       <p class="eyebrow">How we work in this tier</p>
+       <h2 class="h-sec">Our approach, plainly.</h2>
+     </div>
+     <div><p>${esc(t.how)}</p></div>
+   </div>
+ </div></section>
+
+ <section><div class="shell">
+   <p class="eyebrow">The engagements</p>
+   <h2 class="h-sec" style="margin-bottom:14px">${t.sols.length} way${t.sols.length>1?'s':''} to work with us in ${esc(t.name.toLowerCase())}.</h2>
+   <p class="lede narrow" style="margin-bottom:32px">Each is scoped, time-boxed and priced on its own.
+   You do not have to take the tier to take one of them.</p>
+   <div class="solgrid">${t.sols.map(solCard).join('')}</div>
+ </div></section>
+
+ ${cta('Not sure which one you need?',
+  'Describe the symptom and we will tell you which engagement addresses it, and whether something else has to come first. That conversation is free and it is often short.',
+  '<a class="btn acc" href="#/contact">Talk it through</a>',
+  '<a class="btn ghost" href="#/">All six tiers</a>')}`;
+}
+
+/* ---------- solution ---------- */
+function solution(id){
+ const s=S[id]; if(!s) return home();
+ const t=T(s.t); setAcc(t.c,t.cw,t.ink);
+ const sibs=t.sols.filter(x=>x!==id).slice(0,3);
+ return `<section class="hero"><div class="shell">
+   <div class="crumb"><a href="#/">Home</a><span class="sep">/</span>
+     <a href="#/tier/${t.id}">${esc(t.name)}</a><span class="sep">/</span><span>${esc(s.name)}</span></div>
+   <div class="rule"></div>
+   <p class="eyebrow" style="margin:0 0 12px">${t.n} &middot; Engagement ${id}</p>
+   <h1 class="h-hero" style="margin-bottom:22px;max-width:18ch">${esc(s.name)}</h1>
+   <p class="lede narrow" style="margin-bottom:26px">${esc(s.promise)}</p>
+   <div class="btnrow">
+     <span class="pill">${esc(s.time)}</span>
+     <span class="pill">For ${esc(s.who)}</span>
+   </div>
+ </div></section>
+
+ <section class="band"><div class="shell">
+   <div class="two">
+     <div class="stack">
+       <p class="eyebrow">What is going on</p>
+       <h2 class="h-sec">The problem, as you would describe it.</h2>
+     </div>
+     <div class="stack">
+       <p>${esc(s.problem)}</p>
+     </div>
+   </div>
+ </div></section>
+
+ <section><div class="shell">
+   <div class="two">
+     <div class="stack">
+       <p class="eyebrow">What it costs</p>
+       <h2 class="h-sec">Why leaving it is more expensive than fixing it.</h2>
+       <p>${esc(s.cost)}</p>
+     </div>
+     <div class="stack">
+       <p class="eyebrow">Why it is hard</p>
+       <h2 class="h-sec">The part that makes this worth outside help.</h2>
+       <p>${esc(s.hard)}</p>
+     </div>
+   </div>
+ </div></section>
+
+ <section class="band"><div class="shell">
+   <p class="eyebrow">How we do it</p>
+   <h2 class="h-sec" style="margin-bottom:14px">The kind of work this actually is.</h2>
+   <p class="lede narrow" style="margin-bottom:30px">Your people are in the room throughout. The
+   detailed schedule, obligations and acceptance criteria live in the statement of work, not here.</p>
+   <div class="two">
+     <div><ul class="ticks">${s.work.map(w=>`<li>${esc(w)}</li>`).join('')}</ul></div>
+     <div class="stack">
+       <h3 class="h-sub" style="margin-bottom:4px">What you hold at the end</h3>
+       <ul class="ticks">${s.get.map(g=>`<li>${esc(g)}</li>`).join('')}</ul>
+     </div>
+   </div>
+ </div></section>
+
+ <section><div class="shell narrow">
+   <p class="eyebrow">Where the return is</p>
+   <h2 class="h-sec" style="margin-bottom:16px">Why this one pays.</h2>
+   <p class="lede">${esc(s.money)}</p>
+ </div></section>
+
+ ${sibs.length?`<section class="band"><div class="shell">
+   <p class="eyebrow">Also in ${esc(t.name.toLowerCase())}</p>
+   <h2 class="h-sec" style="margin-bottom:30px">What often goes alongside it.</h2>
+   <div class="solgrid">${sibs.map(solCard).join('')}</div>
+ </div></section>`:''}
+
+ ${cta('Want to talk about '+esc(s.name.toLowerCase())+'?',
+  'We will tell you whether this is the right engagement for what you are seeing, and whether anything needs to come first. If it is not the right one, we will say which is.',
+  '<a class="btn acc" href="#/contact">Start the conversation</a>',
+  '<a class="btn ghost" href="#/tier/'+t.id+'">Back to '+esc(t.name)+'</a>')}`;
+}
+
+/* ---------- contact ---------- */
+function contact(){
+ setAcc('#EE2A52','rgba(238,42,82,.07)','#FFFFFF');
+ return `<section class="hero"><div class="shell narrow">
+   <div class="rule"></div>
+   <p class="eyebrow" style="margin:0 0 12px">Contact</p>
+   <h1 class="h-hero" style="margin-bottom:22px">Describe the symptom, not the solution.</h1>
+   <p class="lede">The most useful first conversation is the one where you tell us what you are
+   actually seeing. We will tell you which engagement addresses it, what has to come first, and when
+   the honest answer is that you do not need us yet.</p>
+ </div></section>
+
+ <section class="band"><div class="shell">
+   <div class="two">
+     <div class="stack">
+       <p class="eyebrow">Good first messages</p>
+       <h2 class="h-sec">Things people say that we can act on straight away.</h2>
+       <ul class="ticks" style="margin-top:8px">
+         <li>Our content is fine and it does nothing</li>
+         <li>We are spending on leads and cannot say where they stop</li>
+         <li>We have an AI budget and no ranked list of what to point it at</li>
+         <li>Everything the machine writes sounds generic</li>
+         <li>The founder is the bottleneck and hiring has not fixed it</li>
+         <li>We do not know what we are losing to failed payments</li>
+       </ul>
+     </div>
+     <div class="stack">
+       <p class="eyebrow">What happens next</p>
+       <h2 class="h-sec">A short call, then a straight answer.</h2>
+       <p>We will ask what you have already tried and what it produced. If a diagnostic is the right
+       first step we will say so, and if a one-week engagement would answer your question more
+       cheaply than a six-month one, we will tell you that too.</p>
+       <p>Nothing is presented as a package until we know which symptom we are solving.</p>
+       <div class="btnrow" style="padding-top:10px">
+         <a class="btn gold" href="https://humanfirstmedia.com" target="_blank" rel="noopener">humanfirstmedia.com</a>
+       </div>
+     </div>
+   </div>
+ </div></section>
+
+ ${cta('Or start by reading the tier closest to your problem.',
+  'Every tier page states what it costs to leave that area alone, how we work in it, and the individual engagements inside it.',
+  '<a class="btn" href="#/">See the six tiers</a>')}`;
+}
+
+/* ---------- router ---------- */
+function render(){
+ const h=location.hash.replace(/^#/,'')||'/';
+ const p=h.split('/').filter(Boolean);
+ let html;
+ if(p[0]==='tier') html=tier(p[1]);
+ else if(p[0]==='solution') html=solution(p[1]);
+ else if(p[0]==='method') html=method();
+ else if(p[0]==='contact') html=contact();
+ else html=home();
+ document.getElementById('app').innerHTML=html;
+ buildNav(p);
+ window.scrollTo(0,0);
+}
+function buildNav(p){
+ const on=(c)=>c?' class="on"':'';
+ document.getElementById('nav').innerHTML=
+  `<a href="#/"${on(!p.length)}>Suite</a>`+
+  TIERS.map(t=>`<a href="#/tier/${t.id}"${on(p[0]==='tier'&&p[1]===t.id)}>${t.name}</a>`).join('')+
+  `<a href="#/method"${on(p[0]==='method')}>How we work</a>`+
+  `<a href="#/contact"${on(p[0]==='contact')}>Contact</a>`+
+  `<button class="tglbtn" id="tgl" type="button">Theme</button>`;
+ document.getElementById('tgl').onclick=()=>{
+   const r=document.documentElement;
+   const cur=r.getAttribute('data-theme');
+   const dark=cur?cur==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+   r.setAttribute('data-theme',dark?'light':'dark');
+   try{localStorage.setItem('hfm-theme',dark?'light':'dark')}catch(e){}
+ };
+}
+document.getElementById('ftiers').innerHTML=
+  TIERS.map(t=>`<a href="#/tier/${t.id}">${t.name}</a>`).join('');
+try{const st=localStorage.getItem('hfm-theme'); if(st)document.documentElement.setAttribute('data-theme',st);}catch(e){}
+addEventListener('hashchange',render);
+render();
+</script>
