@@ -1,4 +1,4 @@
-# Human First Media — Product Suite
+# Human First Media – Product Suite
 
 Sales site for Human First Media's AI consulting engagements: a homepage, six tier pages
 and 27 individual engagement pages.
