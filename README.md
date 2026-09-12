@@ -21,6 +21,26 @@ inline. Hash-based routing renders all 34 pages from one file.
 | `#/method` | How we work |
 | `#/contact` | Contact |
 
+### v3, the AI-centric suite
+
+`v3/index.html` is a separate cut, not a successor. It sells only the 19 engagements where the
+AI system is the deliverable, dropping the 41 units of the combined library that are AI-supported
+or not about AI at all. Six tiers become five stages of one dependency chain. Same design tokens,
+same per-engagement block structure, 28 routes.
+
+| Route | Page |
+|---|---|
+| `#/` | Homepage |
+| `#/ceiling` | The Ceiling Read, alone, as the only pre-chain sale |
+| `#/stage/ground` … `#/stage/governance` | The four remaining stages |
+| `#/unit/<slug>` | The 19 engagements |
+| `#/limits` | What this deliberately does not do |
+| `#/start` | Contact |
+
+Content lives in `STAGES` and `U` at the top of the script block. Sourced from
+`Mario Castelli Material/00 - The Three Types 2026-09-11.md` and
+`00 - The AI-Only Site Tree 2026-09-11.md`. Noindexed like the others.
+
 Content lives in two objects near the top of the script block: `TIERS` and `S`.
 Editing copy means editing those. The templates render from them, so a change to a
 page type reaches every page of that type.
