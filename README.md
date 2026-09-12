@@ -160,6 +160,45 @@ Keep `data_v5.py` (the 6 tiers and 32 units) and `build_v5.py` (the templates) t
 reads its CSS from `v3/index.html`, same as `build_v4.py`. Editing the generated `v5/index.html`
 directly will be overwritten on the next build.
 
+### v6, the Molly + Perry merge, Mario excluded
+
+`v6/index.html` is a fifth cut and the first merge. It resolves the **27 Molly (v2) and 32 Perry (v5)
+engagements into 44**, in **seven tiers**, with no Mario units at all. Typed like v4 and v5. Built
+2026-09-12 as a proposal and published the same day on Mark's pick.
+
+| Route | Page |
+|---|---|
+| `#/` | Homepage |
+| `#/tier/t0` ... `#/tier/t6` | The seven tiers |
+| `#/tier/<id>/<ai-centric\|ai-assisted\|not-ai>` | A tier, filtered by label |
+| `#/unit/<slug>` | The 44 engagements |
+| `#/types` | How much of this is AI, plus where the catalogue came from |
+| `#/types/<ai-centric\|ai-assisted\|not-ai>` | The catalogue, filtered |
+| `#/limits` | Five refusals, three named gaps, what stands behind it |
+| `#/start` | Contact |
+
+**The counts: 17 AI-centric, 8 AI-assisted, 19 not about AI.** Tiers 5 and 6 are thirteen for
+thirteen AI-centric; tiers 0, 2 and 4 contain no AI system. The seventh tier is Perry's working
+relationship, which has no home in Molly's six and cannot be filed under AI systems without being
+skipped.
+
+**What is different from v5.** Every number on the page is computed from the cross-tab - readings,
+footer, hero facts, shape cards. v5 shipped with v4's typed readings still in it. The site never
+names either library; provenance (`src`, `src_id`, `absorbs`) lives in `data_v6.py` and is stripped
+by the build. The limits page names what leaving Mario out costs: no claims standard, no measured
+pricing.
+
+**Dispositions and the fit analysis:** `../00 - The Two-Way Merge, Molly and Perry 2026-09-12.md`.
+
+**Build.**
+
+```
+python3 build_v6.py
+```
+
+Keep `data_v6.py` (7 tiers, 44 units) and `build_v6.py` together. `build_v6.py` reads its CSS from
+`v3/index.html` like v4 and v5, and adds one derived accent, `#E0672B`, for the seventh tier.
+
 ## Brand
 
 Built to the design system extracted from humanfirstmedia.com: Poppins throughout,
