@@ -1234,9 +1234,14 @@ u('aeo-authority-program',
           'Every month we re-run the same fifteen queries and report before and after, per query',
           'Three content anchors for the year, as themes rather than ideas, so the publishing routine has a '
           'spine',
-          'Where organic traffic has fallen, we separate the traffic that left from the traffic that '
-          'converted, because informational queries now answered in the overview were never going to '
-          'convert, and we shift the measure to brand mentions across the web rather than backlink counts'],
+          'Where organic traffic has fallen, we read the Search Console tell before anything else: rankings '
+          'stable, impressions up, clicks falling is citation displacement, not a technical fault. Then we '
+          'separate the traffic that left from the traffic that converted, because informational queries now '
+          'answered in the overview were never going to convert, and we shift the measure to brand mentions '
+          'across the web rather than backlink counts',
+          'We request indexing in Search Console for every page that carries one of your answers, so the '
+          'baseline is taken against pages the engines have actually read, and we confirm the '
+          'two-to-three-day recrawl afterwards'],
  get=['The query set and a dated verbatim baseline',
          'The competitor picture: who gets named instead of you, and in what terms',
          'A long-form structure with two pieces built to it',
@@ -1244,13 +1249,19 @@ u('aeo-authority-program',
          'Monthly reports with what moved, what did not, and what to publish next',
          "The proof inventory with each item's current visibility, and three content anchors for twelve "
          'months',
-         'A diagnosis of what your traffic drop actually was, where there was one'],
+         'A diagnosis of what your traffic drop actually was, where there was one, with the Search Console '
+         'tell shown rather than asserted',
+         'The conversation for the morning the traffic report looks bad, scripted in four lines: the drop is '
+         'industry-wide and not our failure, the traffic lost was mostly people who were never going to buy, '
+         'we are moving from chasing rankings to earning citations, and here is the new scorecard'],
  money='The measurement is the part that rarely gets built, and it is what makes the program defensible. '
           'You will know your position monthly, which is more than your competitors have.',
  gate='**We will not promise a citation position.** These systems are nondeterministic. The same query '
          'returns materially different answers hours apart, so the monthly is sold as measurement and '
          'compliance, never as a placement. The baseline is taken logged out, because a signed-in account '
-         'personalises its own answers and will tell you what you want to hear.',
+         'personalises its own answers and will tell you what you want to hear. The scorecard that replaces '
+         'sessions and rankings has three lines: branded versus non-branded split, citation footprint, and '
+         'branded search volume trend.',
  absorbs=['P2 Digital Presence and Authority Audit',
              'P24 The Organic Visibility Program',
              'P25 Answer Engine Positioning'])
