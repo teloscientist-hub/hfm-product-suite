@@ -4,7 +4,7 @@
 # Counts: 15 AI-centric, 10 AI-assisted, 7 not about AI.
 
 TIERS = [
- {"id":"t0","short":"Diagnostics","n":"Tier 0","name":"Diagnostics","c":"var(--cyan)","hex":"#3CC2DB",
+ {"id":"t0","short":"Diagnostics","n":"Tier 0","name":"Diagnostics","c":"var(--amber)","hex":"#E08E1B",
   "tag":"Four readings taken in front of you, in under a week each",
   "promise":"Four measurements about how machines currently see you, what your funnel is really doing, and what your AI spend produces. Nothing installed, nothing to maintain.",
   "lede":"This tier is the strongest part of the material it comes from, because that material is not a course. It is eighteen months of live office hours where people brought problems to a screen and had them diagnosed in public. What survives is the diagnostic move rather than the framework around it. Each of these produces one number or one answer, and two of them take under an hour.",
@@ -14,7 +14,7 @@ TIERS = [
     {"h":"Two of the four are about money, not models","p":"The funnel read and the spend-to-output read have no AI in them. They are here because the material teaches them in AI sessions and they decide whether any of the AI work is worth starting."}],
   "how":"We measure in front of you rather than going away and returning with a deck. The visibility check runs logged out, because a signed-in account personalises its own answers and will tell you what you want to hear."},
 
- {"id":"t1","short":"Ground truth","n":"Tier 1","name":"Ground truth","c":"var(--navy)","hex":"#222639",
+ {"id":"t1","short":"Ground truth","n":"Tier 1","name":"Ground truth","c":"var(--charcoal)","hex":"#3A3631",
   "tag":"Measurement and routing, before anything gets built on top",
   "promise":"Know what your tracking actually captures, what each model costs you, and where your knowledge base gets its information, before any of it carries weight.",
   "lede":"Three engagements that everything above depends on. The source material is explicit that an ad with zero purchases can still be alive if the upstream steps are moving, which you cannot see without the tracking. It is equally explicit that routing work across models without a benchmark is guesswork with a subscription attached.",
@@ -24,7 +24,7 @@ TIERS = [
     {"h":"A knowledge base is only as good as what went in","p":"Vet the sources or do not build the thing. Naming trusted sources converts finding good documentation from a judgement call into a retrieval task."}],
   "how":"Events close to the money first, because actions harder for a bot to fake carry more signal. Then a benchmark the routing agent re-reads rather than a model list somebody memorised."},
 
- {"id":"t2","short":"Working relationship","n":"Tier 2","name":"The working relationship","c":"var(--red)","hex":"#EE2A52",
+ {"id":"t2","short":"Working relationship","n":"Tier 2","name":"The working relationship","c":"var(--gold)","hex":"#F9B93E",
   "tag":"How one person sets up with one model, before any agent exists",
   "promise":"The setup that makes everything above it work: instructions the model actually has, memory that survives the session, and a protocol for the day the model changes underneath you.",
   "lede":"This is the tier with no equivalent anywhere else in our catalogue, and it exists because the source material shows the same failure over and over. People fail at agent work for reasons that have nothing to do with agents. No memory file. No guardrails. No preparation. Six engagements that fix the layer underneath.",
@@ -34,7 +34,7 @@ TIERS = [
     {"h":"The ladder became a fork and that matters","p":"Chat, then Cowork, then Code was taught as a progression in January. By July the middle step had become a destination for a whole class of user. Routing somebody up when they should go sideways wastes months."}],
   "how":"Interview rather than instruct. The strongest single technique in the corpus is handing the model a list of questions and having it ask them one at a time until it says it is clear."},
 
- {"id":"t3","short":"Agent build","n":"Tier 3","name":"Agent and system build","c":"var(--gold)","hex":"#F1B900",
+ {"id":"t3","short":"Agent build","n":"Tier 3","name":"Agent and system build","c":"var(--sand)","hex":"#CDAE6A",
   "tag":"The largest tier, and the part of the source nobody else has",
   "promise":"Specialised agents with one job each, a second brain they read from, and the architecture for running them without the bill scaling with the work.",
   "lede":"Seven engagements, and this is where the source material is genuinely scarce rather than merely useful. Almost all of it is a practitioner working on a shared screen rather than teaching, which means what you get is the decisions and not the pitch: why the coding environment is deliberately separate from the orchestrator, why a second vendor reviews rather than produces, why maintenance is scheduled rather than triggered.",
@@ -44,7 +44,7 @@ TIERS = [
     {"h":"Cost is structural, not incidental","p":"Each agent carrying only its own context is a cost argument before it is an organisational one. That is why the porting pattern names token management alongside security."}],
   "how":"Model it where iteration is cheap, confirm it works, then port with security and token cost as the constraints. Schedule the maintenance rather than waiting for something to break."},
 
- {"id":"t4","short":"Production","n":"Tier 4","name":"Production and distribution","c":"var(--purple)","hex":"#8F5ED8",
+ {"id":"t4","short":"Production","n":"Tier 4","name":"Production and distribution","c":"var(--bronze)","hex":"#B36F16",
   "tag":"Getting the work in front of people, and being findable when they look",
   "promise":"Creative that platforms read as genuinely different, a production pipeline with a measured cost, and a positioning that answer engines can repeat back.",
   "lede":"Six engagements covering the reach half. Half of them are AI-assisted rather than AI systems, and the two that are neither are here because the source teaches them inside AI sessions: email infrastructure and the warm-up schedule that decides whether any of it arrives.",
@@ -54,7 +54,7 @@ TIERS = [
     {"h":"Deliverability is upstream of everything","p":"Five hundred on day one, five hundred on day two, dedicated subdomains from the start. It is the least interesting engagement on this page and it decides whether the rest of the channel exists."}],
   "how":"Reporting in the order the customer experiences the funnel, so drop-off is visible and a campaign with zero purchases can be read as alive rather than dead."},
 
- {"id":"t5","short":"Commercial","n":"Tier 5","name":"Commercial practice","c":"var(--teal)","hex":"#1F7A8C",
+ {"id":"t5","short":"Commercial","n":"Tier 5","name":"Commercial practice","c":"var(--stone)","hex":"#8A857B",
   "tag":"Six engagements, and five of them have no model in them anywhere",
   "promise":"How a practice that installs AI systems gets clients, prices the work, and builds an offer that survives the tooling being replaced.",
   "lede":"This tier is the finding. It comes out of what everyone calls the AI curriculum, and almost none of it is about AI. It is classic direct response: pricing, outreach, positioning, and an argument against the recurring revenue that the rest of the industry treats as settled. We publish it typed rather than quietly folded in, because the label is the useful part.",

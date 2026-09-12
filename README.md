@@ -201,12 +201,19 @@ Keep `data_v6.py` (7 tiers, 44 units) and `build_v6.py` together. `build_v6.py` 
 
 ## Brand
 
-Built to the design system extracted from humanfirstmedia.com: Poppins throughout,
-`#EE2A52` primary with `#8F5ED8` / `#3CC2DB` / `#F1B900` accents, `#222639` dark ground,
-`#FFFBF9` card ground, `#70666A` body text. Flat, no shadows, 5px cards, 10px buttons.
+Rebranded 2026-09-12 to the Human First Media logo (`assets/hfm-logo.png`, cut from
+`../Human First Media Logo 1.jpg` with the stray clock overlay on the S removed). Three colours,
+sampled from the logo: black `#040404`, gold `#F9B93E`, white `#FDFDFD`. Poppins throughout.
+Flat, no shadows, 5px cards, 10px buttons. Gold is the only accent; buttons are gold with black
+text. Light theme is white ground with black ink, dark theme is black ground with white ink.
 
-One derived value: `#1F7A8C` for Tier 5, because six tiers needed six accents and the
-brand has five.
+The tier and type scale, which needs seven distinguishable values, is a tonal run of the gold
+rather than a second hue: gold `#F9B93E`, amber `#E08E1B`, sand `#CDAE6A`, bronze `#B36F16`,
+copper `#855013`, stone `#8A857B`, charcoal `#3A3631`. Token names follow those words.
+
+Before this the site carried the palette extracted from humanfirstmedia.com (`#EE2A52` red
+primary, `#8F5ED8` / `#3CC2DB` / `#F1B900` accents, `#222639` navy ground). Commit history
+holds that version.
 
 ## Local preview
 

@@ -11,20 +11,22 @@ OUT = os.path.join(HERE, "v6", "index.html")
 
 src = io.open(V3, encoding="utf-8").read().split("\n")
 # v3 CSS lives in lines 9..243 (1-indexed) across two <style> blocks
-css = "\n".join(src[8:243])
+sty_i = src.index("<style>")
+app_i = src.index('<div id="app"></div>')
+css = "\n".join(src[sty_i:app_i-1])
 
 EXTRA_CSS = """
 <style>
 /* ---------- v6 additions : AI dependency typing, seventh tier accent ---------- */
-:root{--orange:#E0672B}
+:root{--copper:#855013}
 .tbadge{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
   font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid currentColor;white-space:nowrap;line-height:1.6}
 .tbadge .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
-.t-C{color:#EE2A52}
-.t-A{color:#8F5ED8}
-.t-N{color:#2F7F5B}
-:root[data-theme="dark"] .t-N{color:#5FBF8F}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .t-N{color:#5FBF8F}}
+.t-C{color:#F9B93E}
+.t-A{color:#B36F16}
+.t-N{color:#8A857B}
+:root[data-theme="dark"] .t-N{color:#A9A49A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .t-N{color:#A9A49A}}
 .filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 24px}
 .filter a{font-size:12.5px;text-decoration:none;padding:6px 13px;border-radius:999px;border:1px solid var(--rule);
   color:var(--body);white-space:nowrap}
@@ -65,17 +67,17 @@ html,body{overflow-x:hidden}
 
 TYPE_META = {
  "C": {"k":"C","slug":"ai-centric","name":"AI-centric","test":"Remove AI and the engagement disappears",
-       "buy":"The AI system is the deliverable","hex":"#EE2A52",
+       "buy":"The AI system is the deliverable","hex":"#F9B93E",
        "who":"The buyer who arrived saying they need AI",
        "ages":"Fastest. Every one names a product or model that will be wrong within a year",
        "proof":"Weakest as evidence. Half of these come from taught material never run at a client of ours, and half were watched being run by a practitioner on a shared screen"},
  "A": {"k":"A","slug":"ai-assisted","name":"AI-assisted","test":"Remove AI and it shrinks but survives",
-       "buy":"Real work, done faster and at more volume","hex":"#8F5ED8",
+       "buy":"Real work, done faster and at more volume","hex":"#B36F16",
        "who":"The buyer with a production problem",
        "ages":"Slowly",
        "proof":"Middling. A scoring rubric that has been run, a production method that has been taught, and one self-reported production cost"},
  "N": {"k":"N","slug":"not-ai","name":"Not about AI","test":"Remove AI and nothing changes",
-       "buy":"A decision, a standard or a structure","hex":"#2F7F5B",
+       "buy":"A decision, a standard or a structure","hex":"#8A857B",
        "who":"Nobody asks for it. It gets diagnosed",
        "ages":"Not at all",
        "proof":"Strongest in durability and weakest in numbers. Frameworks taught by one teacher each, and one self-reported outreach response rate on an unstated sample"},
@@ -147,7 +149,7 @@ function badge(k){const m=TYPES[k];return `<span class="tbadge t-${k}" title="${
 
 function nav(active){
   return `<header class="top"><div class="topin">
-    <a class="mark" href="#/">HUMAN FIRST<span>.</span></a>
+    <a class="mark" href="#/"><img class="logo" src="../assets/hfm-mark.png" srcset="../assets/hfm-mark@2x.png 2x" alt="">Human <span>First</span> Media</a>
     <nav class="navlinks">
       ${TIERS.map(t=>`<a href="#/tier/${t.id}" class="${active===t.id?'on':''}">${esc(t.short)}</a>`).join('')}
       <a href="#/types" class="${active==='types'?'on':''}">How much is AI</a>
@@ -184,10 +186,10 @@ function foot(){
   return `<section class="dark tight"><div class="shell narrow stack">
     <h2 class="h-sec">Tell us the symptom, not the solution.</h2>
     <p class="lede" style="color:var(--deep-body)">If the first thing you need is not on this page we will say so. ${diag} of the ${TOT.tot} exist to hand you a reading rather than sell you a system.</p>
-    <div class="btnrow"><a class="btn" href="#/start">Start with a diagnostic</a><a class="btn ghost" href="#/limits" style="color:#fff;border-color:#4A4F66">What we do not do</a></div>
+    <div class="btnrow"><a class="btn" href="#/start">Start with a diagnostic</a><a class="btn ghost" href="#/limits" style="color:#fff;border-color:#3A3631">What we do not do</a></div>
   </div></section>
   <footer style="padding:26px 0;border-top:1px solid var(--rule)"><div class="shell small" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between">
-    <span>Human First Media</span><span>${TOT.tot} engagements. ${TIERS.length} tiers. ${TOT.C} of them are AI systems.</span></div></footer>`;
+    <img class="flogo" src="../assets/hfm-logo.png" srcset="../assets/hfm-logo@2x.png 2x" alt="Human First Media"><span>${TOT.tot} engagements. ${TIERS.length} tiers. ${TOT.C} of them are AI systems.</span></div></footer>`;
 }
 
 function heroArt(){
@@ -198,8 +200,8 @@ function heroArt(){
     const y=i*(rowh+gap)+14; let x=x0;
     const per=(w-x0*2-40)/maxr;
     const seg=(n,fill)=>{ if(!n) return ''; const ww=n*per; const s=`<rect x="${x}" y="${y}" width="${Math.max(ww,0)}" height="${rowh}" fill="${fill}"/>`; x+=ww+2; return s; };
-    out+=seg(r.C,'#EE2A52')+seg(r.A,'#8F5ED8')+seg(r.N,'#2F7F5B');
-    out+=`<text x="${x+8}" y="${y+rowh/2+5}" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="${r.hex==='#222639'?'#70666A':r.hex}">${r.tot}</text>`;
+    out+=seg(r.C,'#F9B93E')+seg(r.A,'#B36F16')+seg(r.N,'#8A857B');
+    out+=`<text x="${x+8}" y="${y+rowh/2+5}" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="${r.hex==='#3A3631'?'#5E5A52':r.hex}">${r.tot}</text>`;
   });
   out+=`</svg>`;
   return out;
@@ -209,9 +211,9 @@ function shapeCards(){
   const allC=XT.filter(r=>r.C===r.tot), noC=XT.filter(r=>r.C===0), mostN=XT.filter(r=>r.N>r.tot/2&&r.C===0);
   const allCn=allC.reduce((a,r)=>a+r.tot,0);
   const c1=`<div class="pt"><h4>${list(noC.map(r=>r.n))} contain no AI systems at all</h4><p>${noC.reduce((a,r)=>a+r.tot,0)} engagements across ${noC.length} tiers, and not one of them is an AI system. They are diagnosis, offers and operations: the work that decides whether any AI build is worth starting, and the work that does not age when the tooling changes.</p></div>`;
-  const c2=`<div class="pt" style="border-color:var(--red)"><h4>${list(allC.map(r=>r.n))} are ${allCn} for ${allCn}</h4><p>Every engagement in the last two tiers is an AI system. One of those tiers has no equivalent in most catalogues: the working relationship between one person and one model, which is the most-asked question in eighteen months of live sessions and the least written down.</p></div>`;
+  const c2=`<div class="pt" style="border-color:var(--gold)"><h4>${list(allC.map(r=>r.n))} are ${allCn} for ${allCn}</h4><p>Every engagement in the last two tiers is an AI system. One of those tiers has no equivalent in most catalogues: the working relationship between one person and one model, which is the most-asked question in eighteen months of live sessions and the least written down.</p></div>`;
   const rev=XT.find(r=>r.id==='t2');
-  const c3=`<div class="pt" style="border-color:var(--teal)"><h4>${esc(rev.n)} is ${rev.N} for ${rev.tot} the other way</h4><p>Offers, pricing, outreach, a launch and both sides of the retainer argument. None of it has a model in it, none of it carries a version number, and ${rev.perry} of the ${rev.tot} came out of what everybody calls an AI curriculum.</p></div>`;
+  const c3=`<div class="pt" style="border-color:var(--stone)"><h4>${esc(rev.n)} is ${rev.N} for ${rev.tot} the other way</h4><p>Offers, pricing, outreach, a launch and both sides of the retainer argument. None of it has a model in it, none of it carries a version number, and ${rev.perry} of the ${rev.tot} came out of what everybody calls an AI curriculum.</p></div>`;
   return c1+c2+c3;
 }
 
@@ -371,13 +373,13 @@ function typesPage(tk){
         <td class="num ${r.A?'':'zero'}">${r.A}</td>
         <td class="num ${r.N?'':'zero'}">${r.N}</td>
         <td><div class="bar" style="width:${Math.round(r.tot/maxr*100)}%">
-          ${r.C?`<i style="background:#EE2A52;flex:${r.C}"></i>`:''}
-          ${r.A?`<i style="background:#8F5ED8;flex:${r.A}"></i>`:''}
-          ${r.N?`<i style="background:#2F7F5B;flex:${r.N}"></i>`:''}
+          ${r.C?`<i style="background:#F9B93E;flex:${r.C}"></i>`:''}
+          ${r.A?`<i style="background:#B36F16;flex:${r.A}"></i>`:''}
+          ${r.N?`<i style="background:#8A857B;flex:${r.N}"></i>`:''}
         </div></td></tr>`).join('')}
       <tr class="tot"><td><b style="color:var(--ink)">All ${TIERS.length} tiers</b></td>
         <td class="num">${TOT.C}</td><td class="num">${TOT.A}</td><td class="num">${TOT.N}</td>
-        <td><div class="bar"><i style="background:#EE2A52;flex:${TOT.C}"></i><i style="background:#8F5ED8;flex:${TOT.A}"></i><i style="background:#2F7F5B;flex:${TOT.N}"></i></div></td></tr>
+        <td><div class="bar"><i style="background:#F9B93E;flex:${TOT.C}"></i><i style="background:#B36F16;flex:${TOT.A}"></i><i style="background:#8A857B;flex:${TOT.N}"></i></div></td></tr>
       </tbody></table></div>
     <div class="two" style="margin-top:38px">
       <div class="stack">
@@ -507,6 +509,7 @@ HEAD = """<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="googlebot" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
 <title>Human First Media | Find out what is true, then build on it</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

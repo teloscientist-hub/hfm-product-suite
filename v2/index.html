@@ -1,59 +1,60 @@
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="googlebot" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
 <title>HFM Product Suite Rewrite</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap">
 <style>
 :root{
-  --ground:#FFFBF9;
+  --ground:#FDFDFD;
   --surface:#FFFFFF;
-  --card:#FFFBF9;
+  --card:#F6F3EB;
   --ink:#000000;
-  --body:#70666A;
-  --rule:#E8DFDC;
-  --deep:#222639;
+  --body:#5E5A52;
+  --rule:#E4DFD3;
+  --deep:#040404;
   --deep-ink:#FFFFFF;
-  --deep-body:#B9B4C4;
-  --red:#EE2A52;
-  --purple:#8F5ED8;
-  --cyan:#3CC2DB;
-  --gold:#F1B900;
-  --teal:#1F7A8C;
-  --navy:#222639;
-  --accent:#EE2A52;
-  --accent-ink:#FFFFFF;
-  --wash:rgba(238,42,82,.07);
+  --deep-body:#B8B2A4;
+  --gold:#F9B93E;
+  --bronze:#B36F16;
+  --amber:#E08E1B;
+  --sand:#CDAE6A;
+  --stone:#8A857B;
+  --charcoal:#3A3631;
+  --accent:#F9B93E;
+  --accent-ink:#040404;
+  --wash:rgba(249,185,62,.07);
   --shell:1180px;
   --text:1px;
-  --ty1:#1F7A8C;
+  --ty1:#8A857B;
   --ty2:#7B47D0;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --ground:#1A1D2B;
-    --surface:#222639;
-    --card:#262A3E;
+    --ground:#040404;
+    --surface:#101010;
+    --card:#171614;
     --ink:#FFFFFF;
-    --body:#B4AFB8;
-    --rule:#343850;
-    --deep:#14161F;
+    --body:#B8B2A4;
+    --rule:#2A2824;
+    --deep:#000000;
     --deep-ink:#FFFFFF;
-    --deep-body:#B9B4C4;
+    --deep-body:#B8B2A4;
     --ty1:#4FC3D9;
     --ty2:#B08CE8;
   }
 }
 :root[data-theme="dark"]{
-  --ground:#1A1D2B;
-  --surface:#222639;
-  --card:#262A3E;
+  --ground:#040404;
+  --surface:#101010;
+  --card:#171614;
   --ink:#FFFFFF;
-  --body:#B4AFB8;
-  --rule:#343850;
-  --deep:#14161F;
+  --body:#B8B2A4;
+  --rule:#2A2824;
+  --deep:#000000;
   --deep-ink:#FFFFFF;
-  --deep-body:#B9B4C4;
+  --deep-body:#B8B2A4;
   --ty1:#4FC3D9;
   --ty2:#B08CE8;
 }
@@ -77,8 +78,8 @@ header.top{
   backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--rule);
 }
 .topin{max-width:var(--shell);margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:26px}
-.mark{font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.3;white-space:nowrap}
-.mark span{color:var(--red)}
+.mark{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.3;white-space:nowrap}.mark .logo{height:34px;width:auto;display:block}.flogo{display:block;width:180px;height:auto;background:#040404;padding:14px 18px;border-radius:5px;margin:0 0 14px}
+.mark span{color:var(--gold)}
 .navlinks{margin-left:auto;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
 .navlinks a{font-size:14px;text-decoration:none;color:var(--body);white-space:nowrap}
 .navlinks a:hover,.navlinks a.on{color:var(--ink)}
@@ -87,10 +88,10 @@ header.top{
 .tglbtn:hover{color:var(--ink)}
 
 /* ---------- buttons ---------- */
-.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-size:16px;font-weight:400;
+.btn{display:inline-block;background:var(--gold);color:#040404;text-decoration:none;font-size:16px;font-weight:400;
   border-radius:10px;padding:15px 30px;border:none;cursor:pointer;font-family:inherit;line-height:1.4}
 .btn:hover{filter:brightness(1.08)}
-.btn.gold{background:var(--gold)}
+.btn.gold{background:var(--gold);color:#040404}
 .btn.acc{background:var(--accent);color:var(--accent-ink)}
 .btn.ghost{background:none;color:var(--ink);border:1px solid var(--rule)}
 .btn.ghost:hover{border-color:var(--accent);color:var(--accent);filter:none}
@@ -152,7 +153,7 @@ section.tight{padding:52px 0}
 .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px 30px}
 .step{position:relative;padding:10px 20px 10px 100px;min-height:96px}
 .step .n{position:absolute;left:0;top:2px;font-size:44px;font-weight:700;line-height:1;
-  color:var(--stepc,var(--red));font-variant-numeric:tabular-nums;opacity:.9}
+  color:var(--stepc,var(--gold));font-variant-numeric:tabular-nums;opacity:.9}
 .step .n::after{content:".";}
 .step h4{font-size:18px;margin-bottom:8px}
 .step p{font-size:14.5px;line-height:1.7}
@@ -220,7 +221,7 @@ th{color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-t
  <a href="../">see version 1</a></div>
 <header class="top">
   <div class="topin">
-    <a class="mark" href="#/">Human First<span>&nbsp;Media</span></a>
+    <a class="mark" href="#/"><img class="logo" src="../assets/hfm-mark.png" srcset="../assets/hfm-mark@2x.png 2x" alt="">Human <span>First</span> Media</a>
     <nav class="navlinks" id="nav"></nav>
   </div>
 </header>
@@ -230,7 +231,7 @@ th{color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-t
 <footer>
   <div class="shell fgrid">
     <div>
-      <h5>Human First Media</h5>
+      <img class="flogo" src="../assets/hfm-logo.png" srcset="../assets/hfm-logo@2x.png 2x" alt="Human First Media">
       <p class="small">We build AI systems companies still run a year later. Meredith Medland has built
       online since 1995, six technology cycles deep.</p>
     </div>
@@ -253,7 +254,7 @@ th{color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-t
 
 <script>
 const TIERS=[
- {id:"t0",n:"Tier 0",name:"Diagnostics",c:"var(--cyan)",cw:"rgba(60,194,219,.10)",ink:"#0B2C33",
+ {id:"t0",n:"Tier 0",name:"Diagnostics",c:"var(--amber)",cw:"rgba(224,142,27,.10)",ink:"#2B2308",
   tag:"One week. One ranked finding. Then decide.",
   promise:"Before you spend a dollar on AI, find out what is broken and what it costs you. Ranked, with the evidence attached.",
   lede:"Three short engagements. Each one hands you a finding you did not have and the proof behind it. Small enough to say yes to. Honest enough to tell you something you did not want to hear. After that, the next decision is obvious.",
@@ -264,7 +265,7 @@ const TIERS=[
   how:"We measure rather than interview. We walk your journey as a customer would, score your published work against a fixed rubric, and ask your individual contributors what they did last week rather than asking their managers what the process is. Then we rank what we found with you in the room, and fix one thing before we leave.",
   sols:["01","02","03"]},
 
- {id:"t1",n:"Tier 1",name:"Foundation",c:"var(--navy)",cw:"rgba(34,38,57,.08)",ink:"#FFFFFF",
+ {id:"t1",n:"Tier 1",name:"Foundation",c:"var(--charcoal)",cw:"rgba(58,54,49,.08)",ink:"#FFFFFF",
   tag:"What every AI tool needs to know about you",
   promise:"Four documents about your company that every tool, assistant and writer reads first. Skip this and everything after it comes out generic.",
   lede:"AI gives back exactly as much specificity as you give it. Feed it thin material and every draft sounds like every other company\u0027s draft. Each piece looks fine on its own, which is why nobody notices until a quarter is gone. This is the tier clients want to skip. It decides whether the rest works.",
@@ -275,7 +276,7 @@ const TIERS=[
   how:"We build from evidence, not from a workshop. Your voice is extracted from your own best writing. Your customer's language comes from recorded calls, support questions, intake forms and reviews of the products they considered instead of yours. Your differentiator is tested against what your competitors publicly claim, and anything appearing on both sides is cut. Then we attach a check that runs at delivery time, because a standard nobody enforces is a preference.",
   sols:["04","05","06","07"]},
 
- {id:"t2",n:"Tier 2",name:"Revenue",c:"var(--red)",cw:"rgba(238,42,82,.08)",ink:"#FFFFFF",
+ {id:"t2",n:"Tier 2",name:"Revenue",c:"var(--gold)",cw:"rgba(249,185,62,.08)",ink:"#FFFFFF",
   tag:"What you sell, how you say it, how it moves",
   promise:"Line up your offers so each one leads to the next. Build pages that make the case. Plan the launch. Give your sellers a routine that runs between campaigns.",
   lede:"Five engagements. How you package what you sell, how you argue for it in writing, how you concentrate demand into a launch window, and what your sales team does on an ordinary Tuesday. This is where the money shows up first.",
@@ -286,7 +287,7 @@ const TIERS=[
   how:"Every offer we specify has to answer two questions that most offer documents never ask: what will this buyer still need afterwards, and which of your products solves that. Making those required fields rather than instinct turns a product list into a ladder. On pages, we front-load the argument into a structured preparation before a sentence is drafted, which is where the six weeks goes. On selling, we start from what your own best seller already does rather than from a curriculum.",
   sols:["08","09","10","11","12"]},
 
- {id:"t3",n:"Tier 3",name:"Content",c:"var(--purple)",cw:"rgba(143,94,216,.09)",ink:"#FFFFFF",
+ {id:"t3",n:"Tier 3",name:"Content",c:"var(--bronze)",cw:"rgba(179,111,22,.09)",ink:"#FFFFFF",
   tag:"Every piece moves a buyer one belief closer",
   promise:"Content built around what a buyer has to believe before they purchase. The topic calendar goes away.",
   lede:"Seven engagements, from the beliefs underneath through weekly production, depth, generated images and video, email, and whether AI assistants name you when a buyer asks. One rule runs through all of it: every piece exists to install a specific belief about a named offer.",
@@ -297,7 +298,7 @@ const TIERS=[
   how:"We build the belief set in your customer's own first-person language, map it against four stages of buyer awareness, and derive the calendar from that rather than brainstorming it. Then we install production with a review gate nothing bypasses, and we are explicit that this engine produces the base layer of your content and not all of it. Your people still write the human material and the timely commentary that sit on top.",
   sols:["13","14","15","16","17","18","19"]},
 
- {id:"t4",n:"Tier 4",name:"Operations",c:"var(--gold)",cw:"rgba(241,185,0,.13)",ink:"#2A2000",
+ {id:"t4",n:"Tier 4",name:"Operations",c:"var(--sand)",cw:"rgba(205,174,106,.13)",ink:"#2A2000",
   tag:"Out of your head and onto paper",
   promise:"Get how the business runs out of your head and into documents your team can follow. Then give every number a compared to what.",
   lede:"Five engagements on how the company runs: the leadership habits above the systems, the documentation underneath them, four numbers you can act on, the revenue leaking out through failed payments, and roles defined by what will be true in a year.",
@@ -308,7 +309,7 @@ const TIERS=[
   how:"We invert how documentation is normally attempted. Rather than asking somebody to write a process up, the person who already runs it records themselves doing it and the written process is generated from the recording, which is why this documentation gets written. On measurement, the hard part is definition rather than arithmetic, so we settle what counts as a client and what counts as a lead in writing before computing anything.",
   sols:["20","21","22","23","24"]},
 
- {id:"t5",n:"Tier 5",name:"AI Systems",c:"var(--teal)",cw:"rgba(31,122,140,.11)",ink:"#FFFFFF",
+ {id:"t5",n:"Tier 5",name:"AI Systems",c:"var(--stone)",cw:"rgba(138,133,123,.11)",ink:"#FFFFFF",
   tag:"Your people build the brain. Then it remembers.",
   promise:"Assistants your own people build. Agents with one named human owner each. A company knowledge base that stays current, so no tool starts cold.",
   lede:"Three engagements that take a company from people pasting the same context into chat windows to automated work with an org chart and a memory. This is the newest material in the suite and where an engagement goes furthest.",
@@ -723,29 +724,29 @@ const HEROART=`<svg class="heroArt" viewBox="0 0 430 330" fill="none" role="img"
   aria-label="Six tiers stacked from diagnostics through AI infrastructure">
  <rect x="0" y="0" width="430" height="330" rx="8" fill="#FFFBF9"/>
  <g font-family="Poppins" font-size="13" font-weight="500">
-  <rect x="26" y="26"  width="378" height="40" rx="5" fill="#3CC2DB" opacity=".16"/>
-  <rect x="26" y="26"  width="6"  height="40" rx="3" fill="#3CC2DB"/>
-  <text x="48" y="51" fill="#222639">Diagnostics</text><text x="360" y="51" fill="#70666A" font-size="12">3</text>
-  <rect x="26" y="74"  width="378" height="40" rx="5" fill="#222639" opacity=".12"/>
-  <rect x="26" y="74"  width="6"  height="40" rx="3" fill="#222639"/>
-  <text x="48" y="99" fill="#222639">Foundation</text><text x="360" y="99" fill="#70666A" font-size="12">4</text>
-  <rect x="26" y="122" width="378" height="40" rx="5" fill="#EE2A52" opacity=".14"/>
-  <rect x="26" y="122" width="6"  height="40" rx="3" fill="#EE2A52"/>
-  <text x="48" y="147" fill="#222639">Revenue architecture</text><text x="360" y="147" fill="#70666A" font-size="12">5</text>
-  <rect x="26" y="170" width="378" height="40" rx="5" fill="#8F5ED8" opacity=".15"/>
-  <rect x="26" y="170" width="6"  height="40" rx="3" fill="#8F5ED8"/>
-  <text x="48" y="195" fill="#222639">Content engine</text><text x="360" y="195" fill="#70666A" font-size="12">7</text>
-  <rect x="26" y="218" width="378" height="40" rx="5" fill="#F1B900" opacity=".2"/>
-  <rect x="26" y="218" width="6"  height="40" rx="3" fill="#F1B900"/>
-  <text x="48" y="243" fill="#222639">Operations</text><text x="360" y="243" fill="#70666A" font-size="12">5</text>
-  <rect x="26" y="266" width="378" height="40" rx="5" fill="#1F7A8C" opacity=".15"/>
-  <rect x="26" y="266" width="6"  height="40" rx="3" fill="#1F7A8C"/>
-  <text x="48" y="291" fill="#222639">AI infrastructure</text><text x="360" y="291" fill="#70666A" font-size="12">3</text>
+  <rect x="26" y="26"  width="378" height="40" rx="5" fill="#E08E1B" opacity=".16"/>
+  <rect x="26" y="26"  width="6"  height="40" rx="3" fill="#E08E1B"/>
+  <text x="48" y="51" fill="#3A3631">Diagnostics</text><text x="360" y="51" fill="#5E5A52" font-size="12">3</text>
+  <rect x="26" y="74"  width="378" height="40" rx="5" fill="#3A3631" opacity=".12"/>
+  <rect x="26" y="74"  width="6"  height="40" rx="3" fill="#3A3631"/>
+  <text x="48" y="99" fill="#3A3631">Foundation</text><text x="360" y="99" fill="#5E5A52" font-size="12">4</text>
+  <rect x="26" y="122" width="378" height="40" rx="5" fill="#F9B93E" opacity=".14"/>
+  <rect x="26" y="122" width="6"  height="40" rx="3" fill="#F9B93E"/>
+  <text x="48" y="147" fill="#3A3631">Revenue architecture</text><text x="360" y="147" fill="#5E5A52" font-size="12">5</text>
+  <rect x="26" y="170" width="378" height="40" rx="5" fill="#B36F16" opacity=".15"/>
+  <rect x="26" y="170" width="6"  height="40" rx="3" fill="#B36F16"/>
+  <text x="48" y="195" fill="#3A3631">Content engine</text><text x="360" y="195" fill="#5E5A52" font-size="12">7</text>
+  <rect x="26" y="218" width="378" height="40" rx="5" fill="#CDAE6A" opacity=".2"/>
+  <rect x="26" y="218" width="6"  height="40" rx="3" fill="#CDAE6A"/>
+  <text x="48" y="243" fill="#3A3631">Operations</text><text x="360" y="243" fill="#5E5A52" font-size="12">5</text>
+  <rect x="26" y="266" width="378" height="40" rx="5" fill="#8A857B" opacity=".15"/>
+  <rect x="26" y="266" width="6"  height="40" rx="3" fill="#8A857B"/>
+  <text x="48" y="291" fill="#3A3631">AI infrastructure</text><text x="360" y="291" fill="#5E5A52" font-size="12">3</text>
  </g>
 </svg>`;
 
 /* literal hex per tier: SVG presentation attributes do not resolve CSS variables */
-const HEX={t0:'#3CC2DB',t1:'#222639',t2:'#EE2A52',t3:'#8F5ED8',t4:'#F1B900',t5:'#1F7A8C'};
+const HEX={t0:'#E08E1B',t1:'#3A3631',t2:'#F9B93E',t3:'#B36F16',t4:'#CDAE6A',t5:'#8A857B'};
 /* PRICE BANDS. Empty string hides the row. Fill one string per tier and the band
    appears on that tier page and on every engagement card inside it.
    e.g. band:"$8k to $15k"  */
@@ -773,8 +774,8 @@ const TYPEINFO={
 const T=id=>TIERS.find(t=>t.id===id);
 const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 const setAcc=(c,w,ink)=>{const r=document.documentElement;
-  r.style.setProperty('--accent',c||'#EE2A52');
-  r.style.setProperty('--wash',w||'rgba(238,42,82,.07)');
+  r.style.setProperty('--accent',c||'#F9B93E');
+  r.style.setProperty('--wash',w||'rgba(249,185,62,.07)');
   r.style.setProperty('--accent-ink',ink||'#FFFFFF');};
 
 /* ---------- shared partials ---------- */
@@ -796,7 +797,7 @@ const solCard=(id)=>{const s=S[id],t=T(s.t);
 
 /* ---------- home ---------- */
 function home(){
- setAcc('#EE2A52','rgba(238,42,82,.07)','#FFFFFF');
+ setAcc('#F9B93E','rgba(249,185,62,.07)','#FFFFFF');
  return `
  <section class="hero"><div class="shell">
    <div class="rule"></div>
@@ -860,15 +861,15 @@ function home(){
    <p class="eyebrow">How we work</p>
    <h2 class="h-sec" style="margin-bottom:34px">Four moves, every engagement.</h2>
    <div class="steps">
-     <div class="step" style="--stepc:var(--red)"><span class="n">01</span><h4>Diagnose</h4><p>We measure rather than interview.
+     <div class="step" style="--stepc:var(--gold)"><span class="n">01</span><h4>Diagnose</h4><p>We measure rather than interview.
      What we hand back is a ranked finding with the evidence attached, including the parts of your
      business nobody currently measures.</p></div>
-     <div class="step" style="--stepc:var(--purple)"><span class="n">02</span><h4>Ground</h4><p>We build the documents every system
+     <div class="step" style="--stepc:var(--bronze)"><span class="n">02</span><h4>Ground</h4><p>We build the documents every system
      downstream reads, from your own evidence: your writing, your customers' recorded words, your
      competitors' actual claims.</p></div>
-     <div class="step" style="--stepc:var(--cyan)"><span class="n">03</span><h4>Install</h4><p>We build with your team in the room
+     <div class="step" style="--stepc:var(--amber)"><span class="n">03</span><h4>Install</h4><p>We build with your team in the room
      and hand the work to them before we leave. If we do it for you, it stops the week we go.</p></div>
-     <div class="step" style="--stepc:var(--gold)"><span class="n">04</span><h4>Hold</h4><p>Every install ships with a cadence and
+     <div class="step" style="--stepc:var(--sand)"><span class="n">04</span><h4>Hold</h4><p>Every install ships with a cadence and
      a named owner. A standard nobody enforces is a preference, so we attach the check that runs at
      delivery time.</p></div>
    </div>
@@ -919,7 +920,7 @@ function home(){
 
 /* ---------- method ---------- */
 function method(){
- setAcc('#EE2A52','rgba(238,42,82,.07)','#FFFFFF');
+ setAcc('#F9B93E','rgba(249,185,62,.07)','#FFFFFF');
  return `<section class="hero"><div class="shell narrow">
    <div class="rule"></div>
    <p class="eyebrow" style="margin:0 0 12px">How we work</p>
@@ -1132,7 +1133,7 @@ function solution(id){
 
 /* ---------- contact ---------- */
 function contact(){
- setAcc('#EE2A52','rgba(238,42,82,.07)','#FFFFFF');
+ setAcc('#F9B93E','rgba(249,185,62,.07)','#FFFFFF');
  return `<section class="hero"><div class="shell narrow">
    <div class="rule"></div>
    <p class="eyebrow" style="margin:0 0 12px">Contact</p>

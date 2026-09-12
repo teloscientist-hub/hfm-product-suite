@@ -2,7 +2,7 @@
 # v4 content model: 37 Mario-only units, six tiers, typed by AI dependency.
 
 TIERS = [
- {"id":"t0","short":"Diagnostics","n":"Tier 0","name":"Diagnostics","c":"var(--cyan)","hex":"#3CC2DB",
+ {"id":"t0","short":"Diagnostics","n":"Tier 0","name":"Diagnostics","c":"var(--amber)","hex":"#E08E1B",
   "tag":"Cheap, short, and each one produces a finding you did not have",
   "promise":"Four measurements handed to you about your own operation. Nothing autonomous, nothing installed, nothing that can go wrong on a Friday.",
   "lede":"Every engagement below starts here. These are the cheapest things we sell and the only ones that work without knowing anything about you first. Each produces one artifact: a ranked constraint, a convergence score, a message count, or a number showing what share of your spend went into things that lost money.",
@@ -12,7 +12,7 @@ TIERS = [
     {"h":"It decides which tier you need","p":"The Ceiling Read in particular exists to rank the other six tiers for you, including the parts of them you should not buy."}],
   "how":"We measure rather than interview. The best test in the whole set is free and takes a minute: ask three people to produce a link to something they built more than a month ago, and time it."},
 
- {"id":"t1","short":"Ground truth","n":"Tier 1","name":"Ground truth","c":"var(--navy)","hex":"#222639",
+ {"id":"t1","short":"Ground truth","n":"Tier 1","name":"Ground truth","c":"var(--charcoal)","hex":"#3A3631",
   "tag":"The gate. Nothing above this tier works without it",
   "promise":"Find out what is actually true about your numbers, your estate and your results, before anyone builds anything on top of them.",
   "lede":"Five of the nine engagements this material specifies decline the same client for the same reason, and not one of them fixes it. The reason is that the client cannot say which of their last twenty assets performed. We fix that and charge for it, rather than walking away or absorbing it unpriced inside somebody else's phase one.",
@@ -22,7 +22,7 @@ TIERS = [
     {"h":"It makes the price arithmetic instead of posture","p":"Once the unit economics are on the table, every engagement above can be priced against a number you produced rather than a number we asserted."}],
   "how":"Census first, then the uncomfortable question, then the fix with an owner on it. The substrate and retrieval work both end in a deletion decision, which is the phase clients resist and the one that makes the rest hold."},
 
- {"id":"t2","short":"Judgment","n":"Tier 2","name":"Judgment capture","c":"var(--red)","hex":"#EE2A52",
+ {"id":"t2","short":"Judgment","n":"Tier 2","name":"Judgment capture","c":"var(--gold)","hex":"#F9B93E",
   "tag":"One person's taste, turned into something somebody else can run",
   "promise":"Take the standard that lives in one person's head and make it run without them, then keep it from drifting back to the average.",
   "lede":"This is the only tier with no competitor equivalent, and it is the reason to read this site at all. Five engagements, every one of them an AI system, that between them capture what a good output looks like, judge against it before a human sees a draft, add back the things rules cannot add, and correct the whole thing on a schedule.",
@@ -32,7 +32,7 @@ TIERS = [
     {"h":"The expert is the bottleneck and cannot be interviewed out of it","p":"Asking an expert for their rules produces a document nobody can run. Capturing them correcting real work produces an asset. The two look similar and only one of them works."}],
   "how":"We capture corrections to real work rather than asking anyone to describe their standard. Twenty artifacts that need fixing, the expert present, the reasoning recorded as the change is made. Then a judge grades before a human reads anything, and a different model writes than the one that judges."},
 
- {"id":"t3","short":"Production","n":"Tier 3","name":"Production at volume","c":"var(--gold)","hex":"#F1B900",
+ {"id":"t3","short":"Production","n":"Tier 3","name":"Production at volume","c":"var(--sand)","hex":"#CDAE6A",
   "tag":"Assets made in quantity, with the judge attached",
   "promise":"Produce at a volume that would need a team, without the output converging on itself.",
   "lede":"Seven engagements, built inside an operation running enormous paid-media volume. This is the largest part of the source material and the narrowest fit: it assumes you have an ad account, a feedback loop and enough spend that a hit rate means something. We say so on every page in this tier rather than finding out in week two.",
@@ -42,7 +42,7 @@ TIERS = [
     {"h":"Creative is not the only variable","p":"The one measured ledger in this material shows the same asset producing the best and the worst result six weeks apart on different lists. List and timing move the number as much as the making does."}],
   "how":"Find the validated winner, vary one axis at a time in cost order, and separate the idea from its dressing until the team can do it unaided. The exploitation ratio is usually one to three, and the message count behind two hundred assets is usually three to five."},
 
- {"id":"t4","short":"Infrastructure","n":"Tier 4","name":"Infrastructure and enforcement","c":"var(--purple)","hex":"#8F5ED8",
+ {"id":"t4","short":"Infrastructure","n":"Tier 4","name":"Infrastructure and enforcement","c":"var(--bronze)","hex":"#B36F16",
   "tag":"What you run after we leave, and what stops it going wrong",
   "promise":"Where the systems live, who owns each one, and the check that fires before anything reaches a customer.",
   "lede":"Six engagements in two halves that do not resemble each other. Three are AI infrastructure and they age fastest of anything on this site. Three are enforcement, and they are indifferent to which model is current: a standard checked at delivery rather than at review, a claims gate, and a written decision about what the business will say.",
@@ -52,7 +52,7 @@ TIERS = [
     {"h":"Volume multiplied and the decision did not","p":"Output went up tenfold and nobody decided what the business would and would not claim. One unexamined framing is now in four hundred assets and no one approved it."}],
   "how":"Enforcement goes where the cost jumps rather than where the process looks tidy. Where there is a pipeline the check is a rule in the judge. Where the work is human it is a named gate with a person's name on it."},
 
- {"id":"t5","short":"Commercial","n":"Tier 5","name":"Commercial practice","c":"var(--teal)","hex":"#1F7A8C",
+ {"id":"t5","short":"Commercial","n":"Tier 5","name":"Commercial practice","c":"var(--stone)","hex":"#8A857B",
   "tag":"A different buyer entirely, and mostly not about AI at all",
   "promise":"How a business that sells expertise gets clients, prices work, keeps them, and turns what it knows into something it owns.",
   "lede":"Ten engagements, none of which involve a model at any point. Eight describe how a professional services firm runs itself. Two, the Delivery Ladder and the Proving Ground, are full client engagements for businesses whose material has stopped changing or whose method walks out the door with every client. Do not read this tier as an extension of the five above it. The buyer is different and so is the conversation.",

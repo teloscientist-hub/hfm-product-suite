@@ -8,7 +8,9 @@ OUT = "/Users/mark/Library/CloudStorage/Dropbox-BPTNB/mark lewis/_GPT Meta/HFM -
 
 src = io.open(V3, encoding="utf-8").read().split("\n")
 # v3 CSS lives in lines 9..243 (1-indexed) across two <style> blocks
-css = "\n".join(src[8:243])
+sty_i = src.index("<style>")
+app_i = src.index('<div id="app"></div>')
+css = "\n".join(src[sty_i:app_i-1])
 
 EXTRA_CSS = """
 <style>
@@ -16,11 +18,11 @@ EXTRA_CSS = """
 .tbadge{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
   font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid currentColor;white-space:nowrap;line-height:1.6}
 .tbadge .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
-.t-C{color:#EE2A52}
-.t-A{color:#8F5ED8}
-.t-N{color:#2F7F5B}
-:root[data-theme="dark"] .t-N{color:#5FBF8F}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .t-N{color:#5FBF8F}}
+.t-C{color:#F9B93E}
+.t-A{color:#B36F16}
+.t-N{color:#8A857B}
+:root[data-theme="dark"] .t-N{color:#A9A49A}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .t-N{color:#A9A49A}}
 .filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 24px}
 .filter a{font-size:12.5px;text-decoration:none;padding:6px 13px;border-radius:999px;border:1px solid var(--rule);
   color:var(--body);white-space:nowrap}
@@ -64,13 +66,13 @@ html,body{overflow-x:hidden}
 
 TYPE_META = {
  "C": {"k":"C","slug":"ai-centric","name":"AI-centric","test":"Remove AI and the engagement disappears",
-       "buy":"The AI system is the deliverable","hex":"#EE2A52",
+       "buy":"The AI system is the deliverable","hex":"#F9B93E",
        "who":"The buyer who arrived saying they need AI","ages":"Fastest","proof":"Weakest. Nothing here has been run at a client yet"},
  "A": {"k":"A","slug":"ai-assisted","name":"AI-assisted","test":"Remove AI and it shrinks but survives",
-       "buy":"Real work, done faster and at more volume","hex":"#8F5ED8",
+       "buy":"Real work, done faster and at more volume","hex":"#B36F16",
        "who":"The buyer with a production problem","ages":"Slowly","proof":"Strongest. A measured ledger, a 212-case pricing register"},
  "N": {"k":"N","slug":"not-ai","name":"Not about AI","test":"Remove AI and nothing changes",
-       "buy":"A decision, a standard or a structure","hex":"#2F7F5B",
+       "buy":"A decision, a standard or a structure","hex":"#8A857B",
        "who":"Nobody asks. It gets diagnosed","ages":"Not at all","proof":"Middling, and mostly one teacher"},
 }
 
@@ -119,7 +121,7 @@ function badge(k){const m=TYPES[k];return `<span class="tbadge t-${k}" title="${
 
 function nav(active){
   return `<header class="top"><div class="topin">
-    <a class="mark" href="#/">HUMAN FIRST<span>.</span></a>
+    <a class="mark" href="#/"><img class="logo" src="../assets/hfm-mark.png" srcset="../assets/hfm-mark@2x.png 2x" alt="">Human <span>First</span> Media</a>
     <nav class="navlinks">
       ${TIERS.map(t=>`<a href="#/tier/${t.id}" class="${active===t.id?'on':''}">${esc(t.short)}</a>`).join('')}
       <a href="#/types" class="${active==='types'?'on':''}">How much is AI</a>
@@ -155,10 +157,10 @@ function foot(){
   return `<section class="dark tight"><div class="shell narrow stack">
     <h2 class="h-sec">Tell us the symptom, not the solution.</h2>
     <p class="lede" style="color:var(--deep-body)">If the first thing you need is not on this page we will say so. Four of the thirty-seven exist to tell you that you are not ready for the other thirty-three.</p>
-    <div class="btnrow"><a class="btn" href="#/start">Start with a diagnostic</a><a class="btn ghost" href="#/limits" style="color:#fff;border-color:#4A4F66">What we do not do</a></div>
+    <div class="btnrow"><a class="btn" href="#/start">Start with a diagnostic</a><a class="btn ghost" href="#/limits" style="color:#fff;border-color:#3A3631">What we do not do</a></div>
   </div></section>
   <footer style="padding:26px 0;border-top:1px solid var(--rule)"><div class="shell small" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between">
-    <span>Human First Media</span><span>Thirty-seven engagements. Six tiers. Twelve of them are actually about AI.</span></div></footer>`;
+    <img class="flogo" src="../assets/hfm-logo.png" srcset="../assets/hfm-logo@2x.png 2x" alt="Human First Media"><span>Thirty-seven engagements. Six tiers. Twelve of them are actually about AI.</span></div></footer>`;
 }
 
 function heroArt(){
@@ -168,8 +170,8 @@ function heroArt(){
     const y=i*(rowh+gap)+16; let x=x0;
     const unit=(w-x0*2)/TOT.tot*1.0;
     const seg=(n,fill)=>{ if(!n) return ''; const ww=n*((w-x0*2)/10); const s=`<rect x="${x}" y="${y}" width="${Math.max(ww,0)}" height="${rowh}" fill="${fill}"/>`; x+=ww+2; return s; };
-    out+=seg(r.C,'#EE2A52')+seg(r.A,'#8F5ED8')+seg(r.N,'#2F7F5B');
-    out+=`<text x="${x+8}" y="${y+rowh/2+5}" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="${r.hex==='#222639'?'#70666A':r.hex}">${r.tot}</text>`;
+    out+=seg(r.C,'#F9B93E')+seg(r.A,'#B36F16')+seg(r.N,'#8A857B');
+    out+=`<text x="${x+8}" y="${y+rowh/2+5}" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="${r.hex==='#3A3631'?'#5E5A52':r.hex}">${r.tot}</text>`;
   });
   out+=`</svg>`;
   return out;
@@ -212,8 +214,8 @@ function home(){
     <h2 class="h-sec">The AI sits in the middle, not at the top.</h2>
     <div class="deck" style="margin-top:10px">
       <div class="pt"><h4>Tier 1 gates everything and contains no AI</h4><p>The precondition for buying an AI system is five pieces of measurement and architecture work with no model in any deliverable. That is why the front of this menu is buyable before you have decided anything about AI.</p></div>
-      <div class="pt" style="border-color:var(--red)"><h4>Tier 2 is five for five</h4><p>Judgment capture is the only tier where every engagement is an AI system, and it is the only thing here with no competitor equivalent. It is also where a rules-only approach stops working and almost nobody says so.</p></div>
-      <div class="pt" style="border-color:var(--teal)"><h4>Tier 5 is ten for ten the other way</h4><p>The top of the ladder has no model in it anywhere. Contracts, referrals, pricing and how a firm funds its own research. The outreach template in it dates to 2013 and still runs.</p></div>
+      <div class="pt" style="border-color:var(--gold)"><h4>Tier 2 is five for five</h4><p>Judgment capture is the only tier where every engagement is an AI system, and it is the only thing here with no competitor equivalent. It is also where a rules-only approach stops working and almost nobody says so.</p></div>
+      <div class="pt" style="border-color:var(--stone)"><h4>Tier 5 is ten for ten the other way</h4><p>The top of the ladder has no model in it anywhere. Contracts, referrals, pricing and how a firm funds its own research. The outreach template in it dates to 2013 and still runs.</p></div>
     </div>
     <div class="gate" style="margin-top:34px"><b>One number worth knowing before you read further.</b> Exactly one of these thirty-seven engagements has the word AI in its name. Twelve of them are AI systems. This material was written by people describing their work rather than marketing it, which is the opposite of the usual drift and is why every page here carries a type badge.</div>
   </div></section>` + foot();
@@ -322,13 +324,13 @@ function typesPage(tk){
         <td class="num ${r.A?'':'zero'}">${r.A}</td>
         <td class="num ${r.N?'':'zero'}">${r.N}</td>
         <td><div class="bar" style="width:${Math.round(r.tot/maxr*100)}%">
-          ${r.C?`<i style="background:#EE2A52;flex:${r.C}"></i>`:''}
-          ${r.A?`<i style="background:#8F5ED8;flex:${r.A}"></i>`:''}
-          ${r.N?`<i style="background:#2F7F5B;flex:${r.N}"></i>`:''}
+          ${r.C?`<i style="background:#F9B93E;flex:${r.C}"></i>`:''}
+          ${r.A?`<i style="background:#B36F16;flex:${r.A}"></i>`:''}
+          ${r.N?`<i style="background:#8A857B;flex:${r.N}"></i>`:''}
         </div></td></tr>`).join('')}
       <tr class="tot"><td><b style="color:var(--ink)">All six tiers</b></td>
         <td class="num">${TOT.C}</td><td class="num">${TOT.A}</td><td class="num">${TOT.N}</td>
-        <td><div class="bar"><i style="background:#EE2A52;flex:${TOT.C}"></i><i style="background:#8F5ED8;flex:${TOT.A}"></i><i style="background:#2F7F5B;flex:${TOT.N}"></i></div></td></tr>
+        <td><div class="bar"><i style="background:#F9B93E;flex:${TOT.C}"></i><i style="background:#B36F16;flex:${TOT.A}"></i><i style="background:#8A857B;flex:${TOT.N}"></i></div></td></tr>
       </tbody></table></div>
     <div class="two" style="margin-top:38px">
       <div class="stack">
@@ -457,6 +459,7 @@ HEAD = """<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="googlebot" content="noindex, nofollow">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
 <title>Human First Media | Find out what is true, then build on it</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
