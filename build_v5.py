@@ -154,11 +154,11 @@ function card(u){
 function foot(){
   return `<section class="dark tight"><div class="shell narrow stack">
     <h2 class="h-sec">Tell us the symptom, not the solution.</h2>
-    <p class="lede" style="color:var(--deep-body)">If the first thing you need is not on this page we will say so. Four of the thirty-two exist to hand you a reading rather than sell you a system.</p>
+    <p class="lede" style="color:var(--deep-body)">If the first thing you need is not on this page we will say so. ${TIERS[0].units.length} of the ${TOT.tot} exist to hand you a reading rather than sell you a system.</p>
     <div class="btnrow"><a class="btn" href="#/start">Start with a diagnostic</a><a class="btn ghost" href="#/limits" style="color:#fff;border-color:#4A4F66">What we do not do</a></div>
   </div></section>
   <footer style="padding:26px 0;border-top:1px solid var(--rule)"><div class="shell small" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between">
-    <span>Human First Media</span><span>Thirty-seven engagements. Six tiers. Twelve of them are actually about AI.</span></div></footer>`;
+    <span>Human First Media</span><span>${TOT.tot} engagements. ${TIERS.length} tiers. ${TOT.C} of them are AI systems.</span></div></footer>`;
 }
 
 function heroArt(){
@@ -334,15 +334,15 @@ function typesPage(tk){
       <div class="stack">
         <h3 class="h-sub">Three readings of that table</h3>
         <ul class="ticks">
-          <li><b>Tier 1 is the gate for every AI tier and contains no AI.</b> Five pieces of measurement and estate work, no model in any deliverable. It is the part of this menu you can buy before deciding anything about AI.</li>
-          <li><b>Tier 2 is five for five and it is the only tier that is.</b> Judgment capture is the purest AI product here and the one with no competitor equivalent.</li>
-          <li><b>Tier 5 is ten for ten in the other direction.</b> The top of the ladder is indifferent to which model is current.</li>
+          <li><b>${XT[0].n} contains no AI systems.</b> All ${XT[0].tot} diagnostics are work AI makes faster or work with no model in it, which is why the front of this menu is buyable before you have decided anything about AI.</li>
+          <li><b>Tiers 2 and 3 are ${XT[2].C+XT[3].C} for ${XT[2].tot+XT[3].tot}.</b> Every engagement in the middle is an AI system, and Tier 2 has no equivalent anywhere else in our catalogue.</li>
+          <li><b>${XT[5].n} is ${XT[5].N} for ${XT[5].tot} the other way.</b> Pricing, outreach, positioning and the retainer argument. None of it carries a version number.</li>
         </ul>
       </div>
       <div class="stack">
-        <h3 class="h-sub">And one about the fifteen</h3>
-        <p>Ten of the fifteen not-about-AI engagements are in Tier 5, and eight of those describe how a professional services firm runs itself rather than something a client buys. We adopted those before putting them on this page.</p>
-        <p class="note" style="margin-top:14px">So the not-about-AI work you can actually buy from us is seven engagements, not fifteen. The number on the card is honest about the library and would be misleading about the shelf, which is why it is said here.</p>
+        <h3 class="h-sub">And one about the ${TOT.N}</h3>
+        <p>${XT[5].N} of the ${TOT.N} not-about-AI engagements are in Tier 5, and they sell to somebody running a practice rather than somebody running a marketing function. The other ${TOT.N-XT[5].N} are measurement and deliverability work any business can buy.</p>
+        <p class="note" style="margin-top:14px">The number on the card is honest about the library. Read the tier before assuming the shelf is for you.</p>
       </div>
     </div>
   </div></section>
