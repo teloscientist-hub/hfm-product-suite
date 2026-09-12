@@ -26,6 +26,8 @@
   --wash:rgba(238,42,82,.07);
   --shell:1180px;
   --text:1px;
+  --ty1:#1F7A8C;
+  --ty2:#7B47D0;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
@@ -38,6 +40,8 @@
     --deep:#14161F;
     --deep-ink:#FFFFFF;
     --deep-body:#B9B4C4;
+    --ty1:#4FC3D9;
+    --ty2:#B08CE8;
   }
 }
 :root[data-theme="dark"]{
@@ -50,6 +54,8 @@
   --deep:#14161F;
   --deep-ink:#FFFFFF;
   --deep-body:#B9B4C4;
+  --ty1:#4FC3D9;
+  --ty2:#B08CE8;
 }
 
 *{box-sizing:border-box}
@@ -175,6 +181,11 @@ ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;heig
   padding:2px 8px;border-radius:999px;background:var(--rule);color:var(--body)}
 .pill{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
   padding:5px 11px;border-radius:999px;background:var(--wash);color:var(--accent)}
+.tybadge{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+  padding:5px 11px;border-radius:999px;border:1px solid currentColor;background:transparent}
+.ty1{color:var(--ty1)}.ty2{color:var(--ty2)}.ty3{color:var(--body)}
+.tyline{font-size:14px;line-height:1.6;color:var(--body);margin-top:14px;max-width:62ch}
+.tyline b{color:var(--ink);font-weight:600}
 
 /* ---------- breadcrumb ---------- */
 .crumb{font-size:13px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
@@ -744,6 +755,21 @@ const BAND={t0:"",t1:"",t2:"",t3:"",t4:"",t5:""};
    anything not listed is labeled "In development" and sorts after the proven ones. */
 const PROVEN=[];
 const isProven=id=>PROVEN.length===0||PROVEN.includes(id);
+
+/* AI DEPENDENCY TYPE. How much of the delivered thing is actually AI, per engagement.
+   1 = AI-centric.    The AI system is the deliverable. Remove AI and there is no engagement left
+   2 = AI-supported.  Real work that survives without AI, done faster and at more volume because of it
+   3 = Not about AI.  Business practice. Remove AI and nothing changes
+   Classified by deliverable rather than by title. Source and reasoning:
+   "00 - The v2 Twenty-Seven, Typed 2026-09-11.md". Set SHOW_TYPE to false to hide the badge. */
+const SHOW_TYPE=true;
+const TY={"01":3,"02":2,"03":2,"04":3,"05":3,"06":3,"07":3,"08":3,"09":2,
+ "10":3,"11":3,"12":3,"13":3,"14":2,"15":3,"16":1,"17":1,"18":3,"19":1,
+ "20":3,"21":2,"22":3,"23":3,"24":3,"25":1,"26":1,"27":1};
+const TYPEINFO={
+ 1:{tag:"AI-centric",line:"The AI system is what you are buying. Remove AI and there is no engagement left."},
+ 2:{tag:"AI-supported",line:"Real work that survives without AI. AI is what makes it fast enough to be worth doing."},
+ 3:{tag:"Not an AI engagement",line:"Business practice. Nothing here needs a model, and it does not go stale when the tooling changes."}};
 const T=id=>TIERS.find(t=>t.id===id);
 const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 const setAcc=(c,w,ink)=>{const r=document.documentElement;
@@ -755,6 +781,11 @@ const setAcc=(c,w,ink)=>{const r=document.documentElement;
 const cta=(h,p,b1,b2)=>`<section class="ctaband"><div class="shell">
   <h2 class="h-sec">${h}</h2><p class="lede" style="color:var(--deep-body)">${p}</p>
   <div class="btnrow">${b1}${b2||''}</div></div></section>`;
+
+const tyBadge=(id)=>{if(!SHOW_TYPE||!TY[id])return '';const n=TY[id];
+ return `<span class="tybadge ty${n}">${TYPEINFO[n].tag}</span>`;};
+const tyLine=(id)=>{if(!SHOW_TYPE||!TY[id])return '';const n=TY[id];
+ return `<p class="tyline"><b>${TYPEINFO[n].tag}.</b> ${esc(TYPEINFO[n].line)}</p>`;};
 
 const solCard=(id)=>{const s=S[id],t=T(s.t);
  return `<a class="scard" href="#/solution/${id}" style="--accent:${t.c}">
@@ -1035,7 +1066,9 @@ function solution(id){
    <div class="btnrow">
      <span class="pill">${esc(s.time)}</span>
      <span class="pill">For ${esc(s.who)}</span>
+     ${tyBadge(id)}
    </div>
+   ${tyLine(id)}
  </div></section>
 
  <section class="band"><div class="shell">

@@ -1,0 +1,646 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Human First Media | Find out what is true, then build on it</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap">
+<style>
+:root{
+  --ground:#FFFBF9;
+  --surface:#FFFFFF;
+  --card:#FFFBF9;
+  --ink:#000000;
+  --body:#70666A;
+  --rule:#E8DFDC;
+  --deep:#222639;
+  --deep-ink:#FFFFFF;
+  --deep-body:#B9B4C4;
+  --red:#EE2A52;
+  --purple:#8F5ED8;
+  --cyan:#3CC2DB;
+  --gold:#F1B900;
+  --teal:#1F7A8C;
+  --navy:#222639;
+  --accent:#EE2A52;
+  --accent-ink:#FFFFFF;
+  --wash:rgba(238,42,82,.07);
+  --shell:1180px;
+  --text:1px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#1A1D2B;
+    --surface:#222639;
+    --card:#262A3E;
+    --ink:#FFFFFF;
+    --body:#B4AFB8;
+    --rule:#343850;
+    --deep:#14161F;
+    --deep-ink:#FFFFFF;
+    --deep-body:#B9B4C4;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#1A1D2B;
+  --surface:#222639;
+  --card:#262A3E;
+  --ink:#FFFFFF;
+  --body:#B4AFB8;
+  --rule:#343850;
+  --deep:#14161F;
+  --deep-ink:#FFFFFF;
+  --deep-body:#B9B4C4;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ground);color:var(--body);
+  font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.8;font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{color:var(--ink);margin:0;text-wrap:balance;line-height:1.25;font-weight:600}
+p{margin:0}
+a{color:inherit}
+.shell{max-width:var(--shell);margin:0 auto;padding:0 28px}
+.narrow{max-width:760px}
+
+/* ---------- nav ---------- */
+header.top{
+  position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--ground) 92%,transparent);
+  backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--rule);
+}
+.topin{max-width:var(--shell);margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:26px}
+.mark{font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.3;white-space:nowrap}
+.mark span{color:var(--red)}
+.navlinks{margin-left:auto;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.navlinks a{font-size:14px;text-decoration:none;color:var(--body);white-space:nowrap}
+.navlinks a:hover,.navlinks a.on{color:var(--ink)}
+.tglbtn{border:1px solid var(--rule);background:none;color:var(--body);font:inherit;font-size:12px;
+  border-radius:999px;padding:5px 12px;cursor:pointer}
+.tglbtn:hover{color:var(--ink)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-size:16px;font-weight:400;
+  border-radius:10px;padding:15px 30px;border:none;cursor:pointer;font-family:inherit;line-height:1.4}
+.btn:hover{filter:brightness(1.08)}
+.btn.gold{background:var(--gold)}
+.btn.acc{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--rule)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent);filter:none}
+.btnrow{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* ---------- type roles ---------- */
+.eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--accent);margin:0 0 14px}
+.h-hero{font-size:clamp(32px,5.2vw,54px);font-weight:700;letter-spacing:-.015em}
+.h-sec{font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-.01em}
+.h-sub{font-size:20px;font-weight:600}
+.lede{font-size:clamp(18px,2.1vw,21px);line-height:1.75;color:var(--body);font-weight:400}
+.small{font-size:14px;line-height:1.7}
+.stack>*+*{margin-top:18px}
+
+/* ---------- sections ---------- */
+section{padding:76px 0}
+section.tight{padding:52px 0}
+.band{background:var(--surface);border-block:1px solid var(--rule)}
+.dark{background:var(--deep);color:var(--deep-body)}
+.dark h1,.dark h2,.dark h3,.dark h4{color:var(--deep-ink)}
+
+/* ---------- hero : split, text left, art right (matches hfm) ---------- */
+.hero{padding:70px 0 60px;position:relative;overflow:hidden}
+.hero .rule{width:64px;height:4px;background:var(--accent);border-radius:2px;margin:0 0 26px}
+.heroGrid{display:grid;grid-template-columns:minmax(0,635px) minmax(0,430px);gap:44px;align-items:center}
+@media(max-width:1020px){.heroGrid{grid-template-columns:1fr;gap:34px;align-items:start}}
+.heroArt{width:100%;max-width:430px;justify-self:end}
+@media(max-width:1020px){.heroArt{max-width:340px;justify-self:start}}
+.heroFacts{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:52px;
+  border-top:1px solid var(--rule);padding-top:26px}
+@media(max-width:700px){.heroFacts{grid-template-columns:1fr;gap:18px}}
+.fact b{display:block;color:var(--ink);font-size:26px;font-weight:700;line-height:1.2;font-variant-numeric:tabular-nums}
+.fact span{font-size:13.5px;line-height:1.6;display:block}
+
+/* ---------- tier cards : icon on top, hfm card geometry ---------- */
+.tiergrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:20px}
+.tcard{background:var(--card);border-radius:5px;padding:30px 10px 26px 30px;
+  text-decoration:none;display:flex;flex-direction:column;gap:11px;position:relative;
+  transition:transform .16s ease,background .16s ease}
+.tcard:hover{transform:translateY(-4px)}
+.tcard .ic{width:120px;height:120px;margin-bottom:6px;display:block}
+.tcard .tnum{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--body);font-variant-numeric:tabular-nums}
+.tcard h3{font-size:20px;font-weight:600;color:var(--tc);padding-right:20px}
+.tcard p{font-size:15px;line-height:1.7;padding-right:20px}
+.tcard .cnt{margin-top:auto;padding-top:14px;font-size:13px;color:var(--tc);font-weight:500}
+
+/* ---------- solution cards ---------- */
+.solgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.scard{background:var(--card);border:1px solid var(--rule);border-radius:5px;padding:24px 22px;
+  text-decoration:none;display:flex;flex-direction:column;gap:10px;transition:border-color .16s ease,transform .16s ease}
+.scard:hover{border-color:var(--accent);transform:translateY(-2px)}
+.scard .sn{font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--accent);font-variant-numeric:tabular-nums}
+.scard h4{font-size:17px;font-weight:600}
+.scard p{font-size:14.5px;line-height:1.65}
+.scard .meta{margin-top:auto;padding-top:10px;font-size:12.5px;border-top:1px solid var(--rule);
+  display:flex;gap:10px;flex-wrap:wrap;color:var(--body)}
+
+/* ---------- steps : hanging number, hfm's 100px left offset ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px 30px}
+.step{position:relative;padding:10px 20px 10px 100px;min-height:96px}
+.step .n{position:absolute;left:0;top:2px;font-size:44px;font-weight:700;line-height:1;
+  color:var(--stepc,var(--red));font-variant-numeric:tabular-nums;opacity:.9}
+.step .n::after{content:".";}
+.step h4{font-size:18px;margin-bottom:8px}
+.step p{font-size:14.5px;line-height:1.7}
+
+/* ---------- prose blocks ---------- */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px}
+@media(max-width:820px){.two{grid-template-columns:1fr;gap:32px}}
+.deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.pt h4{font-size:17px;margin-bottom:7px}
+.pt p{font-size:14.5px;line-height:1.7}
+.pt{border-top:2px solid var(--accent);padding-top:16px}
+
+ul.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+ul.ticks li{padding-left:26px;position:relative;font-size:15px;line-height:1.7}
+ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:2px;background:var(--accent)}
+
+.quote{border-left:3px solid var(--accent);padding:2px 0 2px 24px;font-size:17px;line-height:1.75;color:var(--ink);font-weight:500}
+.quote cite{display:block;margin-top:12px;font-size:13.5px;font-style:normal;font-weight:400;color:var(--body)}
+
+.vbar{background:var(--deep);color:#fff;font-size:12.5px;padding:8px 0;text-align:center;letter-spacing:.02em}
+.vbar a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+.vbar b{font-weight:600}
+.band-line{font-size:15px;margin-top:18px;color:var(--body)}
+.band-line b{color:var(--ink);font-weight:600}
+.devtag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  padding:2px 8px;border-radius:999px;background:var(--rule);color:var(--body)}
+.pill{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+  padding:5px 11px;border-radius:999px;background:var(--wash);color:var(--accent)}
+
+/* ---------- breadcrumb ---------- */
+.crumb{font-size:13px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
+.crumb a{text-decoration:none;color:var(--body)}
+.crumb a:hover{color:var(--accent)}
+.crumb .sep{opacity:.5}
+
+/* ---------- cta band ---------- */
+.ctaband{background:var(--deep);color:var(--deep-body);padding:64px 0}
+.ctaband h2{color:#fff;margin-bottom:14px}
+.ctaband p{max-width:620px}
+.ctaband .btnrow{margin-top:28px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--rule);padding:44px 0 56px;font-size:13.5px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr;gap:26px}}
+footer a{display:block;text-decoration:none;color:var(--body);padding:3px 0}
+footer a:hover{color:var(--accent)}
+footer h5{color:var(--ink);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px;font-weight:600}
+
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:420px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<style>
+.chain{display:grid;gap:0;margin:0}
+.chainrow{display:grid;grid-template-columns:92px minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid var(--rule);align-items:start}
+.chainrow:last-child{border-bottom:1px solid var(--rule)}
+.chainrow .sn2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--sc);padding-top:5px}
+.chainrow h3{font-size:20px;font-weight:600;margin-bottom:6px}
+.chainrow h3 a{text-decoration:none}
+.chainrow h3 a:hover{color:var(--sc)}
+.chainrow p{font-size:15px;line-height:1.7}
+.chainrow .cnt2{margin-top:9px;font-size:13px;color:var(--sc);font-weight:500}
+@media(max-width:660px){.chainrow{grid-template-columns:1fr;gap:8px}}
+.gate{background:var(--wash);border-left:3px solid var(--accent);padding:18px 22px;border-radius:0 5px 5px 0;font-size:15px;line-height:1.75}
+.gate b{color:var(--ink)}
+.countbar{display:flex;gap:34px;flex-wrap:wrap;border-top:1px solid var(--rule);padding-top:22px;margin-top:34px}
+.countbar div b{display:block;color:var(--ink);font-size:26px;font-weight:700;line-height:1.2;font-variant-numeric:tabular-nums}
+.countbar div span{font-size:13.5px}
+.nope{border:1px solid var(--rule);border-radius:5px;padding:22px 24px;background:var(--card)}
+.nope h4{font-size:16px;margin-bottom:7px}
+.nope p{font-size:14.5px;line-height:1.7}
+.srail{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.srail a{font-size:12.5px;text-decoration:none;padding:5px 12px;border-radius:999px;border:1px solid var(--rule);color:var(--body);white-space:nowrap}
+.srail a:hover{border-color:var(--accent);color:var(--accent)}
+.srail a.on{background:var(--accent);border-color:var(--accent);color:#fff}
+@media(max-width:820px){
+  .topin{flex-wrap:wrap;gap:10px 18px;padding:12px 20px}
+  .navlinks{margin-left:0;width:100%;gap:12px 16px;row-gap:8px}
+  .navlinks a{font-size:13px}
+  .mark{font-size:14px}
+}
+@media(max-width:540px){
+  .shell{padding:0 20px}
+  .countbar{gap:20px}
+}
+html,body{overflow-x:hidden}
+</style>
+
+<style>
+/* ---------- v4 additions : AI dependency typing ---------- */
+.tbadge{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid currentColor;white-space:nowrap;line-height:1.6}
+.tbadge .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+.t-C{color:#EE2A52}
+.t-A{color:#8F5ED8}
+.t-N{color:#2F7F5B}
+:root[data-theme="dark"] .t-N{color:#5FBF8F}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .t-N{color:#5FBF8F}}
+.filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 24px}
+.filter a{font-size:12.5px;text-decoration:none;padding:6px 13px;border-radius:999px;border:1px solid var(--rule);
+  color:var(--body);white-space:nowrap}
+.filter a:hover{border-color:var(--ink);color:var(--ink)}
+.filter a.on{background:var(--ink);border-color:var(--ink);color:var(--ground)}
+.filter span.lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--body);margin-right:4px}
+.xtab{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px}
+.xtab th,.xtab td{padding:11px 12px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:middle}
+.xtab th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:600}
+.xtab td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink);text-align:center;width:74px}
+.xtab td.zero{color:var(--body);font-weight:400;opacity:.45}
+.xtab tr.tot td{border-bottom:none;border-top:2px solid var(--rule);padding-top:14px}
+.bar{display:flex;height:12px;border-radius:3px;overflow:hidden;min-width:120px;background:var(--rule)}
+.bar i{display:block;height:100%}
+.typecard{border:1px solid var(--rule);border-radius:5px;padding:26px 24px;background:var(--card);display:flex;flex-direction:column;gap:10px}
+.typecard .big{font-size:40px;font-weight:700;line-height:1;color:var(--tc);font-variant-numeric:tabular-nums}
+.typecard h3{font-size:19px}
+.typecard p{font-size:14.5px;line-height:1.7}
+.typecard .test{font-size:13px;border-top:1px solid var(--rule);padding-top:12px;margin-top:auto;color:var(--body)}
+.scard .badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:-2px}
+.ladder{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:820px){.ladder{grid-template-columns:1fr;gap:26px}}
+.rung{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:4px;margin-bottom:6px;font-size:14px}
+.rung b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.75;min-width:26px}
+.note{font-size:13.5px;line-height:1.75;border-left:2px solid var(--rule);padding-left:16px;color:var(--body)}
+.gapbox{border:1px dashed var(--rule);border-radius:5px;padding:22px 24px;background:none}
+.gapbox h4{font-size:16px;margin-bottom:7px}
+.gapbox p{font-size:14.5px;line-height:1.7}
+.gapbox .pillg{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  padding:3px 9px;border-radius:999px;border:1px solid var(--rule);color:var(--body);margin-bottom:10px}
+@media(max-width:820px){
+  .topin{flex-wrap:wrap;gap:10px 18px;padding:12px 20px}
+  .navlinks{margin-left:0;width:100%;gap:12px 16px;row-gap:8px}
+  .navlinks a{font-size:13px}
+  .mark{font-size:14px}
+}
+@media(max-width:540px){.shell{padding:0 20px}.countbar{gap:20px}}
+html,body{overflow-x:hidden}
+</style>
+
+<div id="app"></div>
+
+<script>
+const D={"TIERS": [{"id": "t0", "short": "Diagnostics", "n": "Tier 0", "name": "Diagnostics", "c": "var(--cyan)", "hex": "#3CC2DB", "tag": "Cheap, short, and each one produces a finding you did not have", "promise": "Four measurements handed to you about your own operation. Nothing autonomous, nothing installed, nothing that can go wrong on a Friday.", "lede": "Every engagement below starts here. These are the cheapest things we sell and the only ones that work without knowing anything about you first. Each produces one artifact: a ranked constraint, a convergence score, a message count, or a number showing what share of your spend went into things that lost money.", "why": [{"h": "A finding beats a proposal", "p": "We would rather hand you a measurement about your own operation than a slide about our method. One of these usually tells you something the room already suspected and nobody had put a number on."}, {"h": "It is paid, and it credits back", "p": "A free audit is a sales instrument and everybody in the room knows it. These are paid, and the fee credits against whatever follows, which is what makes the ranking worth reading."}, {"h": "It decides which tier you need", "p": "The Ceiling Read in particular exists to rank the other six tiers for you, including the parts of them you should not buy."}], "how": "We measure rather than interview. The best test in the whole set is free and takes a minute: ask three people to produce a link to something they built more than a month ago, and time it.", "units": ["ceiling-read", "flatness-audit", "diversity-decoder", "failure-audit"]}, {"id": "t1", "short": "Ground truth", "n": "Tier 1", "name": "Ground truth", "c": "var(--navy)", "hex": "#222639", "tag": "The gate. Nothing above this tier works without it", "promise": "Find out what is actually true about your numbers, your estate and your results, before anyone builds anything on top of them.", "lede": "Five of the nine engagements this material specifies decline the same client for the same reason, and not one of them fixes it. The reason is that the client cannot say which of their last twenty assets performed. We fix that and charge for it, rather than walking away or absorbing it unpriced inside somebody else's phase one.", "why": [{"h": "The most common reason to walk away", "p": "If nobody can say what worked, there is no validated winner to multiply, no signal to select on and nothing for a correction loop to run against. Every tier above this one collapses on the same fact."}, {"h": "Nothing in this tier is an AI system", "p": "Three of the five are architecture and measurement work that predates the models by decades. That is deliberate. It is the part of the menu you can buy before deciding anything about AI."}, {"h": "It makes the price arithmetic instead of posture", "p": "Once the unit economics are on the table, every engagement above can be priced against a number you produced rather than a number we asserted."}], "how": "Census first, then the uncomfortable question, then the fix with an owner on it. The substrate and retrieval work both end in a deletion decision, which is the phase clients resist and the one that makes the rest hold.", "units": ["unit-economics", "winner-id", "substrate-audit", "retrieval-fix", "test-prioritisation"]}, {"id": "t2", "short": "Judgment", "n": "Tier 2", "name": "Judgment capture", "c": "var(--red)", "hex": "#EE2A52", "tag": "One person's taste, turned into something somebody else can run", "promise": "Take the standard that lives in one person's head and make it run without them, then keep it from drifting back to the average.", "lede": "This is the only tier with no competitor equivalent, and it is the reason to read this site at all. Five engagements, every one of them an AI system, that between them capture what a good output looks like, judge against it before a human sees a draft, add back the things rules cannot add, and correct the whole thing on a schedule.", "why": [{"h": "Rules are subtractive and subtraction has a floor", "p": "A rules file tells the model what not to do. It never adds anything back. Past a certain point you stop getting better writing and start getting shorter writing, which is why a rules-only approach plateaus and everybody blames the model."}, {"h": "A system that writes like a person is never finished", "p": "Leave anything running long enough and it drifts back toward the generic average. That is not a bug to be fixed once. It is the reason the correction loop is a retainer rather than a phase."}, {"h": "The expert is the bottleneck and cannot be interviewed out of it", "p": "Asking an expert for their rules produces a document nobody can run. Capturing them correcting real work produces an asset. The two look similar and only one of them works."}], "how": "We capture corrections to real work rather than asking anyone to describe their standard. Twenty artifacts that need fixing, the expert present, the reasoning recorded as the change is made. Then a judge grades before a human reads anything, and a different model writes than the one that judges.", "units": ["taste-file", "correction-capture", "rules-judge", "voice-engine", "correction-loop"]}, {"id": "t3", "short": "Production", "n": "Tier 3", "name": "Production at volume", "c": "var(--gold)", "hex": "#F1B900", "tag": "Assets made in quantity, with the judge attached", "promise": "Produce at a volume that would need a team, without the output converging on itself.", "lede": "Seven engagements, built inside an operation running enormous paid-media volume. This is the largest part of the source material and the narrowest fit: it assumes you have an ad account, a feedback loop and enough spend that a hit rate means something. We say so on every page in this tier rather than finding out in week two.", "why": [{"h": "Nothing here ships without the judge", "p": "Volume without a grading step is how something wrong reaches four hundred assets before anyone notices. Every engagement in this tier carries the Tier 2 judge or we do not sell it."}, {"h": "The hit rate goes in the proposal", "p": "Most of what gets made will not work. Said at the point of sale, month two reads as the method working. Discovered in month two, it reads as the method failing."}, {"h": "Creative is not the only variable", "p": "The one measured ledger in this material shows the same asset producing the best and the worst result six weeks apart on different lists. List and timing move the number as much as the making does."}], "how": "Find the validated winner, vary one axis at a time in cost order, and separate the idea from its dressing until the team can do it unaided. The exploitation ratio is usually one to three, and the message count behind two hundred assets is usually three to five.", "units": ["hook-engine", "static-system", "ai-video", "narrative-ads", "template-library", "multiplication", "funnel-pages"]}, {"id": "t4", "short": "Infrastructure", "n": "Tier 4", "name": "Infrastructure and enforcement", "c": "var(--purple)", "hex": "#8F5ED8", "tag": "What you run after we leave, and what stops it going wrong", "promise": "Where the systems live, who owns each one, and the check that fires before anything reaches a customer.", "lede": "Six engagements in two halves that do not resemble each other. Three are AI infrastructure and they age fastest of anything on this site. Three are enforcement, and they are indifferent to which model is current: a standard checked at delivery rather than at review, a claims gate, and a written decision about what the business will say.", "why": [{"h": "A standard nothing enforces is a document somebody read once", "p": "Every rule stated and never checked becomes a preference. The fix is not a better rule. It is a check that runs at the moment of delivery, where nobody has the option of being busy."}, {"h": "Packaging fails, not craft", "p": "We have four shipped skill packages from a competent competitor, all failing version, date and attribution while the work inside them is good. That is the normal failure and it is entirely preventable."}, {"h": "Volume multiplied and the decision did not", "p": "Output went up tenfold and nobody decided what the business would and would not claim. One unexamined framing is now in four hundred assets and no one approved it."}], "how": "Enforcement goes where the cost jumps rather than where the process looks tidy. Where there is a pipeline the check is a rule in the judge. Where the work is human it is a named gate with a person's name on it.", "units": ["skill-authoring", "agent-context", "production-stack", "standards-ladder", "claims-check", "premise-ledger"]}, {"id": "t5", "short": "Commercial", "n": "Tier 5", "name": "Commercial practice", "c": "var(--teal)", "hex": "#1F7A8C", "tag": "A different buyer entirely, and mostly not about AI at all", "promise": "How a business that sells expertise gets clients, prices work, keeps them, and turns what it knows into something it owns.", "lede": "Ten engagements, none of which involve a model at any point. Eight describe how a professional services firm runs itself. Two, the Delivery Ladder and the Proving Ground, are full client engagements for businesses whose material has stopped changing or whose method walks out the door with every client. Do not read this tier as an extension of the five above it. The buyer is different and so is the conversation.", "why": [{"h": "None of it ages", "p": "The outreach template here dates to 2013 and still runs. The referral script, the contract structure and the endorsement method are indifferent to which model is current, which is the whole argument for holding this tier."}, {"h": "We run on most of it ourselves", "p": "Eight of these ten are things a firm adopts rather than sells. We adopted them before putting them on a page, which is a lower bar than it sounds and one almost nobody clears."}, {"h": "Nobody walks in asking for it", "p": "No one requests a contract structure or a referral condition. These get diagnosed, which is why they sit at the bottom of a page rather than the top."}], "how": "Two sessions, five weeks apart, with homework in between. A single session produces a document you agree with and do not act on. A session that sets homework produces a person who has done the thinking and been corrected on it.", "units": ["client-acquisition", "discovery-proposal", "pricing-architecture", "offer-ladder", "onboarding-contracts", "retention-referral", "proof-endorsement", "republication", "delivery-ladder", "proving-ground"]}], "U": {"ceiling-read": {"t": "t0", "type": "C", "name": "The Ceiling Read", "time": "2 days", "who": "CTO, COO, whoever signed for the AI", "promise": "Three constraints measured, one named as binding, and two declined in writing.", "problem": "Output has gone up and results have not. Somebody can tell you the team is producing more than ever, and nobody can tell you whether it is more of the same thing.", "cost": "Money spent on a constraint that was not binding does not fail loudly. It produces a system that works slightly better, a budget that is gone, and a room that concludes AI does not do much here.", "hard": "Three ceilings have twelve measurements between them and none is a matter of opinion. The part you cannot do internally is the refusal: naming one and declining the other two takes somebody with no stake in which answer it is.", "work": ["Platform: a distinctness audit across twenty recent assets counting collisions, when your model of what the channel rewards was last checked against the channel's own statements, the age of each testing habit, and how crowded the slices are that you compete in.", "Retrieval: the author test, where three people are asked to produce a link to something they built more than a month ago and timed. Then utilisation across your libraries, the rebuild rate, and a staleness sample of ten process documents.", "Compute: consumption per unit of work, how many jobs failed or were truncated last quarter for a resource reason rather than a logic one, regime classification per workload, and which steps of your most expensive recurring process actually change the outcome.", "The ranking. One ceiling named as binding with the measurement that establishes it, and the two that are not, each with the trigger that would make it matter later."], "get": ["The Ceiling Report, ranked, with every measurement attached", "One binding constraint named, and what it is currently costing", "Two constraints declined in writing, each with its trigger", "A first action, sized to be started the week after"], "money": "It is paid and it credits in full against whatever follows. A free audit is a sales instrument and everybody in the room knows it, which is exactly why the ranking would not be worth reading.", "gate": "**If your binding ceiling turns out to be compute, we will say so and we do not currently sell the remediation.** The source material specifies that track and we have not built it. You would get the finding, the measurements and an honest referral rather than an engagement.", "idx": 1}, "flatness-audit": {"t": "t0", "type": "C", "name": "The Flatness Audit", "time": "1 hour", "who": "Content lead, comms, whoever owns the prompt", "promise": "Four measurements on your own AI output that end the better-prompts conversation in about a minute.", "problem": "The output is fine and it is flat. Everything it produces sounds like everything else it produces, and the current theory in the room is that the prompt needs more work.", "cost": "The better-prompts theory is expensive because it is nearly free to hold. Teams spend quarters refining instructions against a ceiling that instructions cannot move, and the usual end state is that the tool gets abandoned for anything customer-facing.", "hard": "Three of the four measurements are counter-intuitive and none of them is about quality. They are about where words went, how much instruction there is relative to example, and where in each output the interesting sentence landed.", "work": ["You bring three things: the prompt you actually use, ten recent outputs from it, and the three best pieces a human on your team has written.", "Weighting. Name the most important point in an output, then count the words spent on it against the words spent on the least important. These come out roughly equal, and the least important often gets more.", "Rule-to-example ratio. Words of instruction against words of example in your prompt. It is usually ninety to ten the wrong way, and frequently there are no examples at all.", "Convergence. We run your prompt four times and line the outputs up next to each other. This is the measurement that ends the conversation.", "Buried lead. Where in each output the most interesting sentence sits. Consistently the middle."], "get": ["Four numbers on your own output, taken in front of you", "The convergence sheet, four runs side by side", "Your rule-to-example ratio, and what it would need to be", "A written statement of which of the six defects you actually have"], "money": "One hour, and it is the cheapest thing on this site. It exists to make the next decision obvious rather than to be a project.", "gate": "**This presupposes a text-production problem.** If the Ceiling Read names something else as binding, this is the wrong first engagement and we will say so.", "idx": 2}, "diversity-decoder": {"t": "t0", "type": "A", "name": "The Creative Diversity Decoder", "time": "3 days", "who": "Head of growth, media buyer", "promise": "How many actual messages are behind your two hundred assets, as a number.", "problem": "The account has a lot of creative in it. Nobody can say how much of that is genuinely different from the rest, or which claims the account has never tested at all.", "cost": "An account with five messages behind two hundred assets is paying production costs for variation it is not getting. The test budget is spread across things that are the same argument in different clothes, so the learning rate is a fraction of what the spend implies.", "hard": "Separating a message from its format is a skill, and a team that has been inside the account cannot do it about their own work. The distinction has to come from outside or it does not come.", "work": ["Pull the asset set with its performance data attached.", "Classify each asset by the message underneath it rather than by format, offer or audience.", "Count. The ratio of assets to distinct messages is the finding, and it is usually three to five messages behind two hundred assets.", "Name the messages that are absent: the claims your category makes that this account has never put in front of anyone."], "get": ["The message count, and the asset-to-message ratio", "Every asset mapped to the message underneath it", "The list of messages the account has never tested", "The separation method, taught until your team does it unaided"], "money": "The ratio is the entire sale for the Multiplication Engine. If it comes back at three messages behind two hundred assets, the next engagement argues itself.", "gate": "**Needs an ad account with enough history to read.** Fewer than about fifty assets and the count is not a finding, it is an observation.", "idx": 3}, "failure-audit": {"t": "t0", "type": "N", "name": "The Failure Audit", "time": "3 days", "who": "Finance, head of growth", "promise": "What share of your spend went into assets that lost money, and whether the thing you run most is one of them.", "problem": "Spend is going out and the reporting is about the winners. Nobody has asked the inverse question: how concentrated are the losses, and is the most-used asset in the account actually one of them.", "cost": "Loser concentration is invisible in average reporting. An account can look acceptable in aggregate while the majority of the money goes into things that lost, and the single most-deployed asset can be a loser nobody has flagged because it is familiar.", "hard": "Nothing here is technically difficult and almost nobody does it, because it requires asking a question whose answer is embarrassing. The value is in somebody from outside asking it.", "work": ["Take the client's own performance ledger, whatever form it is in.", "Price every asset or drop that can be priced, and sort by outcome rather than by volume.", "Compute loser concentration: what share of total spend went into assets that lost money.", "Run the most-run-asset check. Find the thing deployed most often and look up its result."], "get": ["Loser concentration as a percentage of total spend", "The concentration curve, ranked", "The most-run-asset check, answered", "A deletion list, with what to stop running this month"], "money": "Priced against what it stops. The reference case is a ledger of 1,353 drops carrying $2,700,366 of spend at a 2% return, where 63% of the money went into losers and the most-deployed creative in the file was one of them, run 82 times for minus 7%.", "gate": "**This disqualifies more clients than anything else in Tier 0.** It needs performance data that actually exists. If you cannot produce it, the honest next step is Winner Identification, not this.", "idx": 4}, "unit-economics": {"t": "t1", "type": "N", "name": "Unit Economics Read", "time": "1 week", "who": "Founder, finance", "promise": "CPA, AOV, COGS, gross margin and LTV on one sheet, with the lever list under each.", "problem": "Decisions about what to spend and what to charge are being made on feel. When somebody asks what a point of improvement is worth, the answer is a shrug or an argument.", "cost": "Without this, every proposal you receive from anyone, including us, is priced against an assertion rather than against your own arithmetic. It is also why improvement projects get funded by enthusiasm and defunded by the first quiet quarter.", "hard": "The arithmetic is straightforward and the inputs are scattered across three systems and two people's heads. The work is the assembly and the honesty about which numbers are estimates.", "work": ["Assemble the five: cost per acquisition, average order value, cost of goods, gross margin, lifetime value. Mark which are measured and which are estimated.", "Name the four goals and put the lever list under each, so that improving a number has a named set of actions rather than an intention.", "Answer the four qualifying questions, which establish in one conversation whether the business can measure at all.", "Compute what one point of improvement is worth, in money, so every later proposal can be priced against it."], "get": ["The economics sheet, with estimates marked as estimates", "Four goals with their levers listed", "What one point is worth, as a number", "The four questions, answered, as a standing qualifier"], "money": "This is the instrument that turns pricing from a posture into arithmetic you check yourself. The worked example in the source takes a funnel from minus $146 per customer to plus $56.18 through three changes, none of them a new advert.", "gate": "**We do not have category benchmarks and will not pretend to.** This tells you what your numbers are and what the levers are. It does not tell you whether your numbers are good compared to your competitors, because that data is scarce and mostly anecdotal.", "idx": 5}, "winner-id": {"t": "t1", "type": "A", "name": "Winner Identification Install", "time": "2 weeks", "who": "Marketing ops, analytics", "promise": "The measurement fix, so that the sentence blocking every other engagement stops being true.", "problem": "Asked which of the last twenty things you published performed, the honest answer is that nobody knows. Asked out loud in a meeting, the answer is usually a guess delivered confidently.", "cost": "This one fact disqualifies you from judgment capture, from multiplication, and from anything that needs a feedback loop. It is the most common reason an engagement cannot start, and it is cheaper to fix than to keep working around.", "hard": "The census is easy and the attribution method is where it goes wrong. Most attempts produce a dashboard nobody maintains. The install is only finished when there is a named person whose job includes it.", "work": ["Census the last twenty assets and attach whatever outcome data exists, including where there is none.", "Decide the attribution method, explicitly, including what it cannot see. A method with stated blind spots survives; one that claims completeness does not.", "Install it so the client runs it without us.", "Name the owner and the cadence. Without both, this regresses within two quarters."], "get": ["The twenty-asset census with outcomes attached", "An attribution method documented, including its blind spots", "The running install, operated by your team", "A named owner and a cadence"], "money": "Priced against the engagements it unblocks. Four of the highest-value things on this site cannot be sold to you until this exists.", "gate": "**We say the floor in the first conversation rather than discovering it in phase one.** Below a certain volume, attribution is noise and this engagement is not worth buying.", "idx": 6}, "substrate-audit": {"t": "t1", "type": "A", "name": "The Substrate Audit", "time": "1 paid day, then 5 to 7 weeks", "who": "CTO, IT, ops", "promise": "A map of the tooling estate nobody can currently draw, and the two things in it that are dangerously coupled.", "problem": "Tools accumulated faster than assumptions could be maintained. Process documents reference things you no longer run, every team picked something different, and changing anything feels risky because nobody knows what depends on it.", "cost": "The cost lands on the day a vendor changes, and it lands as a quarter of rewriting rather than a day of switching. The other cost is continuous: decisions deferred because the consequences are unknown.", "hard": "The classification is the intellectual work and it is the part teams cannot do about their own estate. Almost everything in a stack is a tool and is being treated as a pattern, and seeing that requires somebody who did not choose any of it.", "work": ["The layer census. List every tool and classify each as a tool, a pattern, or a piece of judgement. This distinction is the whole audit.", "Coupling depth. For each tool, what breaks if it vanishes on Friday. The deep coupling is usually via state stored inside a vendor's product.", "Documentation staleness. Sample ten process documents and count references to things that no longer exist. Typically a third to a half, and it is checkable in front of you.", "Foundation age. For each foundational choice, when it was last examined. The usual answer is never, since adoption.", "Then remediation: move accumulated state out of vendor products, rewrite every process step to name a capability rather than a product, and install the seven-question adoption gate with somebody who is allowed to say pilot-only."], "get": ["The substrate map: every tool, its layer, its coupling depth, and what dies with it", "State relocated out of vendor products, with a swappable access layer", "The neutralised process set, naming capabilities rather than products", "The adoption gate as a one-page check, with an owner", "A review calendar and a deprecation duty, assigned"], "money": "Priced against switching cost avoided. Ask what your last tool migration cost in time and disruption, then price a fraction of one avoided migration. Most businesses have paid for at least one in the past two years and can name the number.", "gate": "**The usual conclusion is that we did not tell you to re-tool.** Most of the estate is fine and two things are dangerously coupled. An audit that ends in a re-tooling project has made the exact mistake it was hired to prevent.", "idx": 7}, "retrieval-fix": {"t": "t1", "type": "A", "name": "The Retrieval Fix", "time": "3 to 4 weeks", "who": "Chief of staff, ops", "promise": "Findability, ending in a kept set of ten to twenty percent and a person whose job is pruning.", "problem": "The work exists and nobody can find it, so it gets rebuilt. Two people have independently made the same thing this quarter and neither knows.", "cost": "Rebuild cost is the visible half. The invisible half is that nothing compounds: every asset is a one-off because retrieving the previous one costs more than remaking it.", "hard": "The deletion phase. Clients resist it hard, which is exactly how you know it is the part that works. Doing it internally fails because nobody has the authority to throw away a colleague's work.", "work": ["Census and utilisation. Full inventory with usage data attached. Expect a long tail of zeroes.", "Deletion. Keep ten to twenty percent. Everything else is archived rather than destroyed, which is what makes the decision survivable.", "Naming and routing. One convention, and one canonical location per class of thing.", "The maintenance duty. A named owner and a pruning cadence, because without it this regrows in two quarters."], "get": ["The full inventory with usage data", "The kept set, ten to twenty percent, with the rest archived", "A naming convention and one canonical location per class", "A named owner and a pruning cadence"], "money": "Priced against rebuild rate. Ask two of your builders how often they have made something that already existed; they will know, and the number is usually higher than management expects.", "gate": "**The proof for this comes from the people who wrote the source material.** Both of them, in the same week, could not find their own work. One could not locate a file he had shipped six weeks earlier.", "idx": 8}, "test-prioritisation": {"t": "t1", "type": "N", "name": "Test Prioritisation", "time": "3 days", "who": "Growth lead", "promise": "A ranked test backlog, scored on five axes, that survives somebody senior disagreeing with it.", "problem": "There is a list of things worth testing and no defensible order. In practice the order is whoever asked most recently, or whatever is easiest to build.", "cost": "Testing in the wrong order means the cheap high-confidence answers arrive last, after the budget has been spent on the expensive ambiguous ones. The learning rate is set by the ordering, not by the volume.", "hard": "Nothing. This is a scoring rubric and a facilitated session. It is on this site because it is genuinely useful and almost nobody has one.", "work": ["Assemble every proposed test into one list, including the ones that live in someone's notes.", "Score each on five axes: speed to a result, weight of confidence, impact if right, necessity, and growth potential.", "Average and rank. Disagreements now happen about a score rather than about a priority, which is a much shorter argument.", "Hand over the grid as a standing instrument with an owner, so the next twenty tests get ordered the same way."], "get": ["The scored and ranked backlog", "The grid as a standing instrument", "An owner who runs it", "The scoring session, run once with your team so they can repeat it"], "money": "Three days, priced as a facilitated instrument rather than as analysis. It pays back on the first test you do not run.", "gate": "**Without Winner Identification the scores are opinions.** Confidence and impact both require knowing what previous tests actually showed.", "idx": 9}, "taste-file": {"t": "t2", "type": "C", "name": "Taste File and Primer", "time": "1 to 2 weeks", "who": "The bottleneck expert, and their manager", "promise": "Two reference artifacts: what good looks like with the reasons attached, and a primer that is mostly examples.", "problem": "The standard exists in one person's head. New people take months to approximate it, the model never approximates it, and there is no document that would help either.", "cost": "Everything routes through one person for approval. They are the constraint on throughput, they cannot take a holiday without the standard slipping, and the organisation has no plan for the day they leave.", "hard": "The two artifacts are different and get merged, which ruins both. One is a taste file: five to ten pieces with the reason each is good, and the mediocre version of each answered. The other is a primer per task, seventy to ninety percent examples, built from work that performed rather than work people liked.", "work": ["Select five to ten pieces that represent the standard. For each, write down why, and answer what the mediocre version of this would have looked like.", "Build the primer separately, per task, at seventy to ninety percent examples by volume. The ratio is the point: instruction-heavy primers are what produce flat output.", "Source the primer from work that performed rather than work people remember fondly. Record the provenance of every example.", "Set the rule that protects both: neither artifact ever receives anything the pipeline produced."], "get": ["The taste file, five to ten pieces, each with its reason and its mediocre counterpart", "A primer per task at seventy to ninety percent examples", "Provenance recorded for every example", "The corpus hygiene rule, written down and owned"], "money": "Priced against the bottleneck's cost, which is a number you already have. Take what that person is paid, multiply by the share of their week spent reviewing rather than deciding.", "gate": "**The expert must be provably good, with an outcome record.** Capturing the taste of somebody whose results nobody can verify produces a confident system with no basis.", "idx": 10}, "correction-capture": {"t": "t2", "type": "C", "name": "Correction Capture", "time": "2 to 4 weeks live", "who": "The bottleneck expert, present in the room", "promise": "Twenty artifacts corrected live, captured as before, after and the reasoning, while the change is being made.", "problem": "The expert can fix anything you put in front of them and cannot tell you the rule they fixed it against. Asked directly, they produce generalities that nobody can apply.", "cost": "Without this the rules file is written from an interview, which produces a document that sounds right and changes nothing. This is the single most common way a judgment pipeline fails, and it fails expensively because everything downstream was built on it.", "hard": "Getting twenty artifacts that need correction rather than twenty good examples is a harder ask than it sounds, and keeping the sessions from drifting into an interview is the entire craft. The expert must do the corrections themselves and must not describe instead of correcting.", "work": ["Assemble twenty artifacts that need correction. Not twenty good examples. This is the harder ask and the one clients try to substitute their way out of.", "Run live correction sessions, six to ten hours a week for two to four weeks, with the expert present and working.", "Capture triples rather than pairs: the before, the after, and the reasoning, recorded as the change is made rather than reconstructed afterwards.", "Build the extraction record alongside, which is the artifact nobody asks for and the one that makes the asset durable.", "Run the promotion test on every candidate rule: check it against artifacts from a different context and kill the ones that do not survive."], "get": ["Twenty correction triples: before, after, reasoning", "The extraction record", "Candidate rules, each already tested against a different context", "The sessions recorded, so the reasoning survives the person"], "money": "Not priced on hours. The value is in one person's twenty hours, and pricing on hours makes the most valuable input on the engagement look like the cheapest line item.", "gate": "**Three conditions or we do not start.** The expert must be provably good with an outcome record. The expert must do the twenty themselves. And there must be enough downstream volume to pay for it.", "idx": 11}, "rules-judge": {"t": "t2", "type": "C", "name": "Rules File and Judge Install", "time": "2 weeks", "who": "The expert, and whoever ships", "promise": "A grading step that runs before a human reads a draft, and a rules file small enough to be true.", "problem": "Rules exist somewhere. Nothing enforces them, everybody remembers a different subset, and the output drifts without anyone being able to point at when it started.", "cost": "Review happens at the end, by the most expensive person, on work that should not have reached them. The queue is the constraint and the reviewer is the queue.", "hard": "Splitting hard rules from tendencies is where this succeeds or fails. Promote everything and the file becomes unusable; promote nothing and it does no work. The discriminator is recurrence, not confidence.", "work": ["Split the captured rules into hard rules and tendencies, and tag each one 'me' or 'this format'. A hard rule needs three appearances or the owner's explicit say-so. Nothing gets promoted on the model's inference alone.", "Write the job question at the top: one binary pass-or-fail test, because a draft can obey every rule in the file and still completely fail the job.", "Install the four-question quality gate: is there a new idea here, can I see it, does it hit the reader's actual life, and does the reader have to finish the argument themselves.", "Install the judge so it grades before anybody reads anything. Use a different model to judge than the one that writes, because writing and editing are different jobs and you would not give them to the same person.", "Run the blind test on every candidate rule: versions with and without, read cold, ranked by feel. If the rule's versions do not win, the rule is theatre."], "get": ["The rules file, split into hard rules and tendencies, every entry tagged", "The job question, one binary test, at the top", "The four-question quality gate", "The judge, running, on a different model from the writer", "The blind-test protocol for everything proposed later"], "money": "Priced against human edit time displaced, which is a number you can produce this week. Measure edit time per piece before we start and after we finish.", "gate": "**Most of the rules you propose will not survive the blind test, and the file gets smaller before it gets better.** Said here rather than in week three.", "idx": 12}, "voice-engine": {"t": "t2", "type": "C", "name": "The Voice Engine", "time": "3 weeks", "who": "Content lead, lifecycle, the expert", "promise": "The half a rules file cannot do: a system that adds back what makes the writing yours, and routes every correction to the right place without anyone deciding.", "problem": "You installed the rules, the obvious tells are gone, and the output is still not yours. It is now correct and characterless, which is a different problem from the one you started with.", "cost": "This is where rules-based approaches stop. All your rules tell the model what it is not allowed to do, and none of them add anything back into the writing. Past the floor, more rules produce shorter output rather than better output, and teams conclude the model cannot do it.", "hard": "Subtraction has a floor and almost nobody names it. Building the additive half needs a capture system for who you actually are rather than what you want avoided, and it needs routing so that corrections file themselves instead of waiting for somebody to decide where they go.", "work": ["Name the floor. Show where the subtractive rules stop improving the output, using your own material, so the rest of the engagement has a measured starting point.", "Build the additive layer: the things that make the writing yours rather than the things that make it not-generic. Stories, positions, the way you actually argue.", "Split the two brains. A looser model writes and a sharper model judges, deliberately different, because writing mode and editing mode are distinct jobs.", "Install automatic routing, so every correction files itself into the right part of the system and nobody has to work out in the moment where it belongs.", "Set the drift expectation. Anything left running long enough returns to the generic average, so the system is designed to be maintained rather than finished."], "get": ["The additive layer, capturing what makes the writing yours", "A two-model split, writer and judge deliberately different", "Automatic correction routing, with no human filing step", "A written statement of where subtraction stopped working, measured on your material"], "money": "Priced against the edit pass that stops happening. The subtractive half gets you to correct; this is what gets you to publishable without a person rewriting it.", "gate": "**This engagement was previously filed as an email automation and that was wrong.** A source verification pass on 2026-09-11 found it to be the deepest architectural material in the corpus, and it moved here from infrastructure. The correction is on the record.", "idx": 13}, "correction-loop": {"t": "t2", "type": "C", "name": "The Correction Loop", "time": "Standing retainer", "who": "The owner, on a schedule", "promise": "The phase you will want to cut, which is the one that decides whether any of the rest holds.", "problem": "It worked in month one. In month six it is subtly worse and nobody can say when that started, because every individual output still looks acceptable.", "cost": "Drift is not a failure event. It is a slow return to the average that nobody notices until somebody reads six months of output in one sitting, by which point the standard has moved and the team has adapted to it.", "hard": "It requires doing red-pen work on a schedule when nothing looks wrong, which no organisation does voluntarily. It also requires that only the owner ratifies changes, which is a governance rule people route around the moment it is inconvenient.", "work": ["Only the owner ratifies. Not the team, not consensus, not the model's suggestion.", "Keep the taste file and the primer free of the system's own output. Corpus poisoning is real and the model does the poisoning politely.", "Red pen on a schedule, including the months when nothing looks wrong. That is the point of a schedule.", "Audit the rules quarterly and delete the ones that stopped earning their place."], "get": ["A correction cadence with dates", "The ratification rule, written and owned", "A quarterly rules audit", "A drift measurement you can read without a specialist"], "money": "This is the retainer. A client who bought positioning can decide next year that they have positioning now. A client whose judgment pipeline is running cannot stop without the standard falling over.", "gate": "**Four separate engagement specifications name this independently as the phase clients cut.** We are telling you before the contract rather than after the drift.", "idx": 14}, "hook-engine": {"t": "t3", "type": "A", "name": "The Hook Engine", "time": "2 weeks", "who": "Creative lead", "promise": "Hook generation and selection as a repeatable pass, with the ad idea separated from its dressing.", "problem": "The good hooks are accidents. They get written by whoever was available, nobody can say why the ones that worked worked, and the next batch starts from nothing.", "cost": "Hook quality sets the ceiling on everything downstream. A campaign with a weak hook fails at a cost that looks like media spend and is actually a writing problem.", "hard": "The isolation move. Separating the idea from the format it arrived in is a skill, and it is the difference between multiplying a winner and making the same advert again in a new typeface.", "work": ["Take the hooks that performed and isolate the idea inside each, out loud, until the team can do it unaided.", "Build the generation pass: a candidate set wide enough that selection has something to do.", "Build the selection criteria, and put them in the judge rather than in a person's memory.", "Run it once end to end on live work with the team watching."], "get": ["The isolation method, taught until it is unaided", "A repeatable generation pass", "Selection criteria, installed in the judge", "One batch produced through it, with your team"], "money": "Priced against the cost of a failed campaign, which you can compute from the Unit Economics Read.", "gate": "**Ships with the Tier 2 judge attached or it does not ship.** Generation without a grading step is how something wrong reaches volume.", "idx": 15}, "static-system": {"t": "t3", "type": "A", "name": "Static Ad System", "time": "3 weeks", "who": "Creative, paid media", "promise": "Five production workflows, plus the pass that tells a static that converts from a static that scales.", "problem": "Statics convert in testing and die at volume, and nobody can tell which is which before the spend that finds out.", "cost": "Scaling a converter that does not scale is the most expensive routine mistake in paid media, because the failure only appears after the budget has been committed.", "hard": "The scaling pass is a separate discipline from the making, and teams that are good at one are routinely bad at the other.", "work": ["Install the five production workflows so output does not depend on who is available.", "Run the scaling pass on the existing library and sort it.", "Attach the judge to the production step.", "Produce one batch through the system with your team."], "get": ["Five workflows, documented and run once", "The scaling pass as a standing check", "Your existing library sorted into converts and scales", "One batch produced through the system"], "money": "Priced against production cost per asset, before and after.", "gate": "**Built inside an operation running very large paid-media volume.** Below a meaningful monthly spend the workflows are overhead rather than an advantage.", "idx": 16}, "ai-video": {"t": "t3", "type": "C", "name": "AI Video and Animation Pipeline", "time": "3 weeks", "who": "Creative, brand", "promise": "A nine-step workflow producing finished video ads at roughly twelve dollars each, with no editors and no post-production.", "problem": "Video is the format that works and the cost structure does not allow enough of it. Every piece is a project, so the testing rate is set by the production budget.", "cost": "At project cost per asset, the account tests a handful of video ideas a quarter. The economics decide the learning rate, and the learning rate decides everything else.", "hard": "The format commoditises on a schedule, so the durable skill is the layer above it. When everyone can make this, it comes down to who has the better scripts and the more interesting ideas, which is why the workflow here is mostly about writing.", "work": ["Build the character DNA block as the single source of truth, so consistency survives across scenes without an editor holding it together.", "Install the nine-step workflow, scene by scene, with scenes held to two to five seconds.", "Build the structural swipe file: roughly twenty variants, held as structures rather than as clips.", "Write the maximum. Dial the intended emotion up thirty to fifty percent, because what survives the image and video filters lands lower than what you wrote. You can always dial back; you cannot dial up after the fact."], "get": ["The character DNA block", "The nine-step workflow, run end to end", "Twenty structural variants in a swipe file", "Unit economics per finished ad, measured on your own output"], "money": "The reference economics are roughly twelve dollars per finished ad, some as low as three to five, at ten to fifteen minutes each. Price against your current cost per finished video, which is usually two orders of magnitude higher.", "gate": "**The write-the-maximum instruction is wrong in regulated, safety-critical or factual-reporting work**, and we will say so rather than sell it to you. Where claims are governed, the Claims Check runs over every output of this engagement.", "idx": 17}, "narrative-ads": {"t": "t3", "type": "A", "name": "Narrative Ad Build", "time": "2 weeks", "who": "Paid media, with legal in the room", "promise": "Long narrative and unaware-audience formats, built under a stated claims boundary.", "problem": "The audience does not know they have the problem, so product advertising does not reach them. Everything the account runs speaks to people already looking.", "cost": "An account that only addresses solution-aware buyers is competing for the smallest and most expensive slice of its market, at the exact moment everyone else is bidding on it.", "hard": "This is where the strongest claim techniques live in the source material, and where the boundary matters most. The craft and the risk arrive together.", "work": ["Build the mechanism: the causal story that makes the problem legible to someone not looking for it.", "Construct the narrative formats and the unaware-audience entry points.", "Run every output through the Claims Check before it reaches media.", "Measure against the awareness stage you were targeting rather than against blended account performance."], "get": ["The mechanism framework, applied to your category", "Narrative formats built and tested", "Claims Check running over the output", "Awareness-stage reporting, separated from blended numbers"], "money": "Priced against the cost of the slice you currently cannot reach.", "gate": "**This engagement carries the highest claims exposure on the site.** We will not run it without the Premise Ledger decided first, because the boundary has to exist before the copy does.", "idx": 18}, "template-library": {"t": "t3", "type": "N", "name": "Template and Reference Library", "time": "2 weeks", "who": "Delivery lead", "promise": "Templates built from your own work that converted, carrying layout and structure rather than only copy.", "problem": "Every deliverable starts from a blank page or, worse, from a competitor's swipe that nobody has tested in your category.", "cost": "Starting from nothing is a tax paid on every single piece of work. Starting from a swipe is worse, because it imports somebody else's constraints invisibly.", "hard": "Knowing which of your own documents to templatise requires performance data attached to them, and stripping them correctly means keeping the structure while removing the specifics, which is a judgement rather than a find-and-replace.", "work": ["Identify the documents that actually converted, using your own outcome data.", "Strip the client-specific content and leave placeholders, keeping the layout, the user-experience decisions and the sequencing.", "Build the curated reference library, and set the rule that it gets fed with every brief rather than at a quarterly tidy-up.", "Test by handing a template to somebody who did not write the original."], "get": ["The template set, sourced from your own results", "A curated reference library with an intake rule", "The stripping method, documented", "One template validated by somebody who did not write the original"], "money": "Two weeks, priced against time to first draft across your delivery team.", "gate": "**There is no model anywhere in this engagement.** The position it comes from is that templates beat generation for filling a known form, and that holds.", "idx": 19}, "multiplication": {"t": "t3", "type": "A", "name": "The Multiplication Engine", "time": "3 weeks", "who": "Head of growth", "promise": "One validated winner, multiplied along two axis sets, one axis at a time, in cost order.", "problem": "Something worked and the account produced one of it. The instinct after a win is to go looking for the next idea rather than to exhaust the one you have.", "cost": "An exploitation ratio of one means every win is used once. The usual healthy ratio is one to three, so an account at one is leaving most of the value of its own research on the table.", "hard": "Varying one axis at a time is simple to state and almost never done, because it feels slow. Varying two at once produces results nobody can attribute, which converts a research programme into a guessing programme.", "work": ["Confirm the validated winner. Without outcome data there is nothing here to multiply and we decline.", "Vary the idea: fix the cause and vary the consequence, or fix the consequence and vary the cause, with presentation as the cheap third axis.", "Vary the clothing: style, medium, structure, register, in cost order, starting with style because it is nearly free.", "Track both diagnostics, because they measure different things: the exploitation ratio, and the message count behind the asset set."], "get": ["The multiplication playbook, both axis sets", "Your exploitation ratio, before and after", "Your message count behind the asset set", "One winner fully exploited, as a worked example"], "money": "The strongest pricing position on the site, because the upside is calculable from your own data: the return on your single best asset, multiplied.", "gate": "**Wider search lowers the average and raises the ceiling, and we say that before the number rather than in month two.** Also: the one measured ledger in this material shows list and timing moving the result as much as the creative does, so the multiplication is a lever rather than the lever.", "idx": 20}, "funnel-pages": {"t": "t3", "type": "A", "name": "Funnel and Page Build", "time": "1 to 2 weeks per page", "who": "Demand gen, ecommerce", "promise": "Quiz funnels, hybrid commerce pages and advertorials, built to one rule that contradicts the instinct.", "problem": "Traffic arrives and the page is the constraint. The page is long, well written, and people leave before the part that would have convinced them.", "cost": "Page conversion multiplies against every dollar of media spend upstream. It moves revenue more than any other single asset in the funnel and it is usually the one nobody owns.", "hard": "The rule is counter-intuitive to anybody who writes well, which is why teams that can write do not arrive at it.", "work": ["Put everything needed to buy above the fold. The story goes below, for whoever wants it.", "Build the format for the traffic you have: quiz where qualification matters, hybrid where the catalogue does, advertorial where the audience is unaware.", "Instrument it so the page can be read separately from the campaign.", "Run the claims check over the copy before it goes live."], "get": ["The page, built and instrumented", "The above-the-fold standard, applied and documented", "Format selection logic for the next page", "Page-level reporting, separated from campaign reporting"], "money": "Priced per page, against the conversion rate of the page it replaces.", "gate": "**The rule here contradicts the long-form instinct in the source material's own copy.** We are carrying the rule, not the instinct.", "idx": 21}, "skill-authoring": {"t": "t4", "type": "C", "name": "Skill File Authoring", "time": "2 weeks", "who": "Ops, enablement", "promise": "Capability shipped as a package with a version, a date and an owner, rather than as a prompt pasted between people.", "problem": "The good prompts live in private documents and group chats. Two people have slightly different versions of the same one and neither knows which is current.", "cost": "Capability that cannot be versioned cannot be improved, because there is nothing to improve against. Every fix is local and every regression is invisible.", "hard": "The craft is usually fine and the packaging is usually absent. We have four shipped packages from a competent competitor, all failing version, date and attribution, with good work inside them.", "work": ["Author the skills as packages, with a version, a date and a named owner on each.", "Put the approval gates where the cost jumps rather than where the process feels tidy. If rendering is the expensive step, the gate goes before rendering, because a bad input wastes the whole run.", "State the correctness-versus-taste split explicitly in every skill, so the reader knows which rules are negotiable.", "Make every bounded search report what its bound hides. A scan capped at twenty-five that returns a clean result must say that the result only covers the recent batch.", "Run the siloed test before handover: copy only the package to a clean machine with your own setup switched off, and act like somebody with nothing. Anything it reaches for outside the folder is a gap."], "get": ["The authored skills, versioned, dated and owned", "Approval gates placed at the cost jumps", "A correctness-versus-taste split in every package", "The siloed test, run, with the gaps it found closed"], "money": "Priced against the time your team spends reconstructing capability that already exists somewhere in the organisation.", "gate": "**This is the one engagement where we can show you a competitor's shipped work beside our own standard.** Standards fail at packaging, not at craft, and that is demonstrable rather than asserted.", "idx": 22}, "agent-context": {"t": "t4", "type": "C", "name": "Agent Context Architecture", "time": "3 weeks", "who": "CTO, platform", "promise": "Per-client context carrying three layers at once, with a correction protocol that makes a fix permanent.", "problem": "Every conversation with the system starts from nothing. The same correction gets made weekly and never persists, because there is nowhere for it to go.", "cost": "A system with no memory of its corrections is a system that costs the same amount of supervision forever. The supervision is the running cost and it never falls.", "hard": "Three layers have to be live at once: the skill file, persistent memory, and the relevant history as context. Getting one of the three is common and does not produce the effect.", "work": ["Build per-client context channels carrying all three layers.", "Install the correction protocol: fix the issue, then fix it so it never happens again, then persist that into the skill file.", "Decide what persists and what does not, explicitly, because a channel that remembers everything is as unusable as one that remembers nothing.", "Name an owner per channel."], "get": ["Per-client context channels, three layers live", "The correction protocol, installed and used once with your team", "A written persistence policy", "A named owner per channel"], "money": "Priced against supervision hours that stop recurring. Measure how often the same correction is made in a month before we start.", "gate": "**The platform the source described for this was abandoned by its own authors inside the capture window.** We rebuilt the engagement around the architecture rather than the product, and we will tell you which parts are ours rather than theirs.", "idx": 23}, "production-stack": {"t": "t4", "type": "C", "name": "Production Stack and Briefing", "time": "4 weeks", "who": "Creative ops", "promise": "A four-layer production architecture with a coding agent as the hub, and a briefing discipline that stops over-determining the output.", "problem": "Production depends on one person's arrangement of tools, which exists nowhere except in their habits. When they are away, throughput is not reduced, it is zero.", "cost": "A stack that lives in somebody's habits cannot be improved by anyone else, cannot be handed over, and cannot be audited when something goes wrong in it.", "hard": "The primer discipline is where this succeeds or fails. Ten to fifteen is the stated sweet spot, and loading strategy documents into primers over-determines the output, which produces work that is on-brief and lifeless.", "work": ["Build the four layers with the coding agent as the hub rather than as one tool among several.", "Install the primer discipline: ten to fifteen per task, and an explicit rule against loading strategy documents into them.", "Define the six brief fields the system must ask for rather than assume.", "Design for agents rather than for humans where the two conflict, and record where you made that trade."], "get": ["The four-layer stack, documented and running", "Primer discipline with the sweet spot enforced", "Six required brief fields", "A written record of the agent-versus-human design trades"], "money": "Priced against throughput that no longer depends on one person's availability.", "gate": "**The source for this was a launch call for the teachers' own commercial product, which we cannot install for you.** What we build is the architecture underneath it. If you want their app, buy their app.", "idx": 24}, "standards-ladder": {"t": "t4", "type": "A", "name": "Standards Ladder Install", "time": "2 weeks", "who": "Quality, delivery", "promise": "A graded quality standard enforced at delivery time rather than at review time.", "problem": "Quality gets checked at the end, by whoever has capacity, against a standard everybody remembers differently.", "cost": "Review-time enforcement means defects are found after the expensive work is done. It also means the standard is applied inconsistently, which teaches everyone that it is advisory.", "hard": "Choosing the enforcement point. A gate that rejects what it could have repaired costs more than the defect it prevents, and the discriminator is whether the fix requires a judgement or not.", "work": ["Define the grades, so that 'good enough' has a name and a threshold rather than being a negotiation.", "Choose the enforcement point per grade. Where the violation can be fixed deterministically, build something that repairs and lets the work through. Where it needs a judgement, build a gate.", "Put a name against each grade.", "Run it over live work for a fortnight and count what it caught and what it cost."], "get": ["The graded standard, with thresholds", "An enforcement point chosen per grade, with the reasoning", "A named owner per grade", "Two weeks of measured operation: what it caught, what it cost"], "money": "Priced against rework. The measurement exists after fourteen days rather than after the engagement.", "gate": "**A gate whose error message tells you exactly what to substitute is a repair that has not been written yet.** We will build the repair where the fix is deterministic rather than blocking your team and calling it quality.", "idx": 25}, "claims-check": {"t": "t4", "type": "C", "name": "The Claims Check", "time": "1 week", "who": "Legal, compliance, CMO", "promise": "The claims decision installed where the work happens, as a rule in the judge or a named gate.", "problem": "Output volume multiplied and the decision about what may be said did not. Somebody found a framing that works and it spread without review.", "cost": "One unexamined framing is now in four hundred assets and nobody approved it. That is not an abstract ethics question, it is an operational one with a remediation cost attached.", "hard": "The propagation check is the diagnostic that sells this and almost nobody runs it. Ask what happens in your organisation when someone finds a framing that works, and follow the answer.", "work": ["Run the propagation check. When a framing works, how does it spread, who reviews it, and what would stop it.", "Take the ledger's rulings and turn them into enforcement: rules inside the judge where there is a pipeline, a named human gate where the process is human.", "Install the standing proof file, because the thing models hallucinate most reliably is a proof element when they feel one is missing.", "Test it against live output before it is load-bearing."], "get": ["The propagation check, run, with the answer written down", "Claims rules installed at the point of delivery", "A standing proof file", "A fortnight of live operation before it is relied on"], "money": "Priced against one remediation you do not have to run. Most buyers can name what a previous one cost.", "gate": "**This is the one engagement whose type depends on you.** With a pipeline it is an AI system. Without one it is a person with a checklist, and it is not an AI engagement at all. We price and describe it differently in each case.", "idx": 26}, "premise-ledger": {"t": "t4", "type": "N", "name": "The Premise Ledger", "time": "Half a day of decision", "who": "Founder, exec, legal", "promise": "A written decision about what this business will and will not claim, with the reasoning on every line.", "problem": "Nobody has decided, so it is being decided by whoever writes the copy, differently each time, under deadline.", "cost": "The cost arrives all at once, in the form of a claim that should not have gone out and a week spent working out how it did.", "hard": "It is four phases and half a day of actual decision, and the reason it does not happen is that no one owns it. The facilitation matters: we supply the distinctions, you supply the answers.", "work": ["Phase through the four decisions with the people who can actually make them in the room.", "Fill all five required fields per ruling. The fifth, the one-sentence reasoning, is the one clients want to skip and the one that makes the ledger durable a year later.", "Decide the boundary cases explicitly, including who signs off when a new one appears.", "Hand it over as a document that the Claims Check can be built from."], "get": ["The ledger, all five fields per ruling", "Named sign-off for boundary cases", "The reasoning line on every entry", "A document the Claims Check installs directly from"], "money": "Half a day of decision inside a short engagement. It is the cheapest governance artifact on the site and the one with the largest downside if it is absent.", "gate": "**Sold standing and never bundled.** Its own source says so: bundled into something bigger, it is the phase that gets cut. And we disclose our own claims position first, because a client who wants a ledger permitting what we have prohibited should find that out in the first meeting.", "idx": 27}, "client-acquisition": {"t": "t5", "type": "N", "name": "Client Acquisition System", "time": "3 weeks", "who": "Agency or consultancy principal", "promise": "An outreach system reserved for the qualified, and a route in through people who already serve your buyer.", "problem": "New business is referrals and luck. When both are quiet there is no system to turn on, so the response is to work harder on proposals nobody asked for.", "cost": "High-effort work spent on unqualified prospects is the most expensive habit in professional services, and it is invisible because it looks like activity.", "hard": "The skip-the-line route requires doing small free work for somebody who is not your buyer, which feels wrong until it works. It also requires the discipline to reserve everything effortful for people who have qualified.", "work": ["Build the five-element outreach message, with urgency, and the risk-reduction line that makes replying nearly free.", "Install the ideas ladder that converts a free conversation into a paid proposal without a pitch.", "Build the skip-the-line route: find people who already serve your target client and do not do what you do, do small work for them, and be introduced upward.", "Set the qualification floor and say it out loud, so the wrong buyer removes themselves before the negotiation rather than during it."], "get": ["The outreach message, built for your category", "The ideas ladder", "A named list of skip-the-line partners and the first approach", "A qualification floor you say in the first conversation"], "money": "Priced as a build. The reference case is a single relationship entered through thirty-to-forty-five minute free pieces that produced $163,360 over three years.", "gate": "**We adopted this before putting it on a page.** That is a low bar and almost nobody clears it.", "idx": 28}, "discovery-proposal": {"t": "t5", "type": "N", "name": "Discovery and Proposal", "time": "2 weeks", "who": "Agency or consultancy principal", "promise": "A discovery structure and a six-slide proposal where every slide before the price extracts an agreement.", "problem": "Discovery is a friendly conversation and the proposal is a document of deliverables. The price arrives as a surprise at the end of both.", "cost": "A proposal that arrives without prior agreement is a proposal being read for the first time in the room where it is decided. The close rate reflects that.", "hard": "The talk-them-out-of-it move, which is genuinely uncomfortable and is the single strongest qualifier in the set. So is pricing by odds of success rather than by deliverable count, because it requires stating the odds.", "work": ["Install the discovery structure, so the conversation produces the information the proposal needs rather than rapport.", "Build the decision-maker redirect for the common case where you are talking to somebody who cannot buy.", "Build the six-slide proposal so that every slide before the price extracts an explicit agreement.", "Move pricing from deliverable count to odds of success, which changes what you are selling."], "get": ["The discovery structure, scripted", "The decision-maker redirect", "The six-slide proposal template", "A pricing basis stated as odds rather than as a deliverable list"], "money": "Priced against close rate, which you can measure before and after on the next ten proposals.", "gate": null, "idx": 29}, "pricing-architecture": {"t": "t5", "type": "N", "name": "Pricing and Rate Architecture", "time": "2 weeks", "who": "Agency or consultancy principal", "promise": "A rate structure with a raise procedure, a scope-down rule, and the hit rate stated in the same breath as the number.", "problem": "Rates were set once and have drifted. Raising them is a conversation nobody schedules, and scope grows because there is no rule for what happens when it does.", "cost": "The measured gap in the reference case is a realised $147.94 effective hourly against a $209 target and a $65 floor. That gap is not a pricing problem, it is the absence of a procedure.", "hard": "Stating the hit rate out loud at the point of sale is the hardest part and the one that pays. It feels like weakening the pitch and it does the opposite.", "work": ["Build the rate raise procedure, with a date on it and two tiers, so the raise is scheduled rather than summoned.", "Install the scope-down rule: what gets removed when the budget does not move, rather than what gets absorbed.", "Move to fixed price where speed is your advantage, so getting faster does not reduce your income.", "State the hit rate in the same breath as the price, and concede to a floor with a trigger rather than to a floor."], "get": ["A rate card with a scheduled raise procedure", "The scope-down rule, written", "A fixed-price structure where speed is the value", "The declared-hit-rate sentence, written for your service"], "money": "Priced against the gap between your target rate and your realised one. Compute both before we start.", "gate": "**Price proof on spend deployed or hours removed, never on revenue attributed.** Deployed spend is checkable and attributable. Return on ad spend is neither, and a case study built on it does not survive a client checking.", "idx": 30}, "offer-ladder": {"t": "t5", "type": "N", "name": "Offer Ladder Design", "time": "2 sessions, 5 weeks apart", "who": "Agency or consultancy principal", "promise": "A front end priced for acquisition rather than profit, with the bump and two upsells behind it.", "problem": "There is one offer at one price. Everyone who is not ready for it leaves, and everyone who wanted more has nowhere to go.", "cost": "A single-rung offer means the acquisition cost has to be recovered on the first sale, which sets the price above what a new buyer will risk.", "hard": "The second meeting. A one-off session produces a document you agree with and do not act on. The homework in between is what makes this stick and it is the part clients try to skip.", "work": ["Session one: map the current offer, set the homework. You come back with the front end, the bump ideas, the upsell ideas and how you actually make money.", "You do the work over five weeks. We do not do it for you, because the version we write is one you will not run.", "Session two: mark the homework, correct it, and set the ladder.", "For every rung, name what the buyer still needs afterwards and where you send them next."], "get": ["The offer ladder, rung by rung", "A front end priced for acquisition", "For every rung: what they still need, and where they go next", "The marked homework, which is the actual deliverable"], "money": "Two sessions. The value is in the second one, which is why it is not priced as a workshop.", "gate": "**You do the homework or the second session does not happen.** That is not a scheduling preference. A ladder you did not build is one you will not operate.", "idx": 31}, "onboarding-contracts": {"t": "t5", "type": "N", "name": "Onboarding and Contract Architecture", "time": "2 weeks", "who": "Principal, with legal", "promise": "An MSA with per-project statements of work, so repeat business has no friction, and a scope clause that reads as generous.", "problem": "Every project restarts the contract conversation. Repeat work is slower to start than new work, which is the wrong way round.", "cost": "Contract friction on repeat business is a tax on your best revenue. It also delays starts, which delays invoices.", "hard": "Writing an anti-scope-creep clause that reads as generous is a drafting skill. The clause that protects you and reads as protective gets negotiated; the one that reads as generous does not.", "work": ["Build the master agreement, signed once.", "Build the per-project statement of work, so a repeat engagement is one short document.", "Issue the pre-signed contract with the first invoice rather than before it.", "Draft the scope clause so that it reads as generous and functions as protection."], "get": ["The master agreement", "A per-project statement of work template", "The invoice-and-contract sequence", "A scope clause drafted for both effects"], "money": "Priced against time to start on repeat work.", "gate": "**This is structure, not legal advice.** Your lawyer reviews the drafting; we build the architecture it sits in.", "idx": 32}, "retention-referral": {"t": "t5", "type": "N", "name": "Retention and Referral System", "time": "2 weeks", "who": "Agency or consultancy principal", "promise": "Referrals raised before signing as a condition of working together, rather than requested afterwards as a favour.", "problem": "Referrals happen when clients remember. Asked at the end of a project, the request competes with the client's next priority and usually loses.", "cost": "Every client that does not replace itself has to be replaced by business development, which is the most expensive way to acquire anyone.", "hard": "Raising it before signing feels like a risk and is not. It trades something you have (business development time) for something they can give cheaply, and the conversation is thirty seconds long.", "work": ["Build the thirty-second referral conversation for your service.", "Move it to before signing, as a condition of working together, traded explicitly against business development time.", "Start repeat work before the current project ends, while the relationship is at its warmest.", "Build the retainer conversion for the engagements that carry a standing cadence."], "get": ["The thirty-second referral script", "The pre-signing conversation, rehearsed", "A repeat-work trigger that fires before the project ends", "A retainer conversion path for the standing engagements"], "money": "The arithmetic is the sale: two referrals at a fifty percent close rate means every client self-replaces.", "gate": null, "idx": 33}, "proof-endorsement": {"t": "t5", "type": "N", "name": "Proof and Endorsement System", "time": "1 week", "who": "Agency or consultancy principal", "promise": "Endorsements you drafted first, and a contractual boundary on what you may say about results.", "problem": "Testimonials arrive vague and late. They say you were a pleasure to work with, which is the sentence that convinces nobody.", "cost": "Your promotion is only as good as your worst testimonial, and the worst one is usually the most recent one because nobody managed it.", "hard": "Writing the first draft yourself feels presumptuous and is the entire technique. It puts your positioning into the client's mouth, in their voice, for them to edit rather than to compose.", "work": ["Ask for an endorsement rather than a testimonial. The word changes what people produce.", "Write the first draft yourself, in their voice, for them to correct.", "Agree the claims boundary in the contract: relative figures permitted in summary and general form, absolutes need sign-off.", "Build the ladder deliberately, because proof determines income more than skill does: samples, then track record, then case studies."], "get": ["A drafted endorsement per client, ready to be corrected", "The contractual claims boundary, in the agreement", "A proof ladder with your current rung named", "The ask, scripted, at the right moment in the project"], "money": "One week, and it changes what every later proposal can say.", "gate": "**The claims boundary here is the cleanest answer to the claims question anywhere in this material**, and it is answered by contract rather than by taste.", "idx": 34}, "republication": {"t": "t5", "type": "N", "name": "Asset Republication Architecture", "time": "3 weeks", "who": "Course, training or media business", "promise": "One library of recorded material, repackaged and renamed into separately sold products.", "problem": "You have years of recorded calls, sessions or lessons. It was sold once, as one thing, and it is now sitting in a drive.", "cost": "A library that is sold once is a fixed asset earning nothing. The production cost is already paid and the marginal cost of a second product from it is close to zero.", "hard": "Deciding what recombines into what, and naming the results so they read as products rather than as archives. The technique is not in any curriculum; it was found in a file tree.", "work": ["Inventory the library and mark what has been sold, in what form, and to whom.", "Identify the recombinations: which recordings form a coherent second product under a different frame.", "Rename and repackage, so each product has its own promise rather than being a slice of the same thing.", "Decide the disclosure position, because customers who bought twice should not discover it by accident."], "get": ["The library inventory with sales history", "A recombination map", "Two to three repackaged products, named and framed", "A written disclosure position"], "money": "Priced against the second revenue line, which did not require new production.", "gate": "**The evidence for this is 63 duplicate groups across 69 placements in the source's own file tree.** They do it and they do not teach it, which is worth knowing before you decide how comfortable you are with it.", "idx": 35}, "delivery-ladder": {"t": "t5", "type": "N", "name": "The Delivery Ladder", "time": "1 paid day, then 5 to 7 weeks", "who": "Consultancy or agency productising", "promise": "Separate your method from your corpus, then find out which half you have been protecting.", "problem": "You keep solving the same problem for different clients. They hire you, learn it, and leave. Or you built a tool and nobody uses it.", "cost": "A business giving away its expertise one engagement at a time accumulates nothing. Value is fixed at the point of sale and a customer from two years ago has exactly what they bought.", "hard": "The method-versus-corpus split. Almost every business discovers it has been protecting the copyable half and neglecting the durable one, and that finding is not available from inside.", "work": ["Inventory method and corpus separately and exhaustively. Rate every corpus item by what it cost to acquire and how hard it would be to reproduce.", "Choose the rung per offering rather than per business. You can publish the method at one rung and hold the corpus at another.", "Build the accumulation mechanism, which is the actual engagement: where corrections go, who routes them, what improves, and how an existing customer receives the improvement.", "Package for the buyer you have rather than the one you want, using the usage data rather than the aspiration.", "Plan the regression: what gets less reliable at the new rung, what you will tell customers, and what support burden you are accepting."], "get": ["Two registers: the method inventory and the corpus inventory, the second scored", "A ladder map, one rung per offering, with the reasoning", "The propagation design, with owners at every hop", "Packaging matched to observed usage", "The launch plan, including the honest statement of what gets worse"], "money": "The diagnostic is a paid day and pays for itself on the split alone. Phase three prices against the asset created, because it compounds without further sales effort.", "gate": "**Four governance decisions get forced rather than defaulted:** what propagates, whether there is an opt-out, whose corrections count, and what is sealed. A propagating default with no opt-out is a change imposed on a paying customer.", "idx": 36}, "proving-ground": {"t": "t5", "type": "N", "name": "The Proving Ground", "time": "1 paid day, then 10 to 16 weeks", "who": "Training, advisory or expertise business", "promise": "A deliberately unprofitable lab, funded from the scaled product, with a named route from finding to material.", "problem": "Your content used to differentiate you and now everyone says the same thing. Your senior people have not been in the field for years and the material has not changed since the rebrand.", "cost": "The exposure is not that the material is stale. It is that nothing in the business would go badly if the method were wrong, which means there is no mechanism that would ever tell you.", "hard": "Protecting the lab from its own profit and loss. It is designed to lose money and it will be judged on margin by somebody in year two unless a named person has the authority to defend it.", "work": ["Locate the decay. Date every framework, measure practice distance for each senior person, trace the last three new things in the material to their source, and answer the consequence question.", "Design the lab. Six to ten people, priced to filter and not to scale, selected for coachability rather than likely success, high contact, real consequences for non-participation, six to eight weeks minimum.", "Build the extraction route from finding to product, with an owner at each hop. Without this the lab is a hobby.", "Run the first cycle. Capture stalls rather than testimonials: where a competent person stopped, what they tried, what they believed that was wrong.", "Institutionalise: the cadence, the confidentiality design, and the trigger for climbing a rung."], "get": ["The decay map: frameworks by age, verification status and commercial weight", "The lab specification, stating in writing that it is not a profit centre and who defends that", "The extraction route, with an owner at every hop", "The first findings set, and at least one material change to the product", "The charter, and the next two rungs planned"], "money": "Priced against a strategic risk rather than an efficiency gain: the cost of continuing to sell knowledge you cannot verify.", "gate": "**The lab loses money by design and we will say so before the contract.** A client who cannot hear that is not a buyer for this engagement. It also requires a scaled product to fund it, so a solo practice should do the work directly instead.", "idx": 37}}, "ORDER": ["ceiling-read", "flatness-audit", "diversity-decoder", "failure-audit", "unit-economics", "winner-id", "substrate-audit", "retrieval-fix", "test-prioritisation", "taste-file", "correction-capture", "rules-judge", "voice-engine", "correction-loop", "hook-engine", "static-system", "ai-video", "narrative-ads", "template-library", "multiplication", "funnel-pages", "skill-authoring", "agent-context", "production-stack", "standards-ladder", "claims-check", "premise-ledger", "client-acquisition", "discovery-proposal", "pricing-architecture", "offer-ladder", "onboarding-contracts", "retention-referral", "proof-endorsement", "republication", "delivery-ladder", "proving-ground"], "TYPES": {"C": {"k": "C", "slug": "ai-centric", "name": "AI-centric", "test": "Remove AI and the engagement disappears", "buy": "The AI system is the deliverable", "hex": "#EE2A52", "who": "The buyer who arrived saying they need AI", "ages": "Fastest", "proof": "Weakest. Nothing here has been run at a client yet"}, "A": {"k": "A", "slug": "ai-assisted", "name": "AI-assisted", "test": "Remove AI and it shrinks but survives", "buy": "Real work, done faster and at more volume", "hex": "#8F5ED8", "who": "The buyer with a production problem", "ages": "Slowly", "proof": "Strongest. A measured ledger, a 212-case pricing register"}, "N": {"k": "N", "slug": "not-ai", "name": "Not about AI", "test": "Remove AI and nothing changes", "buy": "A decision, a standard or a structure", "hex": "#2F7F5B", "who": "Nobody asks. It gets diagnosed", "ages": "Not at all", "proof": "Middling, and mostly one teacher"}}, "XT": [{"id": "t0", "name": "Diagnostics", "n": "Tier 0", "hex": "#3CC2DB", "C": 2, "A": 1, "N": 1, "tot": 4}, {"id": "t1", "name": "Ground truth", "n": "Tier 1", "hex": "#222639", "C": 0, "A": 3, "N": 2, "tot": 5}, {"id": "t2", "name": "Judgment capture", "n": "Tier 2", "hex": "#EE2A52", "C": 5, "A": 0, "N": 0, "tot": 5}, {"id": "t3", "name": "Production at volume", "n": "Tier 3", "hex": "#F1B900", "C": 1, "A": 5, "N": 1, "tot": 7}, {"id": "t4", "name": "Infrastructure and enforcement", "n": "Tier 4", "hex": "#8F5ED8", "C": 4, "A": 1, "N": 1, "tot": 6}, {"id": "t5", "name": "Commercial practice", "n": "Tier 5", "hex": "#1F7A8C", "C": 0, "A": 0, "N": 10, "tot": 10}], "TOT": {"C": 12, "A": 10, "N": 15, "tot": 37}};
+
+const {TIERS,U,ORDER,TYPES,XT,TOT}=D;
+const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const md=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+const byId=id=>TIERS.find(t=>t.id===id);
+const tierOf=u=>byId(U[u].t);
+const pad=n=>String(n).padStart(2,'0');
+const TK=['C','A','N'];
+const bySlug=s=>TK.find(k=>TYPES[k].slug===s);
+
+function badge(k){const m=TYPES[k];return `<span class="tbadge t-${k}" title="${esc(m.test)}"><i class="dot"></i>${esc(m.name)}</span>`;}
+
+function nav(active){
+  return `<header class="top"><div class="topin">
+    <a class="mark" href="#/">HUMAN FIRST<span>.</span></a>
+    <nav class="navlinks">
+      ${TIERS.map(t=>`<a href="#/tier/${t.id}" class="${active===t.id?'on':''}">${esc(t.short)}</a>`).join('')}
+      <a href="#/types" class="${active==='types'?'on':''}">How much is AI</a>
+      <a href="#/limits" class="${active==='limits'?'on':''}">Limits</a>
+      <a href="#/start" class="btn ghost" style="padding:7px 15px;font-size:13.5px">Start</a>
+      <button class="tglbtn" id="tgl">Theme</button>
+    </nav></div></header>`;
+}
+
+function trail(cur){
+  return `<div class="srail">${TIERS.map(t=>`<a href="#/tier/${t.id}" class="${t.id===cur?'on':''}">${esc(t.short)}</a>`).join('')}</div>`;
+}
+
+function filterbar(base,cur){
+  const mk=(href,lab,on)=>`<a href="${href}" class="${on?'on':''}">${lab}</a>`;
+  return `<div class="filter"><span class="lbl">How much is AI</span>
+    ${mk(base,'All '+TOT.tot,!cur)}
+    ${TK.map(k=>mk(base+'/'+TYPES[k].slug,esc(TYPES[k].name)+' '+TOT[k],cur===k)).join('')}
+  </div>`;
+}
+
+function card(u){
+  const d=U[u], t=tierOf(u);
+  return `<a class="scard" href="#/unit/${u}" style="--accent:${t.c}">
+    <div class="sn" style="color:${t.c}">${pad(d.idx)}</div>
+    <h4>${esc(d.name)}</h4>
+    <div class="badges">${badge(d.type)}</div>
+    <p>${esc(d.promise)}</p>
+    <div class="meta"><span>${esc(d.time)}</span><span>&middot;</span><span>${esc(d.who)}</span></div></a>`;
+}
+
+function foot(){
+  return `<section class="dark tight"><div class="shell narrow stack">
+    <h2 class="h-sec">Tell us the symptom, not the solution.</h2>
+    <p class="lede" style="color:var(--deep-body)">If the first thing you need is not on this page we will say so. Four of the thirty-seven exist to tell you that you are not ready for the other thirty-three.</p>
+    <div class="btnrow"><a class="btn" href="#/start">Start with a diagnostic</a><a class="btn ghost" href="#/limits" style="color:#fff;border-color:#4A4F66">What we do not do</a></div>
+  </div></section>
+  <footer style="padding:26px 0;border-top:1px solid var(--rule)"><div class="shell small" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between">
+    <span>Human First Media</span><span>Thirty-seven engagements. Six tiers. Twelve of them are actually about AI.</span></div></footer>`;
+}
+
+function heroArt(){
+  const w=380,x0=14,rowh=40,gap=10;
+  let out=`<svg viewBox="0 0 400 ${XT.length*(rowh+gap)+34}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Six tiers, each split by how much of it is AI">`;
+  XT.forEach((r,i)=>{
+    const y=i*(rowh+gap)+16; let x=x0;
+    const unit=(w-x0*2)/TOT.tot*1.0;
+    const seg=(n,fill)=>{ if(!n) return ''; const ww=n*((w-x0*2)/10); const s=`<rect x="${x}" y="${y}" width="${Math.max(ww,0)}" height="${rowh}" fill="${fill}"/>`; x+=ww+2; return s; };
+    out+=seg(r.C,'#EE2A52')+seg(r.A,'#8F5ED8')+seg(r.N,'#2F7F5B');
+    out+=`<text x="${x+8}" y="${y+rowh/2+5}" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="${r.hex==='#222639'?'#70666A':r.hex}">${r.tot}</text>`;
+  });
+  out+=`</svg>`;
+  return out;
+}
+
+function home(){
+  return nav('') + `
+  <div class="vbar">This is <b>v4</b>, built 2026-09-11 on the Mario material alone, with the source verification corrections folded in. <a href="#/types">Twelve of thirty-seven are actually about AI</a>.</div>
+  <section class="hero"><div class="shell"><div class="heroGrid">
+    <div class="stack">
+      <div class="rule"></div>
+      <p class="eyebrow">Thirty-seven engagements</p>
+      <h1 class="h-hero">Find out what is true, then build on it.</h1>
+      <p class="lede">Six tiers, in order. Measurement before systems, judgment before volume, and a written decision about what you will claim before any of it reaches a customer. Every engagement says which of the three it is: an AI system, work that AI makes faster, or business practice with no model in it anywhere.</p>
+      <div class="btnrow"><a class="btn" href="#/tier/t0">Start with a diagnostic</a><a class="btn ghost" href="#/types">How much of this is AI</a></div>
+      <div class="heroFacts">
+        <div class="fact"><b>${TOT.C}</b><span>are AI systems. Take the model out and there is no engagement left</span></div>
+        <div class="fact"><b>${TOT.A}</b><span>are real work that AI makes faster and cheaper</span></div>
+        <div class="fact"><b>${TOT.N}</b><span>have no model in them anywhere and do not age</span></div>
+      </div>
+    </div>
+    <div class="heroArt">${heroArt()}</div>
+  </div></div></section>
+
+  <section class="band"><div class="shell stack">
+    <p class="eyebrow">The order</p>
+    <h2 class="h-sec">Six tiers, and the sequence is the argument.</h2>
+    <p class="lede narrow">Each tier assumes the one above it. Where it is not there we say so before the contract, not in week two, and Tier 1 exists because five of the engagements below it decline the same client for the same reason.</p>
+    <div class="chain" style="margin-top:12px">
+      ${TIERS.map((t,i)=>`<div class="chainrow" style="--sc:${t.c}">
+        <div class="sn2">${esc(t.n)}</div>
+        <div><h3><a href="#/tier/${t.id}">${esc(t.name)}</a></h3>
+        <p>${esc(t.promise)}</p>
+        <div class="cnt2">${t.units.length} engagements &middot; ${XT[i].C} AI-centric, ${XT[i].A} AI-assisted, ${XT[i].N} not about AI</div></div></div>`).join('')}
+    </div>
+  </div></section>
+
+  <section><div class="shell stack">
+    <p class="eyebrow">What the shape says</p>
+    <h2 class="h-sec">The AI sits in the middle, not at the top.</h2>
+    <div class="deck" style="margin-top:10px">
+      <div class="pt"><h4>Tier 1 gates everything and contains no AI</h4><p>The precondition for buying an AI system is five pieces of measurement and architecture work with no model in any deliverable. That is why the front of this menu is buyable before you have decided anything about AI.</p></div>
+      <div class="pt" style="border-color:var(--red)"><h4>Tier 2 is five for five</h4><p>Judgment capture is the only tier where every engagement is an AI system, and it is the only thing here with no competitor equivalent. It is also where a rules-only approach stops working and almost nobody says so.</p></div>
+      <div class="pt" style="border-color:var(--teal)"><h4>Tier 5 is ten for ten the other way</h4><p>The top of the ladder has no model in it anywhere. Contracts, referrals, pricing and how a firm funds its own research. The outreach template in it dates to 2013 and still runs.</p></div>
+    </div>
+    <div class="gate" style="margin-top:34px"><b>One number worth knowing before you read further.</b> Exactly one of these thirty-seven engagements has the word AI in its name. Twelve of them are AI systems. This material was written by people describing their work rather than marketing it, which is the opposite of the usual drift and is why every page here carries a type badge.</div>
+  </div></section>` + foot();
+}
+
+function tierPage(id,tk){
+  const t=byId(id); if(!t) return home();
+  const i=TIERS.indexOf(t), prev=TIERS[i-1], row=XT[i];
+  let units=t.units; if(tk) units=units.filter(u=>U[u].type===tk);
+  return nav(id) + `
+  <section class="hero" style="padding-bottom:30px"><div class="shell stack">
+    ${trail(id)}
+    <div class="rule" style="background:${t.c}"></div>
+    <p class="eyebrow" style="color:${t.c}">${esc(t.n)} &middot; ${t.units.length} engagement${t.units.length>1?'s':''} &middot; ${esc(t.tag)}</p>
+    <h1 class="h-hero">${esc(t.name)}</h1>
+    <p class="lede narrow">${esc(t.promise)}</p>
+    <p class="narrow">${esc(t.lede)}</p>
+    <div class="countbar">
+      <div><b>${row.C}</b><span>AI-centric</span></div>
+      <div><b>${row.A}</b><span>AI-assisted</span></div>
+      <div><b>${row.N}</b><span>not about AI</span></div>
+    </div>
+    ${prev?`<div class="gate" style="margin-top:30px;border-left-color:${t.c}"><b>The gate.</b> This tier assumes ${esc(prev.name.toLowerCase())} is done. Where it is not, we say so before the contract rather than discovering it in phase one.</div>`:''}
+  </div></section>
+  <section class="band"><div class="shell stack">
+    <h2 class="h-sec">Why this tier exists</h2>
+    <div class="deck" style="margin-top:10px">${t.why.map(w=>`<div class="pt" style="border-color:${t.c}"><h4>${esc(w.h)}</h4><p>${esc(w.p)}</p></div>`).join('')}</div>
+    <p class="band-line" style="margin-top:30px"><b>How we work.</b> ${esc(t.how)}</p>
+  </div></section>
+  <section><div class="shell stack">
+    <h2 class="h-sec">${t.units.length} way${t.units.length>1?'s':''} to work with us here</h2>
+    ${filterbar('#/tier/'+t.id,tk)}
+    ${units.length?`<div class="solgrid">${units.map(u=>card(u)).join('')}</div>`
+      :`<p class="note">Nothing in this tier is ${esc(TYPES[tk].name.toLowerCase())}. That is the finding rather than an empty page. <a href="#/tier/${t.id}">Show all ${t.units.length}</a>.</p>`}
+  </div></section>` + foot();
+}
+
+function unitPage(u){
+  const d=U[u]; if(!d) return home();
+  const t=tierOf(u), sibs=t.units.filter(x=>x!==u), m=TYPES[d.type];
+  return nav(t.id) + `
+  <section class="hero" style="padding-bottom:26px"><div class="shell narrow stack">
+    <div class="crumb"><a href="#/">Home</a> <span class="sep">&rsaquo;</span> <a href="#/tier/${t.id}">${esc(t.name)}</a> <span class="sep">&rsaquo;</span> <span>${esc(d.name)}</span></div>
+    <div class="rule" style="background:${t.c}"></div>
+    <p class="eyebrow" style="color:${t.c}">Engagement ${pad(d.idx)} &middot; ${esc(d.time)} &middot; ${esc(d.who)}</p>
+    <h1 class="h-hero">${esc(d.name)}</h1>
+    <div class="badges" style="margin:2px 0 4px">${badge(d.type)}</div>
+    <p class="lede">${esc(d.promise)}</p>
+    <p class="note"><b>${esc(m.name)}.</b> ${esc(m.test)}. What you are buying is ${esc(m.buy.toLowerCase())}. <a href="#/types">Why we label these</a>.</p>
+  </div></section>
+  <section class="band"><div class="shell narrow stack">
+    <h2 class="h-sub">The problem, as you would describe it.</h2><p>${esc(d.problem)}</p>
+    <h2 class="h-sub" style="margin-top:30px">Why leaving it is more expensive than fixing it.</h2><p>${esc(d.cost)}</p>
+    <h2 class="h-sub" style="margin-top:30px">The part that makes this worth outside help.</h2><p>${esc(d.hard)}</p>
+  </div></section>
+  <section><div class="shell narrow stack">
+    <h2 class="h-sec">The kind of work this is.</h2>
+    <div class="steps" style="grid-template-columns:1fr;gap:22px;margin-top:14px">
+      ${d.work.map((w,i)=>`<div class="step" style="--stepc:${t.c}"><div class="n">${i+1}</div><p>${esc(w)}</p></div>`).join('')}
+    </div>
+  </div></section>
+  <section class="band"><div class="shell narrow stack">
+    <h2 class="h-sec">What you hold at the end</h2>
+    <ul class="ticks" style="--accent:${t.c};margin-top:8px">${d.get.map(g=>`<li>${esc(g)}</li>`).join('')}</ul>
+    <h2 class="h-sub" style="margin-top:34px">Why this one pays.</h2><p>${esc(d.money)}</p>
+    ${d.gate?`<div class="gate" style="margin-top:30px;border-left-color:${t.c}">${md(d.gate)}</div>`:''}
+  </div></section>
+  ${sibs.length?`<section><div class="shell stack">
+    <h2 class="h-sub">What sits alongside it in ${esc(t.name.toLowerCase())}.</h2>
+    <div class="solgrid" style="margin-top:12px">${sibs.map(x=>card(x)).join('')}</div>
+  </div></section>`:''}` + foot();
+}
+
+function typesPage(tk){
+  const list = tk ? ORDER.filter(u=>U[u].type===tk) : ORDER;
+  const maxr = Math.max(...XT.map(r=>r.tot));
+  return nav('types') + `
+  <section class="hero" style="padding-bottom:28px"><div class="shell narrow stack">
+    <div class="rule"></div><p class="eyebrow">The honest label</p>
+    <h1 class="h-hero">How much of this is actually AI.</h1>
+    <p class="lede">Every engagement on this site carries one of three labels, decided by what you hold after we leave rather than by what the engagement is about. A title tells you the subject. The deliverable tells you the truth, and those are different facts.</p>
+  </div></section>
+
+  <section class="band"><div class="shell stack">
+    <div class="deck">
+      ${TK.map(k=>{const m=TYPES[k];return `<div class="typecard" style="--tc:${m.hex}">
+        <div class="big">${TOT[k]}</div>
+        <h3>${esc(m.name)}</h3>
+        <p>${esc(m.buy)}.</p>
+        <p style="font-size:13.5px"><b style="color:var(--ink)">Who asks for it.</b> ${esc(m.who)}. <b style="color:var(--ink)">Ages:</b> ${esc(m.ages).toLowerCase()}. <b style="color:var(--ink)">Proof we hold:</b> ${esc(m.proof.toLowerCase())}.</p>
+        <div class="test"><b>The test.</b> ${esc(m.test)}.</div>
+      </div>`}).join('')}
+    </div>
+    <p class="band-line" style="margin-top:30px"><b>Why publish this at all.</b> Because a service menu written during an AI boom describes almost everything in AI language, and a year later nobody can say which engagements survive the tooling being replaced. Fifteen of these thirty-seven would still be sellable if the models stopped improving tomorrow.</p>
+  </div></section>
+
+  <section><div class="shell stack">
+    <p class="eyebrow">The cross-tab</p>
+    <h2 class="h-sec">The AI is concentrated in two tiers, and absent from two others.</h2>
+    <div class="tablewrap" style="margin-top:14px"><table class="xtab">
+      <thead><tr><th>Tier</th><th style="text-align:center">AI-centric</th><th style="text-align:center">AI-assisted</th><th style="text-align:center">Not about AI</th><th>Shape</th></tr></thead>
+      <tbody>
+      ${XT.map(r=>`<tr>
+        <td><a href="#/tier/${r.id}" style="text-decoration:none;color:var(--ink);font-weight:600">${esc(r.name)}</a><br><span style="font-size:12.5px">${esc(r.n)} &middot; ${r.tot} engagements</span></td>
+        <td class="num ${r.C?'':'zero'}">${r.C}</td>
+        <td class="num ${r.A?'':'zero'}">${r.A}</td>
+        <td class="num ${r.N?'':'zero'}">${r.N}</td>
+        <td><div class="bar" style="width:${Math.round(r.tot/maxr*100)}%">
+          ${r.C?`<i style="background:#EE2A52;flex:${r.C}"></i>`:''}
+          ${r.A?`<i style="background:#8F5ED8;flex:${r.A}"></i>`:''}
+          ${r.N?`<i style="background:#2F7F5B;flex:${r.N}"></i>`:''}
+        </div></td></tr>`).join('')}
+      <tr class="tot"><td><b style="color:var(--ink)">All six tiers</b></td>
+        <td class="num">${TOT.C}</td><td class="num">${TOT.A}</td><td class="num">${TOT.N}</td>
+        <td><div class="bar"><i style="background:#EE2A52;flex:${TOT.C}"></i><i style="background:#8F5ED8;flex:${TOT.A}"></i><i style="background:#2F7F5B;flex:${TOT.N}"></i></div></td></tr>
+      </tbody></table></div>
+    <div class="two" style="margin-top:38px">
+      <div class="stack">
+        <h3 class="h-sub">Three readings of that table</h3>
+        <ul class="ticks">
+          <li><b>Tier 1 is the gate for every AI tier and contains no AI.</b> Five pieces of measurement and estate work, no model in any deliverable. It is the part of this menu you can buy before deciding anything about AI.</li>
+          <li><b>Tier 2 is five for five and it is the only tier that is.</b> Judgment capture is the purest AI product here and the one with no competitor equivalent.</li>
+          <li><b>Tier 5 is ten for ten in the other direction.</b> The top of the ladder is indifferent to which model is current.</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <h3 class="h-sub">And one about the fifteen</h3>
+        <p>Ten of the fifteen not-about-AI engagements are in Tier 5, and eight of those describe how a professional services firm runs itself rather than something a client buys. We adopted those before putting them on this page.</p>
+        <p class="note" style="margin-top:14px">So the not-about-AI work you can actually buy from us is seven engagements, not fifteen. The number on the card is honest about the library and would be misleading about the shelf, which is why it is said here.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="shell stack">
+    <p class="eyebrow">All ${TOT.tot}</p>
+    <h2 class="h-sec">The whole catalogue, filtered by label.</h2>
+    ${filterbar('#/types',tk)}
+    <div class="solgrid">${list.map(u=>card(u)).join('')}</div>
+  </div></section>` + foot();
+}
+
+function limits(){
+  return nav('limits') + `
+  <section class="hero" style="padding-bottom:30px"><div class="shell narrow stack">
+    <div class="rule"></div><p class="eyebrow">The boundary</p>
+    <h1 class="h-hero">What this does not do.</h1>
+    <p class="lede">Four things we will refuse, two engagements this material specifies that we have not built, and one honest note about who this was written for. Published because you would find all of it anyway, and later.</p>
+  </div></section>
+
+  <section class="band"><div class="shell stack">
+    <h2 class="h-sec">Four refusals, in writing</h2>
+    <ul class="ticks" style="margin-top:10px">
+      <li><b>We will not remediate a ceiling that is not binding.</b> The Ceiling Read names one of three and declines the other two in writing, even where you would pay for all three. The refusal is the only part of an audit worth anything.</li>
+      <li><b>We will not bundle the claims work into something larger.</b> Bundled, it is the phase that gets cut. It is sold standing or not at all.</li>
+      <li><b>We will not build a judgment pipeline for a client who cannot say which of their last twenty pieces performed.</b> We fix measurement first or we do not start, and that is Tier 1 rather than a favour absorbed into phase one.</li>
+      <li><b>We will not sell Tier 2 into an organisation with nobody competent to run the judge.</b> Every process here assumes an operator with judgement. The loops compound only if somebody can tell a good output from a bad one.</li>
+    </ul>
+  </div></section>
+
+  <section><div class="shell stack">
+    <h2 class="h-sec">Two things the source specifies and we have not built</h2>
+    <p class="lede narrow">Named rather than hidden, because both are holes a client would hit rather than read about.</p>
+    <div class="deck" style="margin-top:20px">
+      <div class="gapbox"><span class="pillg">Gap</span><h4>Compute remediation</h4><p>The Ceiling Read measures three ceilings and we can remediate two. If your binding constraint turns out to be compute, you get the finding and an honest referral rather than an engagement. The source specifies the track, including what it calls the best cost idea in the material. We have not built it.</p></div>
+      <div class="gapbox"><span class="pillg">Gap</span><h4>Handover and gate</h4><p>The judgment tier is specified with a fifth phase we do not currently sell: teaching the gate and the defect names to the people who ship, and naming a reviewer per task. Without it the pipeline has no owner after we leave, which is the failure the correction loop exists to prevent.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="shell stack">
+    <h2 class="h-sec">Who this was written for, and who it was not</h2>
+    <div class="two" style="margin-top:10px">
+      <div class="stack">
+        <p>This material came out of a direct-response operation running very large paid-media volume. That shows most in Tier 3, which assumes an ad account, a feedback loop and enough spend that a hit rate means something. If you do not have those, six of those seven engagements are the wrong purchase and we would rather say so here.</p>
+        <p>Tiers 0, 1, 2 and the enforcement half of Tier 4 translate to a much wider range of businesses, because measurement, judgment and a claims boundary are not media problems.</p>
+      </div>
+      <div class="stack">
+        <div class="nope"><h4>The source has no compliance layer, by design</h4><p>Two separate calls in the original material state that its own systems carry no compliance filter at all, and that it is treated as the operator's responsibility. Our position is the opposite. It also means the method we adapted has never been run under the constraint we are adding, and you should know that before you hear it from somebody else.</p></div>
+        <div class="nope" style="margin-top:18px"><h4>The proof is uneven and we will tell you where</h4><p>The AI-centric engagements have the weakest evidence: specified, not yet run at a client. The AI-assisted ones have the strongest, including a measured ledger and a 212-case pricing register. Ask which one you are buying.</p></div>
+      </div>
+    </div>
+  </div></section>` + foot();
+}
+
+function start(){
+  return nav('start') + `
+  <section class="hero"><div class="shell narrow stack">
+    <div class="rule"></div><p class="eyebrow">Start</p>
+    <h1 class="h-hero">Describe the symptom, not the solution.</h1>
+    <p class="lede">The first engagement is almost always a diagnostic: two days, or in one case an hour. It is paid, it credits against whatever follows, and it may well end with us telling you that the thing you asked about is not your binding constraint.</p>
+    <h2 class="h-sub" style="margin-top:26px">Things people say that we can act on straight away</h2>
+    <ul class="ticks" style="margin-top:6px">
+      <li>We are using AI and the output all sounds the same.</li>
+      <li>We are producing more than ever and the results are flat.</li>
+      <li>Nobody can find anything we made more than a month ago.</li>
+      <li>Everything routes through one person and they are the constraint.</li>
+      <li>We cannot say which of our last twenty pieces performed.</li>
+      <li>Something went out that should not have, and we cannot say what would stop the next one.</li>
+      <li>We keep solving the same problem for different clients and accumulating nothing.</li>
+    </ul>
+    <div class="btnrow" style="margin-top:30px"><a class="btn" href="mailto:support@humanfirstmedia.com?subject=Diagnostic">Email us</a><a class="btn ghost" href="#/tier/t0">See the four diagnostics</a></div>
+  </div></section>` + foot();
+}
+
+function titleFor(h){
+  const S='Human First Media';
+  if(h.startsWith('/unit/')&&U[h.slice(6)]) return U[h.slice(6)].name+' | '+S;
+  if(h.startsWith('/tier/')){const t=byId(h.slice(6).split('/')[0]); if(t) return t.name+' | '+S;}
+  if(h.startsWith('/types')) return 'How much of this is AI | '+S;
+  if(h==='/limits') return 'What we do not do | '+S;
+  if(h==='/start') return 'Start | '+S;
+  return S+' | Find out what is true, then build on it';
+}
+
+function render(){
+  const h=location.hash.replace(/^#/,'')||'/';
+  let out;
+  if(h==='/'||h==='') out=home();
+  else if(h.startsWith('/tier/')){const p=h.slice(6).split('/'); out=tierPage(p[0], p[1]?bySlug(p[1]):null);}
+  else if(h.startsWith('/unit/')) out=unitPage(h.slice(6));
+  else if(h.startsWith('/types')){const p=h.split('/'); out=typesPage(p[2]?bySlug(p[2]):null);}
+  else if(h==='/limits') out=limits();
+  else if(h==='/start') out=start();
+  else out=home();
+  document.getElementById('app').innerHTML=out;
+  document.title=titleFor(h);
+  window.scrollTo(0,0);
+  const t=document.getElementById('tgl');
+  if(t) t.onclick=()=>{
+    const cur=document.documentElement.getAttribute('data-theme');
+    const next = cur==='dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    try{localStorage.setItem('hfm-theme',next)}catch(e){}
+  };
+}
+try{const s=localStorage.getItem('hfm-theme'); if(s) document.documentElement.setAttribute('data-theme',s);}catch(e){}
+addEventListener('hashchange',render);
+render();
+
+</script>

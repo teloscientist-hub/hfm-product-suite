@@ -65,6 +65,47 @@ Content lives in two objects near the top of the script block: `TIERS` and `S`.
 Editing copy means editing those. The templates render from them, so a change to a
 page type reaches every page of that type.
 
+### v4, the Mario-only catalogue, typed
+
+`v4/index.html` is a third cut. It sells the **37 engagements the Mario material yields on its own**,
+in the six tiers of `Mario Castelli Material/00 - The Mario Menu, HFM Without Molly 2026-09-11.md`,
+with **no Molly units at all**. Every engagement carries an AI-dependency label, and the label is
+navigable: the whole catalogue filters by it.
+
+| Route | Page |
+|---|---|
+| `#/` | Homepage |
+| `#/tier/t0` ... `#/tier/t5` | The six tiers |
+| `#/tier/<id>/<ai-centric\|ai-assisted\|not-ai>` | A tier, filtered by label |
+| `#/unit/<slug>` | The 37 engagements |
+| `#/types` | How much of this is AI: the three labels, the cross-tab, the whole catalogue |
+| `#/types/<ai-centric\|ai-assisted\|not-ai>` | The catalogue, filtered |
+| `#/limits` | Four refusals, two named gaps, and who this was written for |
+| `#/start` | Contact |
+
+**What is different from v3.** v3 sells only AI-centric work and drops everything else. v4 sells the
+whole Mario library and labels each engagement instead, because the counts are the finding:
+**12 AI-centric, 10 AI-assisted, 15 with no model in them anywhere.** Tier 1 gates every AI tier and
+contains no AI-centric unit. Tier 2 is five for five. Tier 5 is ten for ten the other way.
+
+**The source verification corrections are folded in**, which v3.1 applied to its nineteen and this
+applies to all thirty-seven. Pairs Mining became Correction Capture, Taste File Build became Taste File
+and Primer, Skill Server Deploy became Agent Context Architecture, Exodus Workflow Install became
+Production Stack and Briefing, and Agentic Email Install became The Voice Engine and **moved from
+infrastructure into judgment capture**, which renumbers everything after it.
+
+**Two gaps are on the site rather than hidden:** compute remediation, and the handover-and-gate phase.
+Both are specified in the source and neither is built.
+
+**Build.** Content is not hand-edited in the HTML. It lives in a Python model and is compiled in:
+
+```
+python3 build_v4.py
+```
+
+Keep `data_v4.py` (the 6 tiers and 37 units) and `build_v4.py` (the templates) together. Editing the
+generated `v4/index.html` directly will be overwritten on the next build.
+
 ## Brand
 
 Built to the design system extracted from humanfirstmedia.com: Poppins throughout,
