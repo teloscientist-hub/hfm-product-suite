@@ -1,0 +1,646 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>Human First Media | Find out what is true, then build on it</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap">
+<style>
+:root{
+  --ground:#FFFBF9;
+  --surface:#FFFFFF;
+  --card:#FFFBF9;
+  --ink:#000000;
+  --body:#70666A;
+  --rule:#E8DFDC;
+  --deep:#222639;
+  --deep-ink:#FFFFFF;
+  --deep-body:#B9B4C4;
+  --red:#EE2A52;
+  --purple:#8F5ED8;
+  --cyan:#3CC2DB;
+  --gold:#F1B900;
+  --teal:#1F7A8C;
+  --navy:#222639;
+  --accent:#EE2A52;
+  --accent-ink:#FFFFFF;
+  --wash:rgba(238,42,82,.07);
+  --shell:1180px;
+  --text:1px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#1A1D2B;
+    --surface:#222639;
+    --card:#262A3E;
+    --ink:#FFFFFF;
+    --body:#B4AFB8;
+    --rule:#343850;
+    --deep:#14161F;
+    --deep-ink:#FFFFFF;
+    --deep-body:#B9B4C4;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#1A1D2B;
+  --surface:#222639;
+  --card:#262A3E;
+  --ink:#FFFFFF;
+  --body:#B4AFB8;
+  --rule:#343850;
+  --deep:#14161F;
+  --deep-ink:#FFFFFF;
+  --deep-body:#B9B4C4;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ground);color:var(--body);
+  font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.8;font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{color:var(--ink);margin:0;text-wrap:balance;line-height:1.25;font-weight:600}
+p{margin:0}
+a{color:inherit}
+.shell{max-width:var(--shell);margin:0 auto;padding:0 28px}
+.narrow{max-width:760px}
+
+/* ---------- nav ---------- */
+header.top{
+  position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--ground) 92%,transparent);
+  backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--rule);
+}
+.topin{max-width:var(--shell);margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:26px}
+.mark{font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.3;white-space:nowrap}
+.mark span{color:var(--red)}
+.navlinks{margin-left:auto;display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.navlinks a{font-size:14px;text-decoration:none;color:var(--body);white-space:nowrap}
+.navlinks a:hover,.navlinks a.on{color:var(--ink)}
+.tglbtn{border:1px solid var(--rule);background:none;color:var(--body);font:inherit;font-size:12px;
+  border-radius:999px;padding:5px 12px;cursor:pointer}
+.tglbtn:hover{color:var(--ink)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-block;background:var(--red);color:#fff;text-decoration:none;font-size:16px;font-weight:400;
+  border-radius:10px;padding:15px 30px;border:none;cursor:pointer;font-family:inherit;line-height:1.4}
+.btn:hover{filter:brightness(1.08)}
+.btn.gold{background:var(--gold)}
+.btn.acc{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--rule)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent);filter:none}
+.btnrow{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+
+/* ---------- type roles ---------- */
+.eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--accent);margin:0 0 14px}
+.h-hero{font-size:clamp(32px,5.2vw,54px);font-weight:700;letter-spacing:-.015em}
+.h-sec{font-size:clamp(24px,3vw,34px);font-weight:600;letter-spacing:-.01em}
+.h-sub{font-size:20px;font-weight:600}
+.lede{font-size:clamp(18px,2.1vw,21px);line-height:1.75;color:var(--body);font-weight:400}
+.small{font-size:14px;line-height:1.7}
+.stack>*+*{margin-top:18px}
+
+/* ---------- sections ---------- */
+section{padding:76px 0}
+section.tight{padding:52px 0}
+.band{background:var(--surface);border-block:1px solid var(--rule)}
+.dark{background:var(--deep);color:var(--deep-body)}
+.dark h1,.dark h2,.dark h3,.dark h4{color:var(--deep-ink)}
+
+/* ---------- hero : split, text left, art right (matches hfm) ---------- */
+.hero{padding:70px 0 60px;position:relative;overflow:hidden}
+.hero .rule{width:64px;height:4px;background:var(--accent);border-radius:2px;margin:0 0 26px}
+.heroGrid{display:grid;grid-template-columns:minmax(0,635px) minmax(0,430px);gap:44px;align-items:center}
+@media(max-width:1020px){.heroGrid{grid-template-columns:1fr;gap:34px;align-items:start}}
+.heroArt{width:100%;max-width:430px;justify-self:end}
+@media(max-width:1020px){.heroArt{max-width:340px;justify-self:start}}
+.heroFacts{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:52px;
+  border-top:1px solid var(--rule);padding-top:26px}
+@media(max-width:700px){.heroFacts{grid-template-columns:1fr;gap:18px}}
+.fact b{display:block;color:var(--ink);font-size:26px;font-weight:700;line-height:1.2;font-variant-numeric:tabular-nums}
+.fact span{font-size:13.5px;line-height:1.6;display:block}
+
+/* ---------- tier cards : icon on top, hfm card geometry ---------- */
+.tiergrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:20px}
+.tcard{background:var(--card);border-radius:5px;padding:30px 10px 26px 30px;
+  text-decoration:none;display:flex;flex-direction:column;gap:11px;position:relative;
+  transition:transform .16s ease,background .16s ease}
+.tcard:hover{transform:translateY(-4px)}
+.tcard .ic{width:120px;height:120px;margin-bottom:6px;display:block}
+.tcard .tnum{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--body);font-variant-numeric:tabular-nums}
+.tcard h3{font-size:20px;font-weight:600;color:var(--tc);padding-right:20px}
+.tcard p{font-size:15px;line-height:1.7;padding-right:20px}
+.tcard .cnt{margin-top:auto;padding-top:14px;font-size:13px;color:var(--tc);font-weight:500}
+
+/* ---------- solution cards ---------- */
+.solgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}
+.scard{background:var(--card);border:1px solid var(--rule);border-radius:5px;padding:24px 22px;
+  text-decoration:none;display:flex;flex-direction:column;gap:10px;transition:border-color .16s ease,transform .16s ease}
+.scard:hover{border-color:var(--accent);transform:translateY(-2px)}
+.scard .sn{font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--accent);font-variant-numeric:tabular-nums}
+.scard h4{font-size:17px;font-weight:600}
+.scard p{font-size:14.5px;line-height:1.65}
+.scard .meta{margin-top:auto;padding-top:10px;font-size:12.5px;border-top:1px solid var(--rule);
+  display:flex;gap:10px;flex-wrap:wrap;color:var(--body)}
+
+/* ---------- steps : hanging number, hfm's 100px left offset ---------- */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:34px 30px}
+.step{position:relative;padding:10px 20px 10px 100px;min-height:96px}
+.step .n{position:absolute;left:0;top:2px;font-size:44px;font-weight:700;line-height:1;
+  color:var(--stepc,var(--red));font-variant-numeric:tabular-nums;opacity:.9}
+.step .n::after{content:".";}
+.step h4{font-size:18px;margin-bottom:8px}
+.step p{font-size:14.5px;line-height:1.7}
+
+/* ---------- prose blocks ---------- */
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px}
+@media(max-width:820px){.two{grid-template-columns:1fr;gap:32px}}
+.deck{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.pt h4{font-size:17px;margin-bottom:7px}
+.pt p{font-size:14.5px;line-height:1.7}
+.pt{border-top:2px solid var(--accent);padding-top:16px}
+
+ul.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+ul.ticks li{padding-left:26px;position:relative;font-size:15px;line-height:1.7}
+ul.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:2px;background:var(--accent)}
+
+.quote{border-left:3px solid var(--accent);padding:2px 0 2px 24px;font-size:17px;line-height:1.75;color:var(--ink);font-weight:500}
+.quote cite{display:block;margin-top:12px;font-size:13.5px;font-style:normal;font-weight:400;color:var(--body)}
+
+.vbar{background:var(--deep);color:#fff;font-size:12.5px;padding:8px 0;text-align:center;letter-spacing:.02em}
+.vbar a{color:#fff;text-decoration:underline;text-underline-offset:2px}
+.vbar b{font-weight:600}
+.band-line{font-size:15px;margin-top:18px;color:var(--body)}
+.band-line b{color:var(--ink);font-weight:600}
+.devtag{font-size:11px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  padding:2px 8px;border-radius:999px;background:var(--rule);color:var(--body)}
+.pill{display:inline-block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+  padding:5px 11px;border-radius:999px;background:var(--wash);color:var(--accent)}
+
+/* ---------- breadcrumb ---------- */
+.crumb{font-size:13px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
+.crumb a{text-decoration:none;color:var(--body)}
+.crumb a:hover{color:var(--accent)}
+.crumb .sep{opacity:.5}
+
+/* ---------- cta band ---------- */
+.ctaband{background:var(--deep);color:var(--deep-body);padding:64px 0}
+.ctaband h2{color:#fff;margin-bottom:14px}
+.ctaband p{max-width:620px}
+.ctaband .btnrow{margin-top:28px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--rule);padding:44px 0 56px;font-size:13.5px}
+.fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr;gap:26px}}
+footer a{display:block;text-decoration:none;color:var(--body);padding:3px 0}
+footer a:hover{color:var(--accent)}
+footer h5{color:var(--ink);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 10px;font-weight:600}
+
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:420px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{color:var(--ink);font-weight:600;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<style>
+.chain{display:grid;gap:0;margin:0}
+.chainrow{display:grid;grid-template-columns:92px minmax(0,1fr);gap:24px;padding:22px 0;border-top:1px solid var(--rule);align-items:start}
+.chainrow:last-child{border-bottom:1px solid var(--rule)}
+.chainrow .sn2{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--sc);padding-top:5px}
+.chainrow h3{font-size:20px;font-weight:600;margin-bottom:6px}
+.chainrow h3 a{text-decoration:none}
+.chainrow h3 a:hover{color:var(--sc)}
+.chainrow p{font-size:15px;line-height:1.7}
+.chainrow .cnt2{margin-top:9px;font-size:13px;color:var(--sc);font-weight:500}
+@media(max-width:660px){.chainrow{grid-template-columns:1fr;gap:8px}}
+.gate{background:var(--wash);border-left:3px solid var(--accent);padding:18px 22px;border-radius:0 5px 5px 0;font-size:15px;line-height:1.75}
+.gate b{color:var(--ink)}
+.countbar{display:flex;gap:34px;flex-wrap:wrap;border-top:1px solid var(--rule);padding-top:22px;margin-top:34px}
+.countbar div b{display:block;color:var(--ink);font-size:26px;font-weight:700;line-height:1.2;font-variant-numeric:tabular-nums}
+.countbar div span{font-size:13.5px}
+.nope{border:1px solid var(--rule);border-radius:5px;padding:22px 24px;background:var(--card)}
+.nope h4{font-size:16px;margin-bottom:7px}
+.nope p{font-size:14.5px;line-height:1.7}
+.srail{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.srail a{font-size:12.5px;text-decoration:none;padding:5px 12px;border-radius:999px;border:1px solid var(--rule);color:var(--body);white-space:nowrap}
+.srail a:hover{border-color:var(--accent);color:var(--accent)}
+.srail a.on{background:var(--accent);border-color:var(--accent);color:#fff}
+@media(max-width:820px){
+  .topin{flex-wrap:wrap;gap:10px 18px;padding:12px 20px}
+  .navlinks{margin-left:0;width:100%;gap:12px 16px;row-gap:8px}
+  .navlinks a{font-size:13px}
+  .mark{font-size:14px}
+}
+@media(max-width:540px){
+  .shell{padding:0 20px}
+  .countbar{gap:20px}
+}
+html,body{overflow-x:hidden}
+</style>
+
+<style>
+/* ---------- v5 additions : AI dependency typing ---------- */
+.tbadge{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid currentColor;white-space:nowrap;line-height:1.6}
+.tbadge .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+.t-C{color:#EE2A52}
+.t-A{color:#8F5ED8}
+.t-N{color:#2F7F5B}
+:root[data-theme="dark"] .t-N{color:#5FBF8F}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .t-N{color:#5FBF8F}}
+.filter{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 24px}
+.filter a{font-size:12.5px;text-decoration:none;padding:6px 13px;border-radius:999px;border:1px solid var(--rule);
+  color:var(--body);white-space:nowrap}
+.filter a:hover{border-color:var(--ink);color:var(--ink)}
+.filter a.on{background:var(--ink);border-color:var(--ink);color:var(--ground)}
+.filter span.lbl{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--body);margin-right:4px}
+.xtab{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px}
+.xtab th,.xtab td{padding:11px 12px;border-bottom:1px solid var(--rule);text-align:left;vertical-align:middle}
+.xtab th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);font-weight:600}
+.xtab td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink);text-align:center;width:74px}
+.xtab td.zero{color:var(--body);font-weight:400;opacity:.45}
+.xtab tr.tot td{border-bottom:none;border-top:2px solid var(--rule);padding-top:14px}
+.bar{display:flex;height:12px;border-radius:3px;overflow:hidden;min-width:120px;background:var(--rule)}
+.bar i{display:block;height:100%}
+.typecard{border:1px solid var(--rule);border-radius:5px;padding:26px 24px;background:var(--card);display:flex;flex-direction:column;gap:10px}
+.typecard .big{font-size:40px;font-weight:700;line-height:1;color:var(--tc);font-variant-numeric:tabular-nums}
+.typecard h3{font-size:19px}
+.typecard p{font-size:14.5px;line-height:1.7}
+.typecard .test{font-size:13px;border-top:1px solid var(--rule);padding-top:12px;margin-top:auto;color:var(--body)}
+.scard .badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:-2px}
+.ladder{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media(max-width:820px){.ladder{grid-template-columns:1fr;gap:26px}}
+.rung{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:4px;margin-bottom:6px;font-size:14px}
+.rung b{font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.75;min-width:26px}
+.note{font-size:13.5px;line-height:1.75;border-left:2px solid var(--rule);padding-left:16px;color:var(--body)}
+.gapbox{border:1px dashed var(--rule);border-radius:5px;padding:22px 24px;background:none}
+.gapbox h4{font-size:16px;margin-bottom:7px}
+.gapbox p{font-size:14.5px;line-height:1.7}
+.gapbox .pillg{display:inline-block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
+  padding:3px 9px;border-radius:999px;border:1px solid var(--rule);color:var(--body);margin-bottom:10px}
+@media(max-width:820px){
+  .topin{flex-wrap:wrap;gap:10px 18px;padding:12px 20px}
+  .navlinks{margin-left:0;width:100%;gap:12px 16px;row-gap:8px}
+  .navlinks a{font-size:13px}
+  .mark{font-size:14px}
+}
+@media(max-width:540px){.shell{padding:0 20px}.countbar{gap:20px}}
+html,body{overflow-x:hidden}
+</style>
+
+<div id="app"></div>
+
+<script>
+const D={"TIERS": [{"id": "t0", "short": "Diagnostics", "n": "Tier 0", "name": "Diagnostics", "c": "var(--cyan)", "hex": "#3CC2DB", "tag": "Four readings taken in front of you, in under a week each", "promise": "Four measurements about how machines currently see you, what your funnel is really doing, and what your AI spend produces. Nothing installed, nothing to maintain.", "lede": "This tier is the strongest part of the material it comes from, because that material is not a course. It is eighteen months of live office hours where people brought problems to a screen and had them diagnosed in public. What survives is the diagnostic move rather than the framework around it. Each of these produces one number or one answer, and two of them take under an hour.", "why": [{"h": "The model's answer beats your opinion of your positioning", "p": "Ask an answer engine who you are and what you are known for. Whatever comes back is the measurement. It is free, it takes a minute, and it ends the conversation about whether the positioning is working."}, {"h": "A reading is not a proposal", "p": "Every one of these hands you something about your own operation. None of them requires us to know your business first, which is why they are the only things on this site that can go first."}, {"h": "Two of the four are about money, not models", "p": "The funnel read and the spend-to-output read have no AI in them. They are here because the material teaches them in AI sessions and they decide whether any of the AI work is worth starting."}], "how": "We measure in front of you rather than going away and returning with a deck. The visibility check runs logged out, because a signed-in account personalises its own answers and will tell you what you want to hear.", "units": ["ai-visibility-check", "presence-authority-audit", "funnel-shaped-report", "spend-to-output-audit"]}, {"id": "t1", "short": "Ground truth", "n": "Tier 1", "name": "Ground truth", "c": "var(--navy)", "hex": "#222639", "tag": "Measurement and routing, before anything gets built on top", "promise": "Know what your tracking actually captures, what each model costs you, and where your knowledge base gets its information, before any of it carries weight.", "lede": "Three engagements that everything above depends on. The source material is explicit that an ad with zero purchases can still be alive if the upstream steps are moving, which you cannot see without the tracking. It is equally explicit that routing work across models without a benchmark is guesswork with a subscription attached.", "why": [{"h": "Bad signal trains the platform against you", "p": "Bot traffic generating fake conversions is not a reporting problem. The algorithm learns from it and starts finding more bots. Conversion tracking stopped being measurement and became defence."}, {"h": "Cost is a routing input, not an afterthought", "p": "The rule the material arrives at is quality over price, but measurable quality over price. The second clause is what makes it a rule rather than a slogan, and it requires a benchmark."}, {"h": "A knowledge base is only as good as what went in", "p": "Vet the sources or do not build the thing. Naming trusted sources converts finding good documentation from a judgement call into a retrieval task."}], "how": "Events close to the money first, because actions harder for a bot to fake carry more signal. Then a benchmark the routing agent re-reads rather than a model list somebody memorised.", "units": ["conversion-tracking-install", "model-routing-cost-read", "source-vetting"]}, {"id": "t2", "short": "Working relationship", "n": "Tier 2", "name": "The working relationship", "c": "var(--red)", "hex": "#EE2A52", "tag": "How one person sets up with one model, before any agent exists", "promise": "The setup that makes everything above it work: instructions the model actually has, memory that survives the session, and a protocol for the day the model changes underneath you.", "lede": "This is the tier with no equivalent anywhere else in our catalogue, and it exists because the source material shows the same failure over and over. People fail at agent work for reasons that have nothing to do with agents. No memory file. No guardrails. No preparation. Six engagements that fix the layer underneath.", "why": [{"h": "Preparation, not prompts", "p": "The single most repeated line in eighteen months of sessions: successful AI automation does not begin with prompts, it begins with preparation. Skill, research, guardrails, context. Then prompt."}, {"h": "The model does not read its own changelog", "p": "A new release does not make your existing setup better. Somebody has to ask it to review what you built with the new capabilities in mind, and almost nobody does."}, {"h": "The ladder became a fork and that matters", "p": "Chat, then Cowork, then Code was taught as a progression in January. By July the middle step had become a destination for a whole class of user. Routing somebody up when they should go sideways wastes months."}], "how": "Interview rather than instruct. The strongest single technique in the corpus is handing the model a list of questions and having it ask them one at a time until it says it is clear.", "units": ["claude-ecosystem-fork", "new-model-protocol", "model-migration", "preparation-before-prompts", "instructions-interview", "memory-persistence"]}, {"id": "t3", "short": "Agent build", "n": "Tier 3", "name": "Agent and system build", "c": "var(--gold)", "hex": "#F1B900", "tag": "The largest tier, and the part of the source nobody else has", "promise": "Specialised agents with one job each, a second brain they read from, and the architecture for running them without the bill scaling with the work.", "lede": "Seven engagements, and this is where the source material is genuinely scarce rather than merely useful. Almost all of it is a practitioner working on a shared screen rather than teaching, which means what you get is the decisions and not the pitch: why the coding environment is deliberately separate from the orchestrator, why a second vendor reviews rather than produces, why maintenance is scheduled rather than triggered.", "why": [{"h": "One responsibility each, and the fence is the point", "p": "The agent template ends with a clause people skip: you are not doing other work, this is the only thing you do. Without the fence the specialists drift back into being one generalist."}, {"h": "The same shape survives the domain change", "p": "Two independent rosters exist in the source, one organised by software discipline and one by marketing deliverable. Every member changes and the orchestrator-plus-specialists shape does not, which is what proves it is architecture rather than habit."}, {"h": "Cost is structural, not incidental", "p": "Each agent carrying only its own context is a cost argument before it is an organisational one. That is why the porting pattern names token management alongside security."}], "how": "Model it where iteration is cheap, confirm it works, then port with security and token cost as the constraints. Schedule the maintenance rather than waiting for something to break.", "units": ["subagent-install", "skill-authoring", "second-brain-build", "browser-automation", "voice-chat-agent", "port-architecture", "vibe-coded-build"]}, {"id": "t4", "short": "Production", "n": "Tier 4", "name": "Production and distribution", "c": "var(--purple)", "hex": "#8F5ED8", "tag": "Getting the work in front of people, and being findable when they look", "promise": "Creative that platforms read as genuinely different, a production pipeline with a measured cost, and a positioning that answer engines can repeat back.", "lede": "Six engagements covering the reach half. Half of them are AI-assisted rather than AI systems, and the two that are neither are here because the source teaches them inside AI sessions: email infrastructure and the warm-up schedule that decides whether any of it arrives.", "why": [{"h": "The platform decides what counts as different", "p": "Changing a headline or a background colour is read as the same creative. Six genuinely distinct concepts is not a style preference, it is the minimum the ranking system will recognise."}, {"h": "Citation is the new ranking", "p": "Falling traffic is often low-intent traffic now answered in the overview, and it was never going to convert. Brand mentions across the web, rather than backlinks, are what gets a business named."}, {"h": "Deliverability is upstream of everything", "p": "Five hundred on day one, five hundred on day two, dedicated subdomains from the start. It is the least interesting engagement on this page and it decides whether the rest of the channel exists."}], "how": "Reporting in the order the customer experiences the funnel, so drop-off is visible and a campaign with zero purchases can be read as alive rather than dead.", "units": ["creative-concept-set", "video-image-pipeline", "repurposing-engine", "organic-visibility", "answer-engine-position", "email-infrastructure"]}, {"id": "t5", "short": "Commercial", "n": "Tier 5", "name": "Commercial practice", "c": "var(--teal)", "hex": "#1F7A8C", "tag": "Six engagements, and five of them have no model in them anywhere", "promise": "How a practice that installs AI systems gets clients, prices the work, and builds an offer that survives the tooling being replaced.", "lede": "This tier is the finding. It comes out of what everyone calls the AI curriculum, and almost none of it is about AI. It is classic direct response: pricing, outreach, positioning, and an argument against the recurring revenue that the rest of the industry treats as settled. We publish it typed rather than quietly folded in, because the label is the useful part.", "why": [{"h": "The source contains both sides of the retainer argument", "p": "One engagement sells a maintenance retainer derived from an observed decay property. Another argues directly against monthly billing and says to let the client ask. Four days apart, from the same practice, unreconciled. We hold both and say which fits you."}, {"h": "It is the half that cannot rot", "p": "Every AI-centric engagement on this site names a model that will be wrong within a year. Nothing in this tier carries a version number."}, {"h": "The buyer is different", "p": "Do not read this tier as an extension of the five above it. These sell to somebody running a practice, not somebody running a marketing function."}], "how": "Price to what the client recovers rather than to what it costs us, and never to what a naive buyer would pay. The stated reason is retention: a client who finds out later what the market rate was does not stay.", "units": ["maintenance-retainer", "pricing-architecture", "one-off-first", "results-in-advance", "single-lane-positioning", "ownership-offer"]}], "U": {"ai-visibility-check": {"t": "t0", "type": "A", "name": "The AI Visibility Check", "time": "1 hour", "who": "Founder, whoever owns the brand", "promise": "What the answer engines say when somebody asks who you are, taken live and logged out.", "problem": "You have a positioning statement. Nobody has checked whether the systems that now answer most questions about your category have ever heard it.", "cost": "A positioning nobody outside the building shares is not a positioning. Businesses spend years being known for something the market has never associated with them, and the first signal usually arrives as a lost deal nobody can explain.", "hard": "Almost nothing, technically, and that is the point. What people get wrong is running it signed in. A personalised account returns answers shaped by your own history, which is how an operator concludes his clients rank first everywhere when they do not.", "work": ["Two queries, run logged out and in a clean session: who is [your name] and what are they known for, and the same for the company.", "The same queries across more than one engine, because they disagree and the disagreement is informative.", "A competitive pass: the three queries a buyer in your category would actually type, and who gets named instead of you.", "Where the answers came from. The cited sources are the properties actually doing the work, and they are rarely the ones you have been maintaining."], "get": ["The verbatim answers, with their sources, across engines", "The gap between what you say you are known for and what comes back", "The list of properties currently speaking for you", "Three queries you are absent from that you should not be"], "money": "An hour, and the cheapest thing on this site. It exists to make the next decision obvious rather than to become a project.", "gate": "**If the answer comes back empty, that is a finding and not a failure.** Some categories return no clear leader at all, which makes them cheap to win and changes what we would recommend next.", "idx": 1}, "presence-authority-audit": {"t": "t0", "type": "A", "name": "Digital Presence and Authority Audit", "time": "3 days", "who": "Founder, CMO", "promise": "An inventory of the proof you already have, and what is currently visible of it.", "problem": "The assumption is that authority needs to be built. Usually it exists and is not placed anywhere a machine or a buyer can find it.", "cost": "Proof that lives in your head, in old decks and in private client results is proof that does no work. Meanwhile the effort goes into producing new material, which is the expensive way to solve a distribution problem.", "hard": "Separating proof from credentials. Results, experience, worked cases and lessons learned all count; a title does not. People consistently inventory the wrong column and conclude they have nothing.", "work": ["Search your own name and the company's, and record what a stranger actually finds in the first screen.", "Inventory the proof that already exists: results, worked examples, stories, things that went wrong and were fixed.", "Identify the three topics you can credibly own for a year, as themes rather than as content ideas.", "Map each proof point to where it is currently published, which is usually nowhere."], "get": ["A written positioning statement: who you help, what you help them do, the result", "The proof inventory, with each item's current visibility", "Three content anchors for the next twelve months", "The publishing gap, item by item"], "money": "Three days. It pairs with the Visibility Check and we would rather sell them together than either alone.", "gate": "**This produces a position, not traffic.** If you need volume rather than clarity, Tier 4 is the correct starting point and we will say so.", "idx": 2}, "funnel-shaped-report": {"t": "t0", "type": "A", "name": "The Funnel-Shaped Reporting Read", "time": "2 days", "who": "Head of growth, media buyer, whoever gets asked why the number moved", "promise": "Your ad reporting rebuilt in the order the customer experiences it, and the drop-off read out loud.", "problem": "Reporting is a scorecard. It says what happened and not where. Campaigns get killed on the final number while the steps before it were moving.", "cost": "An ad with zero purchases and healthy upstream steps gets switched off, and the budget moves to something worse. The reverse is more expensive: clicks that never reach the page get read as a creative problem and creative gets rebuilt, when the fault was page speed or tracking.", "hard": "Nothing, once somebody has done it. The column order is the entire technique, and it is invisible until you see the two views side by side.", "work": ["Build the custom column preset in the platform, ordered left to right as the customer moves: reach, click, landing page view, content view, add to cart, checkout, purchase.", "Read the drop-off between each pair of steps rather than the end number.", "Apply the two diagnostic rules: upstream movement with no purchases means alive, not dead; clicks that never reach the page mean speed or tracking, not creative.", "Hand over the setup, because the view is per-account and cannot be shared."], "get": ["The preset, built in your account", "A written read of where your funnel actually loses people", "The two diagnostic rules, applied to your live campaigns", "A cheat sheet so each person on the team can rebuild the view"], "money": "Two days, and it is a skill transfer rather than a report. You should not need us to read it again.", "gate": "**This needs an account with enough volume for the steps to be legible.** Below a few hundred conversions the drop-off pattern is noise and we will tell you that rather than reading tea leaves.", "idx": 3}, "spend-to-output-audit": {"t": "t0", "type": "A", "name": "The AI Spend-to-Output Audit", "time": "3 days", "who": "COO, finance, whoever approves the subscriptions", "promise": "What your AI spend produces, stated as output rather than as cost.", "problem": "The question in the room is how much the tooling costs. That question has an easy answer and it is the wrong one, so the decision that follows is usually to trim.", "cost": "Trimming an AI budget on cost alone removes the seats producing the most and keeps the ones producing nothing, because cost per seat is uniform and output per seat is not. The saving is real and the loss is invisible.", "hard": "Getting a before figure that anyone believes. Most teams have no baseline, and reconstructing one after the fact is where this work actually goes.", "work": ["Inventory every AI subscription, seat and API line, with who holds it.", "For each holder, establish an output measure in their own units: assets, drafts, tickets, builds, reels.", "Reconstruct a before figure where one exists, and mark it as reconstructed where it does not.", "Rank by output per pound, and name the seats that produce nothing."], "get": ["A per-seat output table, with the before figure marked as measured or reconstructed", "The seats producing nothing, named", "One reallocation recommendation with the arithmetic attached", "A measure you can re-run next quarter"], "money": "Three days. It is the engagement most likely to pay for the rest of the page and the one least likely to be asked for.", "gate": "**We will not use somebody else's benchmark as your before figure.** The source material's own example is a single unverified case with a vague baseline, and we are not repeating it as evidence.", "idx": 4}, "conversion-tracking-install": {"t": "t1", "type": "N", "name": "Conversion Tracking Install", "time": "1 week", "who": "Media buyer, developer, whoever owns the site", "promise": "Server-side conversion tracking with events chosen close to the money, and a bot filter that does not punish real buyers.", "problem": "Browser pixels observe what a browser does, and a bot can do most of it. Fake activity with realistic names and addresses is now common enough to move the algorithm.", "cost": "This is the failure that compounds against you. The platform learns from whatever you send it, so bot-generated conversions teach it to find more bots. You do not get a flat result, you get a worsening one, and the reporting looks fine throughout.", "hard": "Choosing the events. Everything downstream depends on picking actions that are hard to fake and close to a real transaction, and the temptation is always to instrument the easy ones.", "work": ["Audit what the current pixel is actually firing, and how much of it could be automated.", "Select events by proximity to money rather than by convenience, on the stated principle that the closer an event is to a financial transaction the more valuable its signal.", "Build the Conversions API integration server-side, with deduplication against the existing pixel.", "Install the honeypot: a hidden form field invisible to humans, with two automation paths depending on whether it was filled. This replaces CAPTCHA, which modern models answer easily and which costs you genuine prospects.", "Verify with live traffic and compare the two signal sources for a fortnight."], "get": ["Server-side tracking, live and deduplicated", "An event map ordered by proximity to revenue", "The honeypot field, installed, with both automation paths built", "A fortnight of side-by-side signal comparison"], "money": "One week. There is no AI in this engagement at any point, which is why it is the cheapest thing here to keep working.", "gate": "**If your site is on a platform that will not accept server-side events, we will say so before starting** rather than building half of it.", "idx": 5}, "model-routing-cost-read": {"t": "t1", "type": "C", "name": "Model Routing and Cost Read", "time": "1 week", "who": "Whoever holds the AI budget and the technical lead", "promise": "A routing rule for which model does which job, held against a live benchmark rather than against what was true when you set it up.", "problem": "Work gets sent to whichever model somebody trusts. Usually that is the most expensive one, for everything, including work that does not need it.", "cost": "Routing by habit is expensive in both directions. You overpay on the bulk of the work and underperform on the part that actually needed the stronger model, and because the bill is a single line nobody can see either half.", "hard": "The tiebreaker. The rule that makes this work is quality over price, but measurable quality over price, and the second clause requires you to have decided what measurement means for each job type before the routing exists.", "work": ["Classify your recurring AI work by job type: writing, documentation, code, orchestration, research, image, video.", "Set the subscription-first ordering, so the capacity you already pay for is used before anything is bought by the token.", "Build the routing agent, given a live benchmark and instructed to re-read it before each job class rather than holding a memorised list.", "Install the recurring check, because the model list changes weekly and a routing table written today is wrong within the quarter.", "Write the sensitivity rule: which categories of data never leave which vendor. In the source material this rule lives in the operator's head, and that is the part we fix."], "get": ["A routing table by job type, with the reasoning", "The routing agent, reading a live benchmark", "A scheduled re-check, with an owner", "A written data-sensitivity boundary, in the file rather than in somebody's head"], "money": "One week to build, and it is the engagement on this site most likely to pay for itself inside a quarter.", "gate": "**This ages faster than anything else we sell.** The scheduled re-check is not an upsell, it is the reason the engagement is worth buying, and we will not build it without one.", "idx": 6}, "source-vetting": {"t": "t1", "type": "A", "name": "Source Vetting for a Knowledge Base", "time": "3 days", "who": "Whoever will own the knowledge base", "promise": "A named, defensible source list, so building the knowledge base stops being a judgement call.", "problem": "Find good documentation is an instruction nobody can follow. The result is whatever the model surfaced that day, permanently embedded in everything the system later says.", "cost": "Bad sources do not announce themselves once they are inside a retrieval system. They come back later as confident answers, and by then nobody remembers where a given claim entered.", "hard": "Being specific enough. The technique that works is naming individual sources by name, which feels arbitrary and is the entire point: it converts retrieval from a judgement into a task.", "work": ["Decide what the knowledge base is for, in one sentence, because it determines what counts as a good source.", "Name the sources: official documentation, change logs, and the specific individuals whose work you actually trust, by name.", "Set the exclusion rule and write it down, since information from an invalid source is feeding the thing you will later rely on.", "Establish the refresh schedule, so the list is re-examined rather than inherited."], "get": ["A named source list, with the reason each one is on it", "A written exclusion rule", "The refresh schedule, with an owner", "A first ingestion pass run against the list"], "money": "Three days, and it is a precondition for the second brain rather than an alternative to it.", "gate": "**This is not a research engagement.** We are fixing where your information comes from, not producing the information.", "idx": 7}, "claude-ecosystem-fork": {"t": "t2", "type": "C", "name": "The Ecosystem Fork", "time": "2 days", "who": "Anyone about to commit a team to a way of working", "promise": "Which environment each person on your team should actually be in, and why it is not the same one.", "problem": "The advice in circulation is a ladder: start in chat, move to the collaborative tool, graduate to the coding environment. It was taught that way and it stopped being true within six months.", "cost": "Routing somebody up the ladder when they should go sideways costs months. A person who wants AI working with their information and processes does not need a coding environment, and putting them in one produces a confident conclusion that AI is not for them.", "hard": "Nothing technical. The difficulty is that the ladder is a more satisfying story than the fork, so it survives past the point where it describes anything.", "work": ["Classify the work each person actually does, against the three environments.", "Route by the shape of the work rather than by seniority or technical confidence.", "Name explicitly who should stop climbing, because the collaborative environment is a destination for a whole class of user rather than a waypoint.", "Set the assets question: where the outputs live once produced, which is the part every version of this advice omits."], "get": ["A per-person routing, with the reasoning stated", "The list of people who should not move up", "A decision about where produced assets live", "A re-check trigger, since this changed inside six months once already"], "money": "Two days. It is the cheapest engagement in this tier and it decides how expensive the others are.", "gate": "**We will name people who should not be using these tools at all.** If that is not a conclusion the engagement can reach, it is not worth running.", "idx": 8}, "new-model-protocol": {"t": "t2", "type": "C", "name": "The New-Model Release Protocol", "time": "2 days", "who": "Technical lead, whoever gets asked whether to upgrade", "promise": "A standing procedure for what happens when the model underneath you changes, so the answer is not improvisation.", "problem": "A release lands and either nothing happens or everything is torn up. Neither is a decision, and both are common.", "cost": "Launch day is the worst time to evaluate anything. Server load, usage restrictions and early rushes make the model look worse than it is, and the conclusions drawn in the first twenty-four hours persist for months.", "hard": "Believing the central claim, which sounds wrong: the model does not automatically know how to use its own improvements. Your existing instructions were written for the previous one and will quietly under-use the new one until somebody asks it to review them.", "work": ["Install the wait. Twenty-four hours, no exceptions, for the rush and the restrictions to settle.", "Update, set effort to the highest setting, and do not start anything from scratch.", "Run the re-evaluation: have the model review your existing skills, connectors, agents and prompts against its own change log, and report what it can now do better.", "Add the cost clause, which is what turns a capability review into a budget review in one sentence.", "Write the whole thing down as a standing procedure with an owner, because the value is in it firing every time."], "get": ["The protocol, written, with an owner and a trigger", "The re-evaluation prompt, ready to run", "A first pass run against your current setup", "A record of what the review changed, so the next one is comparable"], "money": "Two days to install. It runs itself afterwards, which is the point.", "gate": "**This is the lightweight version.** If you are running more than a handful of skills and agents, the eight-step migration is the correct engagement and this one will under-serve you.", "idx": 9}, "model-migration": {"t": "t2", "type": "C", "name": "The Eight-Step Model Migration", "time": "2 weeks", "who": "Technical lead on a system with real surface area", "promise": "A full migration across agents, skills, connectors and vendor files, in an order that does not overwrite your own work.", "problem": "A large setup does not migrate by updating a version number. Agents, skills, MCP connections, prompts and supporting files all encode assumptions about the model they were written against.", "cost": "The specific expensive mistake is ordering. Update your prompts first and the newer vendor files land on top of them, so the work is done twice and the second time nobody is sure what was lost.", "hard": "Step four, and it is the reason to buy this rather than improvise it: vendor files before prompts. That constraint was discovered by being burned, not derived, and it is not obvious in either direction until it has cost you.", "work": ["Give the agent the current documentation for the new model, rather than describing it.", "Create the model-selection framework first, so routing exists before anything is rewritten.", "Audit the estate: agents, skills, MCP connections, prompts, supporting files, with counts.", "Update vendor files, then rewrite prompts. Never the other way.", "Add the recurring checks, test against a real task rather than a self-report, correct the model when it claims success it has not verified, then run the final prompting sweep."], "get": ["The migrated estate, with a before-and-after inventory", "A model-selection framework, written", "Scheduled re-checks with owners", "A real-task test result, not a self-report"], "money": "Two weeks for a system of any size. The source ran it against more than a hundred skills.", "gate": "**Step seven includes a standing rule we will install whether you ask or not:** the agent may not claim something is complete unless it has verified the result. If that rule is unwelcome, this is the wrong supplier.", "idx": 10}, "preparation-before-prompts": {"t": "t2", "type": "C", "name": "Preparation Before Prompts", "time": "1 week", "who": "Anyone whose AI work keeps failing in ways nobody can reproduce", "promise": "The four things that have to exist before a prompt is worth writing, installed.", "problem": "Complex work gets handed to a model cold, with a well-crafted instruction and nothing else. It half-works, unpredictably, and the response is to improve the prompt.", "cost": "Prompt refinement against a preparation problem is the most expensive loop in this whole field, because it is nearly free to stay in. Teams spend quarters improving instructions against a ceiling instructions cannot move.", "hard": "Accepting that the prompt is the last step rather than the first. Everything upstream of it is unglamorous: a dedicated skill, research into the target system, guardrails, and enough context for the model to make a judgement rather than a guess.", "work": ["Create the dedicated skill for the task, rather than describing the task in a prompt.", "Research the target platform and put what you find where the model can read it.", "Add the guardrails: what it must not do, and what it must confirm before proceeding.", "Supply the context needed to decide, not just to execute.", "Install the improvement loop, because a skill that never changes after a successful run is wasting the run."], "get": ["A working skill for your highest-value repeated task", "The guardrail set, written", "A context pack the model actually reads", "The improvement loop, with a trigger"], "money": "One week. It is the engagement most likely to make an existing failing setup start working without replacing anything.", "gate": "**We will tell you where the prompt stops mattering.** For agentic work with tools and a browser, the practitioner this comes from says plainly there was no secret sauce in his prompt, and we are not going to sell you prompt craft into that case.", "idx": 11}, "instructions-interview": {"t": "t2", "type": "C", "name": "The Global-Instructions Interview", "time": "2 days", "who": "Every individual using the tool, one at a time", "promise": "A complete instruction file per person, produced by interview rather than by template.", "problem": "Global instructions get written once, from a blank page, by somebody guessing at what matters. They are generic, and being generic is the one thing they cannot afford to be.", "cost": "A weak instruction file is not neutral. It is re-read at the start of every session, so every vague line is a small tax paid thousands of times, and nobody attributes the resulting friction to it.", "hard": "Nothing, once you know the move. Hand the model the questions and make it ask them one at a time, waiting for each answer, then write the file. The version where somebody answers all five at once produces a visibly worse file.", "work": ["Run the five-question interview per person: role and what they do, how they want to be spoken to and which behaviours annoy them, three things never to do, three non-negotiable safety rules, spelling and always-on context.", "Have the model write the complete file in one block, then review it against what was actually said.", "Extend it for the heavier users with the thirty-question version, which loops until the model states it is clear.", "Install it, and set a review trigger."], "get": ["A complete instruction file per person", "The interview transcript, so the file can be re-derived", "The thirty-question extension for heavy users", "A review trigger"], "money": "Two days for a team. It is the highest ratio of benefit to effort anywhere on this site.", "gate": "**It has to be one question at a time.** If the process gets compressed to save an afternoon, the output is a template and you should not pay us for a template.", "idx": 12}, "memory-persistence": {"t": "t2", "type": "C", "name": "Memory and Context Persistence", "time": "2 days", "who": "Anyone who has re-explained their project to a model more than twice", "promise": "A memory file the model reads first, every session, without being asked.", "problem": "The single most common complaint in eighteen months of live sessions is losing context between conversations. People re-explain the same project weekly.", "cost": "Re-establishing context is not just the time it takes. The model works from whatever the person remembered to mention this time, so the quality of the work varies with the quality of the re-explanation, and nobody can see that happening.", "hard": "The initiation, not the file. Writing a memory file is easy. Making it the first thing read on every new conversation is the part people skip, and without it the file is a document nobody opens.", "work": ["Create the memory file and decide what belongs in it, which is state rather than instruction.", "Wire the project instruction file to check it at the start of every conversation.", "Set the update discipline: what gets written back, when, and by whom.", "Test across a session boundary, with a real task, rather than asking the model whether it worked."], "get": ["The memory file, populated", "The initiation wiring, tested across a session boundary", "A write-back discipline", "A convention that survives more than one project"], "money": "Two days. Pairs with the instructions interview and we would rather do both at once.", "gate": "**Memory is state, not instructions.** If what you actually need is for the model to behave differently, that is the interview engagement above and this one will not fix it.", "idx": 13}, "subagent-install": {"t": "t3", "type": "C", "name": "The Specialised-Subagent Install", "time": "3 weeks", "who": "Technical lead, COO", "promise": "An orchestrator and a set of specialists with one job each, scoped so they stay in their lane.", "problem": "One assistant is asked to do everything. It holds the whole project in context, costs accordingly, and is mediocre at each individual thing because it is optimised for none of them.", "cost": "A generalist agent is expensive twice: the context bill scales with the whole project rather than with the task, and the output quality sits at the average of everything it is trying to be.", "hard": "The scope fence. The template ends with a clause people drop because it sounds redundant: you are not doing other work, this is the only thing you do. Without it the specialists converge back into one generalist within weeks and nobody notices the drift.", "work": ["Decide the roster by your own work rather than by ours. Two independent rosters exist in the source, one by software discipline and one by marketing deliverable, and the fact that both work is the evidence that the shape is portable.", "Write each agent with its activation condition, its permitted tools and connections, and its scope fence.", "Set up the orchestrator as project manager, holding the plan rather than the work.", "Give each specialist only the context its own job requires, which is the cost argument as much as the organisational one.", "Test by giving the orchestrator a real task end to end."], "get": ["An orchestrator plus a specialist roster, built for your work", "Each agent scoped, with its activation condition written", "A context boundary per agent", "An end-to-end run on a real task"], "money": "Three weeks. The largest engagement in this tier and the one the rest assume.", "gate": "**Autonomous-agent patterns can get an account suspended.** The source material records that happening. We will design within the vendor's terms and tell you where that limits what you wanted.", "idx": 14}, "skill-authoring": {"t": "t3", "type": "C", "name": "Skill Authoring and the Improvement Loop", "time": "2 weeks", "who": "Whoever will own the skills after we leave", "promise": "Skills as the shipped unit, with a loop that makes each successful run improve the next one.", "problem": "Capability lives in prompts people keep in documents, in their heads, or in a chat history. It cannot be versioned, handed over, or improved deliberately.", "cost": "Undocumented capability leaves with the person. More quietly, a skill that never changes after a successful run throws away the only free information you get, which is what worked.", "hard": "The loop, not the authoring. Writing a skill file is straightforward. Establishing that every successful run is an opportunity to improve the next one requires a trigger and an owner, or it does not happen.", "work": ["Identify the repeated work worth turning into skills, in order of frequency.", "Author each as a skill file with its activation condition, scope and tools.", "Install the improvement loop with an explicit trigger, on the stated principle that skills should never remain static.", "Set the review cadence against vendor changes, since skills written for one model under-use the next.", "Hand over with a standard, so the next skill somebody writes looks like these."], "get": ["A skill set for your highest-frequency work", "An authoring standard the team can follow", "The improvement loop, with a trigger and an owner", "A review cadence tied to vendor releases"], "money": "Two weeks. This is the engagement that determines whether anything else in this tier survives our leaving.", "gate": "**We will not author skills for work you have not yet done manually.** A skill written before the task is understood encodes a guess, permanently.", "idx": 15}, "second-brain-build": {"t": "t3", "type": "C", "name": "The Second Brain Build", "time": "3 weeks", "who": "Chief of staff, ops, whoever keeps asking where something is", "promise": "A vetted, indexed knowledge base your agents read from, with a schedule that keeps it current.", "problem": "Information is spread across tools, documents and browser bookmarks. Retrieval is a person remembering, which means it does not scale and does not survive that person being away.", "cost": "A knowledge base built from whatever was to hand is worse than none, because it is trusted. Once a bad source is inside a retrieval system its claims come back as answers and nobody can trace where they entered.", "hard": "The vetting, which is Tier 1 work and cannot be skipped, and the maintenance, which is where every version of this project dies. The fix in the source is a weekly scheduled job rather than an intention.", "work": ["Run the source vetting first, or do not start.", "Build the vault and the index, then connect the agent environment to it.", "Ingest against the named source list: official documentation, change logs, and the individuals you named.", "Install the recurring update job so new material arrives on a schedule rather than when somebody remembers.", "Install the recovery move, because these structures do get away from people, and the fix is asking the system to reorganise itself and walk you through it."], "get": ["A working second brain, connected to your agent environment", "An index built from a named source list", "A weekly update job, with an owner", "A written recovery procedure"], "money": "Three weeks, and the source vetting is a separate prerequisite rather than part of it.", "gate": "**This is the engagement clients most often want without the vetting.** We will decline that combination rather than build something whose answers cannot be traced.", "idx": 16}, "browser-automation": {"t": "t3", "type": "C", "name": "Browser Automation Install", "time": "2 weeks", "who": "Ops lead, whoever owns a platform with no usable API", "promise": "An agent that drives a logged-in browser through work that has no API, built as a reusable skill.", "problem": "The most repetitive work in a marketing operation sits inside vendor interfaces that expose no automation. People do it by hand because there is no other option.", "cost": "Hand-operated platform work is the largest recoverable cost in most small operations and the least visible, because it is spread across everybody's week in half-hour pieces.", "hard": "Not the prompt. The practitioner this comes from, asked what he typed, said there was no secret sauce in his prompt. The difficulty is preparation and guardrails: what the agent may touch, what it must confirm, and what happens when the interface moves.", "work": ["Pick the target workflow by frequency and by how mechanical it is.", "Create the skill and let the agent research the target platform before it touches anything.", "Set the guardrails: which account, which actions, what requires confirmation, what is never permitted.", "Run it live against real work with somebody watching, then iterate. Delays and troubleshooting are the normal shape of this, not a sign it is failing.", "Alternatively record the workflow being done by hand and convert the recording into the skill, which is now the faster route for well-defined tasks."], "get": ["A working browser skill for one real workflow", "A guardrail set, written", "A live supervised run", "The pattern documented so the second workflow is cheaper"], "money": "Two weeks for the first workflow. The second and third are substantially less.", "gate": "**Interfaces move and this breaks when they do.** We will say which parts are brittle and build the check that tells you it broke, rather than letting you find out from a customer.", "idx": 17}, "voice-chat-agent": {"t": "t3", "type": "C", "name": "Voice and Chat Agent Deployment", "time": "2 weeks", "who": "Whoever answers the phone, and whoever wishes they did not", "promise": "A voice or chat agent that books appointments and answers from a knowledge base, configured the way that actually performs.", "problem": "These get deployed with a weak prompt and an overloaded knowledge base, and then judged on the results.", "cost": "The specific failure repeated across the source material: the agent sounds generic, does not book anything, and the business concludes voice AI does not work. In every diagnosed case the prompt was wrong and appointment booking had never been enabled.", "hard": "The knowledge base decision, which is not obvious and is where most of the performance sits. Content in the prompt is faster. Content in the FAQ function is a separate call on every single question. And a knowledge base split across many documents performs worse than one consolidated document.", "work": ["Write the prompt properly, rather than starting from the default.", "Make the knowledge-base call deliberately: what goes in the prompt for speed, what goes in the knowledge base, and consolidate to one document.", "Enable appointment booking as a named action. It is a selection, not something you ask for in the prompt.", "Add custom actions where an external knowledge source is genuinely needed, via an MCP connection.", "Test against real calls, and hand over with the prompt documented so the client can change it."], "get": ["A deployed voice or chat agent, booking appointments", "A consolidated knowledge base", "Custom actions where required", "The prompt, documented and editable by you"], "money": "Two weeks. The platform capability is usually already inside a subscription you hold.", "gate": "**We hand over after a testing period and we do not monitor it indefinitely.** The source practice is explicit about that boundary and we would rather state it than discover it.", "idx": 18}, "port-architecture": {"t": "t3", "type": "C", "name": "Prototype and Port Architecture", "time": "3 weeks", "who": "Technical lead running agents at cost", "promise": "Agents modelled where iteration is cheap, then ported to where running them is cheap, with security and token cost as the constraints.", "problem": "Agents get built where they will run, so every iteration costs production money, and the first architecture is the one you are stuck with.", "cost": "Building in the expensive environment makes experimentation expensive, so less of it happens, so the design is worse. The cost shows up as a bill and the real loss is the iterations nobody ran.", "hard": "The porting constraints, in order. Security first, token management first, and only then equivalence of output. Most ports are attempted in the reverse order and get abandoned when the bill or the exposure surfaces.", "work": ["Model the agent where iteration is cheapest and confirm it does what you want.", "Port with security as the leading constraint, deciding what the runtime may reach.", "Then token management: what runs on subscription capacity, what runs on a local model, and where quality genuinely requires the expensive route.", "Verify equivalence on real tasks rather than on a self-report.", "Document both halves, because the prototype is now the specification."], "get": ["The agent running in the target runtime", "A security boundary, written", "A token-cost comparison across routes", "An equivalence test on real tasks"], "money": "Three weeks. Worth it where the agent runs often; not worth it where it runs weekly.", "gate": "**We will name where a cheaper local model does not hold quality.** The source assumes it can and offers no measurement, and we are not going to inherit that assumption on your behalf.", "idx": 19}, "vibe-coded-build": {"t": "t3", "type": "C", "name": "Vibe-Coded Application Build", "time": "2 weeks", "who": "Founder with a tool-shaped idea and no development team", "promise": "A working internal tool or client-facing app, specified properly and built where the credits go furthest.", "problem": "The build platforms are good enough now that the constraint is the specification, not the coding. Most attempts fail at the brief.", "cost": "Building straight into the most expensive platform from a vague description is how a fortnight of credits becomes a prototype nobody wants. The first build is what costs, and it costs most when the spec was thin.", "hard": "The spec, and the platform choice. The technique the source arrives at is to have one model produce a complete, structured specification, then hand that to the build platform. Choosing the platform on cost rather than on reputation is the second half.", "work": ["Turn the idea into a structured specification: objective, users, screens, data, constraints, and what done means.", "Choose the build environment on cost and output quality for your case rather than by default.", "Build the first working version, then move it to a hosting environment if the build tool is not where it should live.", "Handle domain, payments and access properly, which is where most of these stall.", "Hand over with the specification, since that is the durable artifact."], "get": ["A working application", "The specification, which outlives the platform", "Domain, hosting and access configured", "A cost comparison for the next build"], "money": "Two weeks for a first version. Ambition is the variable, not the timeline.", "gate": "**We will tell you when the answer is an existing product.** A meaningful share of what people want built here already exists inside a subscription they hold.", "idx": 20}, "creative-concept-set": {"t": "t4", "type": "A", "name": "The Creative Concept Set", "time": "2 weeks", "who": "Head of growth, creative lead", "promise": "Six genuinely distinct creative concepts, built so the platform reads them as different rather than as variants.", "problem": "Testing produces variations: a new headline, a different background, another cut. The account fills up and the learning rate does not move.", "cost": "The platform recognises a swapped headline or a recoloured background as the same creative, so a test budget spread across variants buys you one result at the price of twenty. The account looks busy and learns nothing.", "hard": "Separating a message from its dressing, which a team inside the account cannot reliably do about its own work. The distinction has to come from outside or it does not come.", "work": ["Audit what is actually in the account: how many distinct messages sit behind the asset count.", "Build against the six concepts as six different conversations rather than six formats: problem-unaware, harsh truth, testimonial, founder story, comparison, benefit-driven.", "Map each concept to a stage of customer awareness, so the set covers the journey rather than clustering.", "Produce a first wave, one per concept, and measure the spread rather than the winner.", "Hand over the classification method, since this has to run continuously."], "get": ["A message count for your existing account", "Six concepts, mapped to awareness stages", "A first production wave, one per concept", "The classification method, transferred"], "money": "Two weeks. It assumes an account with enough spend for a spread to mean something.", "gate": "**This is not a creative production retainer.** We build the set and the method; producing at volume against it is Tier 3 work or your own team's.", "idx": 21}, "video-image-pipeline": {"t": "t4", "type": "C", "name": "AI Video and Image Pipeline", "time": "3 weeks", "who": "Content lead, whoever is quoted for production", "promise": "A generation pipeline with the model choice routed by task and the cost per asset measured rather than assumed.", "problem": "Generative production gets done ad hoc, in whichever tool somebody likes, with no measurement of what an asset actually costs.", "cost": "Without routing you pay premium rates for work that did not need them, and without measurement you cannot tell whether the pipeline is cheaper than what it replaced. Most teams believe it is and cannot show it.", "hard": "The routing and the measurement, not the generation. Generation is the easy part now. Knowing which model to send a given job to, and what the resulting asset cost, is the work.", "work": ["Classify your asset types and route each to a model on quality and cost together.", "Build the pipeline for the highest-volume type first, end to end, including the unglamorous steps.", "Measure cost per finished asset, against whatever it replaced.", "Set the review cadence, because this is the fastest-moving part of the field and a routing choice made today is wrong within a quarter.", "Document the prompts and settings as artifacts rather than leaving them in a chat history."], "get": ["A working pipeline for your highest-volume asset type", "A routing table with cost per asset", "A measured comparison against the prior method", "Prompts and settings, documented"], "money": "Three weeks. The one engagement here with a measured cost figure behind it in the source, and it is a single unverified case.", "gate": "**Every model named in this engagement will be wrong within a year.** The review cadence is not optional and we will not build the pipeline without it.", "idx": 22}, "repurposing-engine": {"t": "t4", "type": "A", "name": "The Repurposing Engine", "time": "2 weeks", "who": "Content lead, founder who is the face of the brand", "promise": "One recording that becomes many assets, with the conversion automated rather than assigned to somebody.", "problem": "Long-form content gets made and published once. The clips, quotes, posts and summaries that should come out of it require a person, so they do not happen.", "cost": "The recording is the expensive part and it is already paid for. Everything not repurposed is production cost already spent and never recovered, and it is also the material that would have given answer engines reason to cite you.", "hard": "Keeping the pipeline from producing obvious slop. The automation is available; the judgement about what is worth cutting is what makes the output usable, and it has to be encoded rather than assumed.", "work": ["Choose the recurring long-form format and the topics your audience actually asks about.", "Build the capture setup so recording, streaming and archiving happen in one pass.", "Automate the conversion into short assets, with a selection step rather than a blanket cut.", "Set the publishing cadence and the destinations.", "Connect it back to the visibility work, since a growing library is what gets a business named."], "get": ["A capture setup that records, streams and archives in one pass", "An automated conversion pipeline with a selection step", "A publishing cadence", "A library structure that compounds"], "money": "Two weeks. The setup is the engagement; the running is yours.", "gate": "**If you are not already producing long-form, this is the wrong engagement.** It multiplies an input and cannot create one.", "idx": 23}, "organic-visibility": {"t": "t4", "type": "A", "name": "The Organic Visibility Program", "time": "2 weeks + monthly", "who": "Founder, CMO", "promise": "A position stated clearly enough that both people and machines repeat it back the same way.", "problem": "Most operators wear several hats and communicate all of them at once. The result is accurate and unusable: nothing to be known for.", "cost": "Scattered signals do not average out into a general reputation. They produce no reputation, and the systems now answering questions about your category have nothing to work with, so they name somebody else.", "hard": "Choosing. The framework is four steps and three of them are easy. Deciding the one outcome your name should attach to, and accepting what that excludes, is the whole engagement.", "work": ["Identity clarity: one positioning statement covering who you help, what you help them do, and the result.", "Presence audit, using the Tier 0 visibility check as the measurement rather than an opinion.", "Authority signals: inventory what you already have, on the principle that authority does not require a title.", "Content anchors: three topics for the year, as themes rather than as ideas.", "Monthly: publish against the anchors and re-run the visibility measurement."], "get": ["A positioning statement, decided", "A measured before-and-after on the visibility check", "Three content anchors for twelve months", "A monthly re-measurement"], "money": "Two weeks to set, then monthly. The monthly part is measurement and publishing discipline, not content production.", "gate": "**We will tell you what to stop being known for.** If every hat has to stay on, the engagement cannot do its job and we would rather not start it.", "idx": 24}, "answer-engine-position": {"t": "t4", "type": "A", "name": "Answer Engine Positioning", "time": "2 weeks + monthly", "who": "CMO, SEO owner, whoever is explaining the traffic chart", "promise": "A read on why your traffic moved, and a position built for being cited rather than clicked.", "problem": "Organic traffic falls and it gets treated as an SEO failure. Often it is not: the informational queries are now answered directly, and that traffic was never going to convert.", "cost": "Responding to an overview-driven traffic drop with more keyword content is expensive and makes it worse. You spend against the exact queries the engine has stopped sending anywhere.", "hard": "Changing what gets counted. Citation is the new ranking and branded search is the new moat, which means the reporting has to change before the strategy can, and the old numbers will look worse under the new measure before they look better.", "work": ["Separate the traffic that left from the traffic that converted, and establish how much overlap there ever was.", "Build the citation measure: where you are named across engines for the queries that matter, taken logged out.", "Structure the properties so they can be cited: answer-first, question in the heading, structure a machine can parse.", "Shift the measure to brand mentions across the web rather than backlink counts.", "Monthly: re-measure, and report citation rather than sessions."], "get": ["A diagnosis of what your traffic drop actually was", "A citation baseline across engines", "Structural changes to the properties that carry your answers", "A monthly citation report replacing the sessions report"], "money": "Two weeks to baseline, then monthly. **The monthly is the measurement, and we sell it as compliance rather than as a promised position.**", "gate": "**We will not promise a citation position.** These systems are nondeterministic, the same query returns different answers hours apart, and anyone selling you a guaranteed placement is selling you a number nobody controls.", "idx": 25}, "email-infrastructure": {"t": "t4", "type": "N", "name": "Email Infrastructure and Warm-Up", "time": "1 week", "who": "Whoever owns the sending domain", "promise": "A sending setup that arrives, warmed on a schedule, with messaging compliance prepared before you apply for it.", "problem": "A new domain or IP gets used at volume immediately. Deliverability collapses quietly and the campaign is judged on the results.", "cost": "Reputation damage on a sending domain is slow to acquire and slower to undo. The messages that vanish are invisible, so the conclusion is usually that the list is cold or the copy is weak.", "hard": "Patience, and the preparation nobody does. Approval for messaging registration starts before you submit: forms, consent boxes, live policy pages and no conflicting widgets. Submitting first and fixing after is how weeks disappear.", "work": ["Set up dedicated sending subdomains from the start, rather than sending from the primary.", "Run the warm-up: five hundred on day one, five hundred on day two, gradual increases every few days as reputation establishes.", "Prepare the messaging registration before submitting: separate promotional and service consent checkboxes, live Terms and Privacy pages linked inside the forms, no conflicting chat widget on a form page.", "Test deliverability across the major providers before scaling.", "Document the schedule so the next domain does not start from zero knowledge."], "get": ["Dedicated subdomains, configured", "A warm-up schedule, running", "A registration application prepared before submission", "A deliverability test across major providers"], "money": "One week of setup and several weeks of patience. No AI at any point.", "gate": "**We will not accelerate the warm-up because a launch date moved.** The schedule is the engagement.", "idx": 26}, "maintenance-retainer": {"t": "t5", "type": "A", "name": "The Maintenance Retainer", "time": "Ongoing", "who": "You, if you sell AI systems. Your client, if you buy them", "promise": "A recurring service built on the fact that AI systems decay, priced against an observed property rather than a pricing tactic.", "problem": "AI systems are sold as builds. Models change, APIs change, vendor instructions change, skills go stale, and six months later the thing works worse than it did at handover.", "cost": "For the buyer, a system that quietly degrades is worse than one that fails, because nobody investigates. For the seller, a one-time build means the relationship ends exactly when the decay starts and the client's experience of your work is its worst version.", "hard": "Nothing to build. The difficulty is that this is usually invented as a pricing strategy and therefore sold unconvincingly. Derived from the decay instead, it is a genuine need and sounds like one.", "work": ["Monitor vendor documentation and change logs on a schedule.", "Update agents, skills and vendor files when the model underneath changes, in the correct order.", "Test performance against real tasks rather than self-reports.", "Resolve compatibility issues as vendors move.", "Report what changed and what it cost, so the retainer is auditable rather than assumed."], "get": ["Scheduled monitoring, with an owner", "Updates applied in the correct order", "Real-task performance testing", "A change report each period"], "money": "Ongoing. **The most directly transferable commercial idea in the source material**, and the only one derived from an observed property rather than asserted.", "gate": "**Read this against the engagement below it, which argues the opposite.** The same practice sells this retainer and argues against monthly billing four days apart. We hold both positions and will tell you which fits your buyer rather than pretending there is one answer.", "idx": 27}, "pricing-architecture": {"t": "t5", "type": "N", "name": "Pricing Architecture", "time": "1 week", "who": "Founder, whoever writes the proposals", "promise": "Three pricing methods, matched to the three situations they each work in, with an explicit rule against extraction.", "problem": "Pricing is set by instinct and defended by anecdote. The same service goes out at wildly different numbers depending on how the conversation went.", "cost": "Underpricing is the obvious loss. Overpricing a buyer who does not know the market is the expensive one: they find out, they leave, and they tell people. The source is blunt that a client who discovers they were taken will resent it permanently.", "hard": "Knowing which method applies. Markup works for tooling-based services, value-based works where the client's recovery is measurable, time-based is the fallback for low volume. Applying the wrong one produces a number you cannot defend in the room.", "work": ["Establish hard cost per service, including tooling and delivery time.", "Apply the markup method where the service is tooling-based: ten to twenty times hard cost plus implementation.", "Apply value-based pricing where recovery is measurable: count the missed calls, the lost leads, the unbilled hours, and price against the recovered amount.", "Use time-based as the fallback for clients with too little volume for either.", "Install the anti-extraction rule: price where nobody can undercut you, because retaining a client costs less than acquiring one."], "get": ["A rate structure with three methods and the trigger for each", "Hard cost per service, calculated", "A value-based worksheet for the measurable cases", "The anti-extraction rule, written into the process"], "money": "One week. No AI in it anywhere, and it will not need revisiting when the models change.", "gate": "**We will argue against your highest defensible price.** The rule here is deliberately not revenue-maximising in the short term, and if that is not what you want, this is the wrong engagement.", "idx": 28}, "one-off-first": {"t": "t5", "type": "N", "name": "The One-Off-First Sequence", "time": "1 week", "who": "Founder, sales lead", "promise": "A sales sequence that opens with a single transaction and lets the recurring relationship be asked for rather than proposed.", "problem": "Every piece of advice in the market says to sell recurring revenue first. Buyers are increasingly tired of being billed monthly, and the ask is large at the exact moment trust is smallest.", "cost": "Leading with a retainer maximises the size of the first decision. Most prospects decline it and would have said yes to something smaller, so the pipeline reads as poor fit when it is actually poor sequencing.", "hard": "Holding the line when the one-off closes well. The instinct is to convert immediately. The sequence works because the client asks, and asking too early resets it.", "work": ["Design the one-off: small, complete, genuinely useful on its own, and not a trojan horse.", "Price it to be an easy yes and deliver it visibly better than expected.", "Do not propose the ongoing. Let the second conversation start from the client's side.", "Build the ownership variant for buyers who want to own an agent for a flat fee rather than subscribe to one.", "Track which clients ask, and how long it takes, so the sequence is measured rather than believed."], "get": ["A one-off offer, specified and priced", "A delivery standard for it", "The ownership-model variant", "A tracking measure on ask rate and time to ask"], "money": "One week to design. It changes the shape of the pipeline rather than the volume.", "gate": "**This contradicts the maintenance retainer above and we are not going to hide that.** Both come from the same practice, four days apart. Which one fits depends on whether your buyer experiences your work as a system that decays or as a project that completes.", "idx": 29}, "results-in-advance": {"t": "t5", "type": "N", "name": "Results-in-Advance Outreach", "time": "2 weeks", "who": "Founder, whoever does business development", "promise": "An outreach sequence that leads with work already done rather than with a request for a meeting.", "problem": "Cold outreach asks for time before it has given anything. Response rates reflect that, and the response is usually to send more of it.", "cost": "Volume outreach with nothing in advance burns the list and the sender's name at once. You get a low response rate and a reputation, and both are hard to reverse.", "hard": "Doing the work before the yes. Every part of this is easy except the part where you produce something real for somebody who has not agreed to anything, which is precisely why so few do it.", "work": ["Identify a narrow target set where the same improvement is visible from outside.", "Do the work first: the rebuild, the audit, the fix, actually produced.", "Send something physical that gets opened, with the work attached.", "Let them name the price on the first transaction, so the first exchange is not a negotiation.", "Offer the obvious adjacent service at the point of delivery, since the relationship is now established."], "get": ["A target set and the repeatable improvement for it", "A physical send that gets opened", "A first-transaction structure with the price left open", "A measured response rate on your own sends"], "money": "Two weeks to build the sequence. The per-send cost is real and is the reason the targeting has to be narrow.", "gate": "**The outcome numbers in the source are one practitioner's self-report on an unstated sample.** Seventy-five per cent response and a seven-hundred-and-fifty average are what he said, not what we measured, and we will not quote them to you as evidence.", "idx": 30}, "single-lane-positioning": {"t": "t5", "type": "N", "name": "Positioning for a Single Lane", "time": "1 week", "who": "Founder deciding what the next five years say", "promise": "One thing to be known for, chosen on evidence rather than on preference.", "problem": "Generalists are not being rewarded. Being credible at several things reads as being the leading name in none of them, and the systems answering buyers' questions reflect that exactly.", "cost": "A diluted position is not a smaller version of a strong one. It returns nothing. The practitioner this comes from does not appear in his own category's leader list despite running its first conference for five years, because his signal is spread across everything else he has done.", "hard": "The evidence half. Deciding what you want is easy; establishing which fields have no clear leader, and are therefore cheap to enter, requires actually running the queries.", "work": ["Run the leader queries across your candidate fields and record which return no clear answer at all.", "Score each candidate on three axes: what you want to be known for, how crowded it is, and whether you would enjoy five more years of it.", "Choose, and write down what the choice excludes.", "Where secondary ventures matter, decide whether they run under a separate identity rather than diluting the primary.", "Set the measurement, which is the Tier 0 visibility check re-run quarterly."], "get": ["A scored comparison of your candidate positions", "The uncontested fields, named", "A decision, with its exclusions written down", "A quarterly re-measurement"], "money": "One week. The decision is yours and the evidence is what we are selling.", "gate": "**Fields behave like early search: whoever is at the top tends to stay.** If your chosen field already has an established leader, we will say that the work is harder and more expensive rather than selling you the same engagement at the same price.", "idx": 31}, "ownership-offer": {"t": "t5", "type": "N", "name": "The Ownership Offer", "time": "2 weeks", "who": "Founder designing what to sell next", "promise": "An offer built around the client owning the system rather than renting it, and the service business that sits on top.", "problem": "Everything is sold as a subscription because the industry decided that was the model. Buyer preference has moved and most offers have not.", "cost": "Selling only a subscription loses every buyer who wants to own the thing, and that is now a significant share. It also caps you at the software margin when the durable revenue is in being the person who runs it.", "hard": "Separating what should be owned from what should be ongoing. The system can be owned; the maintenance cannot be, because the decay is continuous. Getting that line wrong produces either an unsustainable promise or an offer nobody wants.", "work": ["Define the ownable unit: what the client buys once and holds.", "Price it against the flat-fee alternative rather than against a subscription's lifetime value.", "Define the service layer that sits on top, which is where the durable revenue is.", "Build the hundred-small-clients version of the model as the alternative to a few large ones.", "Write the handover so ownership means something rather than being a licence in different words."], "get": ["An ownable unit, defined and priced", "A service layer on top of it", "A handover standard that makes ownership real", "A model comparison against your current structure"], "money": "Two weeks. It is an offer design engagement, not an implementation.", "gate": "**This rests on a prediction rather than a measurement.** The claim that buyers are moving back to ownership is one practitioner's reading of his own market, and we will present it as that rather than as a trend.", "idx": 32}}, "ORDER": ["ai-visibility-check", "presence-authority-audit", "funnel-shaped-report", "spend-to-output-audit", "conversion-tracking-install", "model-routing-cost-read", "source-vetting", "claude-ecosystem-fork", "new-model-protocol", "model-migration", "preparation-before-prompts", "instructions-interview", "memory-persistence", "subagent-install", "skill-authoring", "second-brain-build", "browser-automation", "voice-chat-agent", "port-architecture", "vibe-coded-build", "creative-concept-set", "video-image-pipeline", "repurposing-engine", "organic-visibility", "answer-engine-position", "email-infrastructure", "maintenance-retainer", "pricing-architecture", "one-off-first", "results-in-advance", "single-lane-positioning", "ownership-offer"], "TYPES": {"C": {"k": "C", "slug": "ai-centric", "name": "AI-centric", "test": "Remove AI and the engagement disappears", "buy": "The AI system is the deliverable", "hex": "#EE2A52", "who": "The buyer who arrived saying they need AI", "ages": "Fastest. Every one names a product that will be wrong within a year", "proof": "Weakest as evidence, strongest as method. Watched being run by a practitioner on a shared screen, never at a client of ours"}, "A": {"k": "A", "slug": "ai-assisted", "name": "AI-assisted", "test": "Remove AI and it shrinks but survives", "buy": "Real work, done faster and at more volume", "hex": "#8F5ED8", "who": "The buyer with a production problem", "ages": "Slowly", "proof": "Middling. One measured production cost, one output claim, both self-reported by the presenter"}, "N": {"k": "N", "slug": "not-ai", "name": "Not about AI", "test": "Remove AI and nothing changes", "buy": "A decision, a standard or a structure", "hex": "#2F7F5B", "who": "Nobody asks for it. It gets diagnosed", "ages": "Not at all", "proof": "Weakest in numbers and strongest in durability. One self-reported response rate on an unstated sample, and nothing else measured teacher"}}, "XT": [{"id": "t0", "name": "Diagnostics", "n": "Tier 0", "hex": "#3CC2DB", "C": 0, "A": 4, "N": 0, "tot": 4}, {"id": "t1", "name": "Ground truth", "n": "Tier 1", "hex": "#222639", "C": 1, "A": 1, "N": 1, "tot": 3}, {"id": "t2", "name": "The working relationship", "n": "Tier 2", "hex": "#EE2A52", "C": 6, "A": 0, "N": 0, "tot": 6}, {"id": "t3", "name": "Agent and system build", "n": "Tier 3", "hex": "#F1B900", "C": 7, "A": 0, "N": 0, "tot": 7}, {"id": "t4", "name": "Production and distribution", "n": "Tier 4", "hex": "#8F5ED8", "C": 1, "A": 4, "N": 1, "tot": 6}, {"id": "t5", "name": "Commercial practice", "n": "Tier 5", "hex": "#1F7A8C", "C": 0, "A": 1, "N": 5, "tot": 6}], "TOT": {"C": 15, "A": 10, "N": 7, "tot": 32}};
+
+const {TIERS,U,ORDER,TYPES,XT,TOT}=D;
+const esc=s=>String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const md=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+const byId=id=>TIERS.find(t=>t.id===id);
+const tierOf=u=>byId(U[u].t);
+const pad=n=>String(n).padStart(2,'0');
+const TK=['C','A','N'];
+const bySlug=s=>TK.find(k=>TYPES[k].slug===s);
+
+function badge(k){const m=TYPES[k];return `<span class="tbadge t-${k}" title="${esc(m.test)}"><i class="dot"></i>${esc(m.name)}</span>`;}
+
+function nav(active){
+  return `<header class="top"><div class="topin">
+    <a class="mark" href="#/">HUMAN FIRST<span>.</span></a>
+    <nav class="navlinks">
+      ${TIERS.map(t=>`<a href="#/tier/${t.id}" class="${active===t.id?'on':''}">${esc(t.short)}</a>`).join('')}
+      <a href="#/types" class="${active==='types'?'on':''}">How much is AI</a>
+      <a href="#/limits" class="${active==='limits'?'on':''}">Limits</a>
+      <a href="#/start" class="btn ghost" style="padding:7px 15px;font-size:13.5px">Start</a>
+      <button class="tglbtn" id="tgl">Theme</button>
+    </nav></div></header>`;
+}
+
+function trail(cur){
+  return `<div class="srail">${TIERS.map(t=>`<a href="#/tier/${t.id}" class="${t.id===cur?'on':''}">${esc(t.short)}</a>`).join('')}</div>`;
+}
+
+function filterbar(base,cur){
+  const mk=(href,lab,on)=>`<a href="${href}" class="${on?'on':''}">${lab}</a>`;
+  return `<div class="filter"><span class="lbl">How much is AI</span>
+    ${mk(base,'All '+TOT.tot,!cur)}
+    ${TK.map(k=>mk(base+'/'+TYPES[k].slug,esc(TYPES[k].name)+' '+TOT[k],cur===k)).join('')}
+  </div>`;
+}
+
+function card(u){
+  const d=U[u], t=tierOf(u);
+  return `<a class="scard" href="#/unit/${u}" style="--accent:${t.c}">
+    <div class="sn" style="color:${t.c}">${pad(d.idx)}</div>
+    <h4>${esc(d.name)}</h4>
+    <div class="badges">${badge(d.type)}</div>
+    <p>${esc(d.promise)}</p>
+    <div class="meta"><span>${esc(d.time)}</span><span>&middot;</span><span>${esc(d.who)}</span></div></a>`;
+}
+
+function foot(){
+  return `<section class="dark tight"><div class="shell narrow stack">
+    <h2 class="h-sec">Tell us the symptom, not the solution.</h2>
+    <p class="lede" style="color:var(--deep-body)">If the first thing you need is not on this page we will say so. Four of the thirty-two exist to hand you a reading rather than sell you a system.</p>
+    <div class="btnrow"><a class="btn" href="#/start">Start with a diagnostic</a><a class="btn ghost" href="#/limits" style="color:#fff;border-color:#4A4F66">What we do not do</a></div>
+  </div></section>
+  <footer style="padding:26px 0;border-top:1px solid var(--rule)"><div class="shell small" style="display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between">
+    <span>Human First Media</span><span>Thirty-seven engagements. Six tiers. Twelve of them are actually about AI.</span></div></footer>`;
+}
+
+function heroArt(){
+  const w=380,x0=14,rowh=40,gap=10;
+  let out=`<svg viewBox="0 0 400 ${XT.length*(rowh+gap)+34}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Six tiers, each split by how much of it is AI">`;
+  XT.forEach((r,i)=>{
+    const y=i*(rowh+gap)+16; let x=x0;
+    const unit=(w-x0*2)/TOT.tot*1.0;
+    const seg=(n,fill)=>{ if(!n) return ''; const ww=n*((w-x0*2)/10); const s=`<rect x="${x}" y="${y}" width="${Math.max(ww,0)}" height="${rowh}" fill="${fill}"/>`; x+=ww+2; return s; };
+    out+=seg(r.C,'#EE2A52')+seg(r.A,'#8F5ED8')+seg(r.N,'#2F7F5B');
+    out+=`<text x="${x+8}" y="${y+rowh/2+5}" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="${r.hex==='#222639'?'#70666A':r.hex}">${r.tot}</text>`;
+  });
+  out+=`</svg>`;
+  return out;
+}
+
+function home(){
+  return nav('') + `
+  <div class="vbar">This is <b>v5</b>, built 2026-09-12 on the Perry Belcher / Ignite material alone, from 77 captured sessions and 926,842 words. <a href="#/types">Fifteen of thirty-two are actually about AI</a>.</div>
+  <section class="hero"><div class="shell"><div class="heroGrid">
+    <div class="stack">
+      <div class="rule"></div>
+      <p class="eyebrow">Thirty-two engagements</p>
+      <h1 class="h-hero">Set the thing up properly, then let it run.</h1>
+      <p class="lede">Six tiers, in order. Measurement before routing, the working relationship before the agents, and the agents before anything that has to run unattended. Every engagement says which of the three it is: an AI system, work that AI makes faster, or business practice with no model in it anywhere.</p>
+      <div class="btnrow"><a class="btn" href="#/tier/t0">Start with a diagnostic</a><a class="btn ghost" href="#/types">How much of this is AI</a></div>
+      <div class="heroFacts">
+        <div class="fact"><b>${TOT.C}</b><span>are AI systems. Take the model out and there is no engagement left</span></div>
+        <div class="fact"><b>${TOT.A}</b><span>are real work that AI makes faster and cheaper</span></div>
+        <div class="fact"><b>${TOT.N}</b><span>have no model in them anywhere and do not age</span></div>
+      </div>
+    </div>
+    <div class="heroArt">${heroArt()}</div>
+  </div></div></section>
+
+  <section class="band"><div class="shell stack">
+    <p class="eyebrow">The order</p>
+    <h2 class="h-sec">Six tiers, and the sequence is the argument.</h2>
+    <p class="lede narrow">Each tier assumes the one above it. Tier 2 exists because the source material shows the same thing over and over: people fail at agent work for reasons that have nothing to do with agents. No memory file, no guardrails, no preparation.</p>
+    <div class="chain" style="margin-top:12px">
+      ${TIERS.map((t,i)=>`<div class="chainrow" style="--sc:${t.c}">
+        <div class="sn2">${esc(t.n)}</div>
+        <div><h3><a href="#/tier/${t.id}">${esc(t.name)}</a></h3>
+        <p>${esc(t.promise)}</p>
+        <div class="cnt2">${t.units.length} engagements &middot; ${XT[i].C} AI-centric, ${XT[i].A} AI-assisted, ${XT[i].N} not about AI</div></div></div>`).join('')}
+    </div>
+  </div></section>
+
+  <section><div class="shell stack">
+    <p class="eyebrow">What the shape says</p>
+    <h2 class="h-sec">The AI is all in the middle. Both ends are not.</h2>
+    <div class="deck" style="margin-top:10px">
+      <div class="pt"><h4>Tier 0 contains no AI systems at all</h4><p>All four diagnostics are work AI makes faster rather than work AI does. Two of them have no model anywhere in the deliverable. That is why the front of this menu is buyable before you have decided anything about AI.</p></div>
+      <div class="pt" style="border-color:var(--red)"><h4>Tiers 2 and 3 are thirteen for thirteen</h4><p>Every engagement in the middle is an AI system. Tier 2 has no equivalent anywhere else in our catalogue: it is the working relationship between one person and one model, which is the most-asked question in eighteen months of live sessions and the least written down.</p></div>
+      <div class="pt" style="border-color:var(--teal)"><h4>Tier 5 is five for six the other way</h4><p>Pricing, outreach, positioning and an argument against monthly billing. None of it has a model in it, none of it carries a version number, and it came out of what everybody calls the AI curriculum.</p></div>
+    </div>
+    <div class="gate" style="margin-top:34px"><b>One number worth knowing before you read further.</b> Three of these thirty-two engagements have the word AI in their name. Fifteen of them are AI systems, and seven have no model in them at any point. The source is eighteen months of live office hours rather than a course, so what survives is what somebody did on a shared screen rather than what they sold, and that is why every page here carries a type badge.</div>
+  </div></section>` + foot();
+}
+
+function tierPage(id,tk){
+  const t=byId(id); if(!t) return home();
+  const i=TIERS.indexOf(t), prev=TIERS[i-1], row=XT[i];
+  let units=t.units; if(tk) units=units.filter(u=>U[u].type===tk);
+  return nav(id) + `
+  <section class="hero" style="padding-bottom:30px"><div class="shell stack">
+    ${trail(id)}
+    <div class="rule" style="background:${t.c}"></div>
+    <p class="eyebrow" style="color:${t.c}">${esc(t.n)} &middot; ${t.units.length} engagement${t.units.length>1?'s':''} &middot; ${esc(t.tag)}</p>
+    <h1 class="h-hero">${esc(t.name)}</h1>
+    <p class="lede narrow">${esc(t.promise)}</p>
+    <p class="narrow">${esc(t.lede)}</p>
+    <div class="countbar">
+      <div><b>${row.C}</b><span>AI-centric</span></div>
+      <div><b>${row.A}</b><span>AI-assisted</span></div>
+      <div><b>${row.N}</b><span>not about AI</span></div>
+    </div>
+    ${prev?`<div class="gate" style="margin-top:30px;border-left-color:${t.c}"><b>The gate.</b> This tier assumes ${esc(prev.name.toLowerCase())} is done. Where it is not, we say so before the contract rather than discovering it in phase one.</div>`:''}
+  </div></section>
+  <section class="band"><div class="shell stack">
+    <h2 class="h-sec">Why this tier exists</h2>
+    <div class="deck" style="margin-top:10px">${t.why.map(w=>`<div class="pt" style="border-color:${t.c}"><h4>${esc(w.h)}</h4><p>${esc(w.p)}</p></div>`).join('')}</div>
+    <p class="band-line" style="margin-top:30px"><b>How we work.</b> ${esc(t.how)}</p>
+  </div></section>
+  <section><div class="shell stack">
+    <h2 class="h-sec">${t.units.length} way${t.units.length>1?'s':''} to work with us here</h2>
+    ${filterbar('#/tier/'+t.id,tk)}
+    ${units.length?`<div class="solgrid">${units.map(u=>card(u)).join('')}</div>`
+      :`<p class="note">Nothing in this tier is ${esc(TYPES[tk].name.toLowerCase())}. That is the finding rather than an empty page. <a href="#/tier/${t.id}">Show all ${t.units.length}</a>.</p>`}
+  </div></section>` + foot();
+}
+
+function unitPage(u){
+  const d=U[u]; if(!d) return home();
+  const t=tierOf(u), sibs=t.units.filter(x=>x!==u), m=TYPES[d.type];
+  return nav(t.id) + `
+  <section class="hero" style="padding-bottom:26px"><div class="shell narrow stack">
+    <div class="crumb"><a href="#/">Home</a> <span class="sep">&rsaquo;</span> <a href="#/tier/${t.id}">${esc(t.name)}</a> <span class="sep">&rsaquo;</span> <span>${esc(d.name)}</span></div>
+    <div class="rule" style="background:${t.c}"></div>
+    <p class="eyebrow" style="color:${t.c}">Engagement ${pad(d.idx)} &middot; ${esc(d.time)} &middot; ${esc(d.who)}</p>
+    <h1 class="h-hero">${esc(d.name)}</h1>
+    <div class="badges" style="margin:2px 0 4px">${badge(d.type)}</div>
+    <p class="lede">${esc(d.promise)}</p>
+    <p class="note"><b>${esc(m.name)}.</b> ${esc(m.test)}. What you are buying is ${esc(m.buy.toLowerCase())}. <a href="#/types">Why we label these</a>.</p>
+  </div></section>
+  <section class="band"><div class="shell narrow stack">
+    <h2 class="h-sub">The problem, as you would describe it.</h2><p>${esc(d.problem)}</p>
+    <h2 class="h-sub" style="margin-top:30px">Why leaving it is more expensive than fixing it.</h2><p>${esc(d.cost)}</p>
+    <h2 class="h-sub" style="margin-top:30px">The part that makes this worth outside help.</h2><p>${esc(d.hard)}</p>
+  </div></section>
+  <section><div class="shell narrow stack">
+    <h2 class="h-sec">The kind of work this is.</h2>
+    <div class="steps" style="grid-template-columns:1fr;gap:22px;margin-top:14px">
+      ${d.work.map((w,i)=>`<div class="step" style="--stepc:${t.c}"><div class="n">${i+1}</div><p>${esc(w)}</p></div>`).join('')}
+    </div>
+  </div></section>
+  <section class="band"><div class="shell narrow stack">
+    <h2 class="h-sec">What you hold at the end</h2>
+    <ul class="ticks" style="--accent:${t.c};margin-top:8px">${d.get.map(g=>`<li>${esc(g)}</li>`).join('')}</ul>
+    <h2 class="h-sub" style="margin-top:34px">Why this one pays.</h2><p>${esc(d.money)}</p>
+    ${d.gate?`<div class="gate" style="margin-top:30px;border-left-color:${t.c}">${md(d.gate)}</div>`:''}
+  </div></section>
+  ${sibs.length?`<section><div class="shell stack">
+    <h2 class="h-sub">What sits alongside it in ${esc(t.name.toLowerCase())}.</h2>
+    <div class="solgrid" style="margin-top:12px">${sibs.map(x=>card(x)).join('')}</div>
+  </div></section>`:''}` + foot();
+}
+
+function typesPage(tk){
+  const list = tk ? ORDER.filter(u=>U[u].type===tk) : ORDER;
+  const maxr = Math.max(...XT.map(r=>r.tot));
+  return nav('types') + `
+  <section class="hero" style="padding-bottom:28px"><div class="shell narrow stack">
+    <div class="rule"></div><p class="eyebrow">The honest label</p>
+    <h1 class="h-hero">How much of this is actually AI.</h1>
+    <p class="lede">Every engagement on this site carries one of three labels, decided by what you hold after we leave rather than by what the engagement is about. A title tells you the subject. The deliverable tells you the truth, and those are different facts.</p>
+  </div></section>
+
+  <section class="band"><div class="shell stack">
+    <div class="deck">
+      ${TK.map(k=>{const m=TYPES[k];return `<div class="typecard" style="--tc:${m.hex}">
+        <div class="big">${TOT[k]}</div>
+        <h3>${esc(m.name)}</h3>
+        <p>${esc(m.buy)}.</p>
+        <p style="font-size:13.5px"><b style="color:var(--ink)">Who asks for it.</b> ${esc(m.who)}. <b style="color:var(--ink)">Ages:</b> ${esc(m.ages).toLowerCase()}. <b style="color:var(--ink)">Proof we hold:</b> ${esc(m.proof.toLowerCase())}.</p>
+        <div class="test"><b>The test.</b> ${esc(m.test)}.</div>
+      </div>`}).join('')}
+    </div>
+    <p class="band-line" style="margin-top:30px"><b>Why publish this at all.</b> Because a service menu written during an AI boom describes almost everything in AI language, and a year later nobody can say which engagements survive the tooling being replaced. Seven of these thirty-two would still be sellable if the models stopped improving tomorrow, and every one of the fifteen AI systems names a product that will be wrong within a year.</p>
+  </div></section>
+
+  <section><div class="shell stack">
+    <p class="eyebrow">The cross-tab</p>
+    <h2 class="h-sec">The AI is concentrated in two tiers, and absent from two others.</h2>
+    <div class="tablewrap" style="margin-top:14px"><table class="xtab">
+      <thead><tr><th>Tier</th><th style="text-align:center">AI-centric</th><th style="text-align:center">AI-assisted</th><th style="text-align:center">Not about AI</th><th>Shape</th></tr></thead>
+      <tbody>
+      ${XT.map(r=>`<tr>
+        <td><a href="#/tier/${r.id}" style="text-decoration:none;color:var(--ink);font-weight:600">${esc(r.name)}</a><br><span style="font-size:12.5px">${esc(r.n)} &middot; ${r.tot} engagements</span></td>
+        <td class="num ${r.C?'':'zero'}">${r.C}</td>
+        <td class="num ${r.A?'':'zero'}">${r.A}</td>
+        <td class="num ${r.N?'':'zero'}">${r.N}</td>
+        <td><div class="bar" style="width:${Math.round(r.tot/maxr*100)}%">
+          ${r.C?`<i style="background:#EE2A52;flex:${r.C}"></i>`:''}
+          ${r.A?`<i style="background:#8F5ED8;flex:${r.A}"></i>`:''}
+          ${r.N?`<i style="background:#2F7F5B;flex:${r.N}"></i>`:''}
+        </div></td></tr>`).join('')}
+      <tr class="tot"><td><b style="color:var(--ink)">All six tiers</b></td>
+        <td class="num">${TOT.C}</td><td class="num">${TOT.A}</td><td class="num">${TOT.N}</td>
+        <td><div class="bar"><i style="background:#EE2A52;flex:${TOT.C}"></i><i style="background:#8F5ED8;flex:${TOT.A}"></i><i style="background:#2F7F5B;flex:${TOT.N}"></i></div></td></tr>
+      </tbody></table></div>
+    <div class="two" style="margin-top:38px">
+      <div class="stack">
+        <h3 class="h-sub">Three readings of that table</h3>
+        <ul class="ticks">
+          <li><b>Tier 1 is the gate for every AI tier and contains no AI.</b> Five pieces of measurement and estate work, no model in any deliverable. It is the part of this menu you can buy before deciding anything about AI.</li>
+          <li><b>Tier 2 is five for five and it is the only tier that is.</b> Judgment capture is the purest AI product here and the one with no competitor equivalent.</li>
+          <li><b>Tier 5 is ten for ten in the other direction.</b> The top of the ladder is indifferent to which model is current.</li>
+        </ul>
+      </div>
+      <div class="stack">
+        <h3 class="h-sub">And one about the fifteen</h3>
+        <p>Ten of the fifteen not-about-AI engagements are in Tier 5, and eight of those describe how a professional services firm runs itself rather than something a client buys. We adopted those before putting them on this page.</p>
+        <p class="note" style="margin-top:14px">So the not-about-AI work you can actually buy from us is seven engagements, not fifteen. The number on the card is honest about the library and would be misleading about the shelf, which is why it is said here.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="shell stack">
+    <p class="eyebrow">All ${TOT.tot}</p>
+    <h2 class="h-sec">The whole catalogue, filtered by label.</h2>
+    ${filterbar('#/types',tk)}
+    <div class="solgrid">${list.map(u=>card(u)).join('')}</div>
+  </div></section>` + foot();
+}
+
+function limits(){
+  return nav('limits') + `
+  <section class="hero" style="padding-bottom:30px"><div class="shell narrow stack">
+    <div class="rule"></div><p class="eyebrow">The boundary</p>
+    <h1 class="h-hero">What this does not do.</h1>
+    <p class="lede">Four things we will refuse, two engagements this material specifies that we have not built, and one honest note about who this was written for. Published because you would find all of it anyway, and later.</p>
+  </div></section>
+
+  <section class="band"><div class="shell stack">
+    <h2 class="h-sec">Four refusals, in writing</h2>
+    <ul class="ticks" style="margin-top:10px">
+      <li><b>We will not promise a citation position in an answer engine.</b> These systems are nondeterministic. The same query returns materially different answers hours apart, the practitioners in this material confirmed it live and had no fix beyond averaging several runs. We sell the compliance work and report the measurement. Anyone guaranteeing a placement is selling you a number nobody controls.</li>
+      <li><b>We will not build a routing or agent system without its scheduled re-check.</b> Every AI-centric engagement here names a model that will be wrong within a year. The re-check is not an upsell, it is the reason the build is worth buying, and we decline the build without it.</li>
+      <li><b>We will not build a knowledge base without vetting its sources first.</b> It is the combination clients most often want, and a retrieval system fed from whatever was to hand returns confident answers nobody can trace. Source vetting is Tier 1 and it is a precondition, not a phase we can absorb.</li>
+      <li><b>We will not author a skill for work nobody has done by hand yet.</b> A skill written before the task is understood encodes a guess, permanently, and it is the most expensive kind of thing to discover six months later. Do it manually first, then we automate what actually happened.</li>
+    </ul>
+  </div></section>
+
+  <section><div class="shell stack">
+    <h2 class="h-sec">Two things the source specifies and we have not built</h2>
+    <p class="lede narrow">Named rather than hidden, because both are holes a client would hit rather than read about.</p>
+    <div class="deck" style="margin-top:20px">
+      <div class="gapbox"><span class="pillg">Gap</span><h4>The platform underneath is somebody else's</h4><p>A large share of this material assumes one white-labelled CRM platform, and several engagements are substantially about knowing where its buttons are. Nothing in eighteen months of source treats that as a risk. We do: a skill whose value is platform familiarity expires when the vendor moves, and we will say which engagements those are before you buy one.</p></div>
+      <div class="gapbox"><span class="pillg">Gap</span><h4>One tool is installed and never defined</h4><p>The source runs a session installing a product it never explains, mentioned seventy-two times across eight calls with no definition anywhere. We have left it off this menu rather than selling an engagement around something we cannot describe. If you already run it, say so and we will read the session before quoting.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="shell stack">
+    <h2 class="h-sec">Who this was written for, and who it was not</h2>
+    <div class="two" style="margin-top:10px">
+      <div class="stack">
+        <p>This material came out of a live weekly practice rather than a course: eighteen months of office hours where members brought problems to a screen. That shows most in Tier 3, which is a practitioner's own running stack rather than a taught method, and in Tier 0, which is diagnosis because diagnosis is what the format produces.</p>
+        <p>Tier 2 translates furthest, because the working relationship between one person and one model is the same problem in every business. Tier 5 translates everywhere and needs the least from us, since none of it involves a model.</p>
+      </div>
+      <div class="stack">
+        <div class="nope"><h4>Asked where the ethical line is, the source declined to draw one</h4><p>A paying attendee asked directly whether a technique was ethical. The answer given was about perception rather than about the line: the person with the biggest mouth is the one people pay attention to. Three techniques taught there as ordinary practice are not on this menu, and their absence is deliberate. We supply the standard here rather than inheriting it.</p></div>
+        <div class="nope" style="margin-top:18px"><h4>There is almost no measurement behind any of this</h4><p>Across 926,842 words there is one production-cost figure, one output claim and one outreach response rate, all self-reported by the people who benefit from them, and none independently verified. What the source has instead is demonstration: a practitioner running the thing on a shared screen every week for eighteen months. That is real evidence of a different kind and we will not dress it up as the first kind.</p></div>
+      </div>
+    </div>
+  </div></section>` + foot();
+}
+
+function start(){
+  return nav('start') + `
+  <section class="hero"><div class="shell narrow stack">
+    <div class="rule"></div><p class="eyebrow">Start</p>
+    <h1 class="h-hero">Describe the symptom, not the solution.</h1>
+    <p class="lede">The first engagement is almost always a diagnostic: two days, or in one case an hour. It is paid, it credits against whatever follows, and it may well end with us telling you that the thing you asked about is not your binding constraint.</p>
+    <h2 class="h-sub" style="margin-top:26px">Things people say that we can act on straight away</h2>
+    <ul class="ticks" style="margin-top:6px">
+      <li>We are using AI and the output all sounds the same.</li>
+      <li>We are producing more than ever and the results are flat.</li>
+      <li>Nobody can find anything we made more than a month ago.</li>
+      <li>Everything routes through one person and they are the constraint.</li>
+      <li>We cannot say which of our last twenty pieces performed.</li>
+      <li>Something went out that should not have, and we cannot say what would stop the next one.</li>
+      <li>We keep solving the same problem for different clients and accumulating nothing.</li>
+    </ul>
+    <div class="btnrow" style="margin-top:30px"><a class="btn" href="mailto:support@humanfirstmedia.com?subject=Diagnostic">Email us</a><a class="btn ghost" href="#/tier/t0">See the four diagnostics</a></div>
+  </div></section>` + foot();
+}
+
+function titleFor(h){
+  const S='Human First Media';
+  if(h.startsWith('/unit/')&&U[h.slice(6)]) return U[h.slice(6)].name+' | '+S;
+  if(h.startsWith('/tier/')){const t=byId(h.slice(6).split('/')[0]); if(t) return t.name+' | '+S;}
+  if(h.startsWith('/types')) return 'How much of this is AI | '+S;
+  if(h==='/limits') return 'What we do not do | '+S;
+  if(h==='/start') return 'Start | '+S;
+  return S+' | Find out what is true, then build on it';
+}
+
+function render(){
+  const h=location.hash.replace(/^#/,'')||'/';
+  let out;
+  if(h==='/'||h==='') out=home();
+  else if(h.startsWith('/tier/')){const p=h.slice(6).split('/'); out=tierPage(p[0], p[1]?bySlug(p[1]):null);}
+  else if(h.startsWith('/unit/')) out=unitPage(h.slice(6));
+  else if(h.startsWith('/types')){const p=h.split('/'); out=typesPage(p[2]?bySlug(p[2]):null);}
+  else if(h==='/limits') out=limits();
+  else if(h==='/start') out=start();
+  else out=home();
+  document.getElementById('app').innerHTML=out;
+  document.title=titleFor(h);
+  window.scrollTo(0,0);
+  const t=document.getElementById('tgl');
+  if(t) t.onclick=()=>{
+    const cur=document.documentElement.getAttribute('data-theme');
+    const next = cur==='dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    try{localStorage.setItem('hfm-theme',next)}catch(e){}
+  };
+}
+try{const s=localStorage.getItem('hfm-theme'); if(s) document.documentElement.setAttribute('data-theme',s);}catch(e){}
+addEventListener('hashchange',render);
+render();
+
+</script>

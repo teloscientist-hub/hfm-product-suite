@@ -116,6 +116,50 @@ python3 build_v4.py
 Keep `data_v4.py` (the 6 tiers and 37 units) and `build_v4.py` (the templates) together. Editing the
 generated `v4/index.html` directly will be overwritten on the next build.
 
+### v5, the Perry-only catalogue, typed
+
+`v5/index.html` is a fourth cut. It sells the **32 engagements the Perry Belcher / Ignite material
+yields on its own**, in the six tiers of
+`Ignite Mastermind Material/00 - The Skill Parsing 2026-09-12.md`, with no Molly and no Mario units.
+Same typed structure as v4: every engagement carries an AI-dependency label and the whole catalogue
+filters by it.
+
+| Route | Page |
+|---|---|
+| `#/` | Homepage |
+| `#/tier/t0` ... `#/tier/t5` | The six tiers |
+| `#/tier/<id>/<ai-centric\|ai-assisted\|not-ai>` | A tier, filtered by label |
+| `#/unit/<slug>` | The 32 engagements |
+| `#/types` | How much of this is AI |
+| `#/types/<ai-centric\|ai-assisted\|not-ai>` | The catalogue, filtered |
+| `#/limits` | Four refusals, two named gaps, who it was written for |
+| `#/start` | Contact |
+
+**The counts are the finding: 15 AI-centric, 10 AI-assisted, 7 with no model in them anywhere.**
+Tier 0 contains no AI systems at all. Tiers 2 and 3 are thirteen for thirteen. Tier 5 is five for
+six the other way, which is the point worth publishing: the commercial half of what everyone calls
+the AI curriculum is classic direct response.
+
+**Source.** 77 captured sessions, 926,842 words of transcript, 44 written lesson bodies, across
+Springboard Office Hours, Ignite Tech Calls, Ignite Mastermind Replays and Traffic Tuesdays, 2026.
+Per-session content index at
+`Ignite Mastermind Material/AI Sessions 2026 Capture 2026-09-11/03 - Session Content Index 2026-09-12.md`.
+
+**What is different from v4.** v4's limits page carried Mario-specific proof claims - a measured
+ledger and a 212-case pricing register. **Neither exists in this corpus and both were removed rather
+than reworded.** The Perry material has almost no measurement in it: one production-cost figure, one
+output claim, one outreach response rate, all self-reported. The limits page says so.
+
+**Build.**
+
+```
+python3 build_v5.py
+```
+
+Keep `data_v5.py` (the 6 tiers and 32 units) and `build_v5.py` (the templates) together. `build_v5.py`
+reads its CSS from `v3/index.html`, same as `build_v4.py`. Editing the generated `v5/index.html`
+directly will be overwritten on the next build.
+
 ## Brand
 
 Built to the design system extracted from humanfirstmedia.com: Poppins throughout,
