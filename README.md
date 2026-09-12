@@ -21,6 +21,16 @@ inline. Hash-based routing renders all 34 pages from one file.
 | `#/method` | How we work |
 | `#/contact` | Contact |
 
+### The AI dependency badge
+
+Every engagement page carries a badge saying how much of the delivered thing is actually AI: AI-centric
+(6 pages), AI-supported (5), or not an AI engagement (16). Classified by deliverable rather than title,
+and verified against the intervention specs. The typing lives in `TY` and the labels in `TYPEINFO`, both
+next to `PROVEN` at the top of the script block. Set `SHOW_TYPE=false` to hide the badge everywhere.
+
+Reasoning and the per-engagement argument: `00 - The v2 Twenty-Seven, Typed 2026-09-11.md`.
+Source check: `00 - The v2 Source Verification Pass 2026-09-11.md`.
+
 ### v3, the AI-centric suite
 
 `v3/index.html` is a separate cut, not a successor. It sells only the 19 engagements where the
